@@ -41,20 +41,20 @@ export function createMockConfig(
     get toolRegistry() {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
       const config = this as unknown as Config;
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-      return config.getToolRegistry?.() as unknown as ToolRegistry;
+       
+      return config.getToolRegistry?.();
     },
     get messageBus() {
       return (
         // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-        (this as unknown as Config).getMessageBus?.() as unknown as MessageBus
+        (this as unknown as Config).getMessageBus?.()
       );
     },
     get geminiClient() {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
       const config = this as unknown as Config;
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-      return config.getGeminiClient?.() as unknown as GeminiClient;
+       
+      return config.getGeminiClient?.();
     },
     getToolRegistry: vi.fn().mockReturnValue({
       getTool: vi.fn(),

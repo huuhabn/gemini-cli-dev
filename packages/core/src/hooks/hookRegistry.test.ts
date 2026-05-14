@@ -679,9 +679,7 @@ describe('HookRegistry', () => {
       }
 
       vi.mocked(mockConfig.getHooks).mockReturnValue(
-        configWithExtras as unknown as {
-          [K in HookEventName]?: HookDefinition[];
-        },
+        configWithExtras,
       );
 
       await hookRegistry.initialize();

@@ -232,8 +232,8 @@ const writeAll = (stream: Writable, data: string): Promise<void> =>
 
     const onError = (err: unknown) => {
       cleanup();
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-      reject(err as Error);
+       
+      reject(err);
     };
     const onDrain = () => {
       cleanup();

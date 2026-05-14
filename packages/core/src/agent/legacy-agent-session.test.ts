@@ -58,7 +58,7 @@ function createMockDeps(
     streamId: 'test-stream',
     getPreferredEditor: vi.fn().mockReturnValue(undefined),
     ...overrides,
-  } as Required<LegacyAgentSessionDeps>;
+  };
 }
 
 async function* makeStream(
@@ -115,7 +115,7 @@ function makeCompletedToolCall(
     invocation: {} as CompletedToolCall extends { invocation: infer T }
       ? T
       : never,
-  } as CompletedToolCall;
+  };
 }
 
 async function collectEvents(
@@ -530,7 +530,7 @@ describe('LegacyAgentSession', () => {
           error: new Error('Stopped by policy'),
           errorType: ToolErrorType.STOP_EXECUTION,
         },
-      } as CompletedToolCall;
+      };
 
       const scheduleMock = deps.scheduler.schedule as ReturnType<typeof vi.fn>;
       scheduleMock.mockResolvedValueOnce([stopToolCall]);
@@ -574,7 +574,7 @@ describe('LegacyAgentSession', () => {
           error: new Error('Disk full'),
           errorType: ToolErrorType.NO_SPACE_LEFT,
         },
-      } as CompletedToolCall;
+      };
 
       const scheduleMock = deps.scheduler.schedule as ReturnType<typeof vi.fn>;
       scheduleMock.mockResolvedValueOnce([fatalToolCall]);

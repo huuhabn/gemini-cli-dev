@@ -117,7 +117,7 @@ describe('rewindCommand', () => {
         addItem: mockAddItem,
         setPendingItem: mockSetPendingItem,
       },
-    }) as unknown as CommandContext;
+    });
   });
 
   it('should initialize successfully', async () => {
@@ -303,7 +303,7 @@ describe('rewindCommand', () => {
           },
         },
       },
-    }) as unknown as CommandContext;
+    });
 
     const result = rewindCommand.action!(context, '');
 
@@ -324,7 +324,7 @@ describe('rewindCommand', () => {
           },
         },
       },
-    }) as unknown as CommandContext;
+    });
 
     const result = rewindCommand.action!(context, '');
 

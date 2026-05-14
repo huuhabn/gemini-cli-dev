@@ -19,7 +19,7 @@ export function isApiError(error: unknown): error is ApiError {
   if (typeof error !== 'object' || error === null || !('error' in error)) {
     return false;
   }
-  const errorProp = (error as { error: unknown }).error;
+  const errorProp = (error).error;
   if (typeof errorProp !== 'object' || errorProp === null) {
     return false;
   }

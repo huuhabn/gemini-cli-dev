@@ -503,7 +503,7 @@ describe('SettingsDialog', () => {
 
       // Toggle the setting (Vim Mode is the first setting now)
       await act(async () => {
-        stdin.write(TerminalKeys.ENTER as string);
+        stdin.write(TerminalKeys.ENTER);
       });
 
       // Wait for setValue to be called
@@ -549,12 +549,12 @@ describe('SettingsDialog', () => {
         );
 
         await act(async () => {
-          stdin.write(TerminalKeys.DOWN_ARROW as string);
+          stdin.write(TerminalKeys.DOWN_ARROW);
         });
         await waitUntilReady();
 
         await act(async () => {
-          stdin.write(TerminalKeys.ENTER as string);
+          stdin.write(TerminalKeys.ENTER);
         });
         await waitUntilReady();
 
@@ -582,7 +582,7 @@ describe('SettingsDialog', () => {
       // Navigate to vim mode setting and toggle it
       // This would require knowing the exact position, so we'll just test that the mock is called
       await act(async () => {
-        stdin.write(TerminalKeys.ENTER as string); // Enter key
+        stdin.write(TerminalKeys.ENTER); // Enter key
       });
       await waitUntilReady();
 
@@ -681,7 +681,7 @@ describe('SettingsDialog', () => {
       expect(output).not.toContain('System Settings');
 
       await act(async () => {
-        stdin.write(TerminalKeys.ENTER as string);
+        stdin.write(TerminalKeys.ENTER);
       });
       await waitUntilReady();
 
@@ -713,7 +713,7 @@ describe('SettingsDialog', () => {
       });
 
       await act(async () => {
-        stdin.write(TerminalKeys.ENTER as string);
+        stdin.write(TerminalKeys.ENTER);
       });
       await waitUntilReady();
 
@@ -749,7 +749,7 @@ describe('SettingsDialog', () => {
       });
 
       await act(async () => {
-        stdin.write(TerminalKeys.ENTER as string);
+        stdin.write(TerminalKeys.ENTER);
       });
       await waitUntilReady();
 
@@ -832,7 +832,7 @@ describe('SettingsDialog', () => {
 
       // Switch to scope selector and change scope
       await act(async () => {
-        stdin.write(TerminalKeys.TAB as string); // Tab
+        stdin.write(TerminalKeys.TAB); // Tab
         stdin.write('2'); // Select workspace scope
       });
       await waitUntilReady();
@@ -882,15 +882,15 @@ describe('SettingsDialog', () => {
 
       // Toggle a setting, then toggle another setting
       await act(async () => {
-        stdin.write(TerminalKeys.ENTER as string); // Enter
+        stdin.write(TerminalKeys.ENTER); // Enter
       });
       await waitUntilReady();
       await act(async () => {
-        stdin.write(TerminalKeys.DOWN_ARROW as string); // Down
+        stdin.write(TerminalKeys.DOWN_ARROW); // Down
       });
       await waitUntilReady();
       await act(async () => {
-        stdin.write(TerminalKeys.ENTER as string); // Enter
+        stdin.write(TerminalKeys.ENTER); // Enter
       });
       await waitUntilReady();
 
@@ -910,7 +910,7 @@ describe('SettingsDialog', () => {
       // Navigate down many times to test scrolling
       await act(async () => {
         for (let i = 0; i < 10; i++) {
-          stdin.write(TerminalKeys.DOWN_ARROW as string); // Down arrow
+          stdin.write(TerminalKeys.DOWN_ARROW); // Down arrow
         }
       });
       await waitUntilReady();
@@ -959,7 +959,7 @@ describe('SettingsDialog', () => {
 
       // Toggle a non-restart-required setting (like hideTips)
       await act(async () => {
-        stdin.write(TerminalKeys.ENTER as string); // Enter - toggle current setting
+        stdin.write(TerminalKeys.ENTER); // Enter - toggle current setting
       });
       await waitUntilReady();
 
@@ -1082,7 +1082,7 @@ describe('SettingsDialog', () => {
 
       for (let i = 0; i < toggleCount; i++) {
         act(() => {
-          stdin.write(TerminalKeys.ENTER as string);
+          stdin.write(TerminalKeys.ENTER);
         });
       }
 
@@ -1116,8 +1116,8 @@ describe('SettingsDialog', () => {
       // Rapid navigation
       await act(async () => {
         for (let i = 0; i < 5; i++) {
-          stdin.write(TerminalKeys.DOWN_ARROW as string);
-          stdin.write(TerminalKeys.UP_ARROW as string);
+          stdin.write(TerminalKeys.DOWN_ARROW);
+          stdin.write(TerminalKeys.UP_ARROW);
         }
       });
       await waitUntilReady();
@@ -1161,11 +1161,11 @@ describe('SettingsDialog', () => {
 
       // Try to navigate when potentially at bounds
       await act(async () => {
-        stdin.write(TerminalKeys.DOWN_ARROW as string);
+        stdin.write(TerminalKeys.DOWN_ARROW);
       });
       await waitUntilReady();
       await act(async () => {
-        stdin.write(TerminalKeys.UP_ARROW as string);
+        stdin.write(TerminalKeys.UP_ARROW);
       });
       await waitUntilReady();
 
@@ -1262,23 +1262,23 @@ describe('SettingsDialog', () => {
 
       // Toggle multiple settings
       await act(async () => {
-        stdin.write(TerminalKeys.ENTER as string); // Enter
+        stdin.write(TerminalKeys.ENTER); // Enter
       });
       await waitUntilReady();
       await act(async () => {
-        stdin.write(TerminalKeys.DOWN_ARROW as string); // Down
+        stdin.write(TerminalKeys.DOWN_ARROW); // Down
       });
       await waitUntilReady();
       await act(async () => {
-        stdin.write(TerminalKeys.ENTER as string); // Enter
+        stdin.write(TerminalKeys.ENTER); // Enter
       });
       await waitUntilReady();
       await act(async () => {
-        stdin.write(TerminalKeys.DOWN_ARROW as string); // Down
+        stdin.write(TerminalKeys.DOWN_ARROW); // Down
       });
       await waitUntilReady();
       await act(async () => {
-        stdin.write(TerminalKeys.ENTER as string); // Enter
+        stdin.write(TerminalKeys.ENTER); // Enter
       });
       await waitUntilReady();
 
@@ -1298,7 +1298,7 @@ describe('SettingsDialog', () => {
 
       // Multiple scope changes
       await act(async () => {
-        stdin.write(TerminalKeys.TAB as string); // Tab to scope
+        stdin.write(TerminalKeys.TAB); // Tab to scope
       });
       await waitUntilReady();
       await act(async () => {
@@ -1306,11 +1306,11 @@ describe('SettingsDialog', () => {
       });
       await waitUntilReady();
       await act(async () => {
-        stdin.write(TerminalKeys.TAB as string); // Tab to settings
+        stdin.write(TerminalKeys.TAB); // Tab to settings
       });
       await waitUntilReady();
       await act(async () => {
-        stdin.write(TerminalKeys.TAB as string); // Tab to scope
+        stdin.write(TerminalKeys.TAB); // Tab to scope
       });
       await waitUntilReady();
       await act(async () => {
@@ -1522,11 +1522,11 @@ describe('SettingsDialog', () => {
       const { stdin, unmount } = await renderDialog(settings, vi.fn());
 
       await act(async () => {
-        stdin.write(TerminalKeys.ENTER as string); // Start editing first array setting
+        stdin.write(TerminalKeys.ENTER); // Start editing first array setting
       });
       await typeInput(stdin, 'first/path, second/path,third/path');
       await act(async () => {
-        stdin.write(TerminalKeys.ENTER as string); // Commit
+        stdin.write(TerminalKeys.ENTER); // Commit
       });
 
       await waitFor(() => {
@@ -1548,14 +1548,14 @@ describe('SettingsDialog', () => {
       const { stdin, unmount } = await renderDialog(settings, vi.fn());
 
       await act(async () => {
-        stdin.write(TerminalKeys.DOWN_ARROW as string); // Move to second array setting
+        stdin.write(TerminalKeys.DOWN_ARROW); // Move to second array setting
       });
       await act(async () => {
-        stdin.write(TerminalKeys.ENTER as string); // Start editing
+        stdin.write(TerminalKeys.ENTER); // Start editing
       });
       await typeInput(stdin, '["^github\\\\.com/.*$", "^gitlab\\\\.com/.*$"]');
       await act(async () => {
-        stdin.write(TerminalKeys.ENTER as string); // Commit
+        stdin.write(TerminalKeys.ENTER); // Commit
       });
 
       await waitFor(() => {

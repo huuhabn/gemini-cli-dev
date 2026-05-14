@@ -752,8 +752,8 @@ export async function loadCliConfig(
   let telemetrySettings;
   try {
     telemetrySettings = await resolveTelemetrySettings({
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-      env: process.env as unknown as Record<string, string | undefined>,
+       
+      env: process.env,
       settings: settings.telemetry,
     });
   } catch (err) {
@@ -1055,7 +1055,7 @@ export async function loadCliConfig(
     useRipgrep: settings.tools?.useRipgrep,
     enableInteractiveShell: settings.tools?.shell?.enableInteractiveShell,
     shellBackgroundCompletionBehavior: settings.tools?.shell
-      ?.backgroundCompletionBehavior as string | undefined,
+      ?.backgroundCompletionBehavior,
     shellToolInactivityTimeout: settings.tools?.shell?.inactivityTimeout,
     enableShellOutputEfficiency:
       settings.tools?.shell?.enableShellOutputEfficiency ?? true,

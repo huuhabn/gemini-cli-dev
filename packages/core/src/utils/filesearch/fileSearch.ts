@@ -291,7 +291,7 @@ class RecursiveFileSearch implements FileSearch {
                 entry !== null &&
                 'item' in entry
               ) {
-                return String((entry as { item: unknown }).item);
+                return String((entry).item);
               }
               return String(entry);
             });

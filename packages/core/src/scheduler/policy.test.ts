@@ -54,7 +54,7 @@ describe('policy.ts', () => {
         getSessionId: vi.fn().mockReturnValue('test-session-id'),
       } as unknown as Mocked<Config>;
       (mockConfig as unknown as { config: Config }).config =
-        mockConfig as Config;
+        mockConfig;
 
       const toolCall = {
         request: { name: 'test-tool', args: {} },
@@ -82,7 +82,7 @@ describe('policy.ts', () => {
         getSessionId: vi.fn().mockReturnValue('test-session-id'),
       } as unknown as Mocked<Config>;
       (mockConfig as unknown as { config: Config }).config =
-        mockConfig as Config;
+        mockConfig;
 
       const mcpTool = Object.create(DiscoveredMCPTool.prototype);
       mcpTool.serverName = 'my-server';
@@ -114,7 +114,7 @@ describe('policy.ts', () => {
       } as unknown as Mocked<Config>;
 
       (mockConfig as unknown as { config: Config }).config =
-        mockConfig as Config;
+        mockConfig;
 
       const toolCall = {
         request: { name: 'test-tool', args: {} },
@@ -141,7 +141,7 @@ describe('policy.ts', () => {
       } as unknown as Mocked<Config>;
 
       (mockConfig as unknown as { config: Config }).config =
-        mockConfig as Config;
+        mockConfig;
 
       const toolCall = {
         request: { name: 'test-tool', args: {} },
@@ -164,7 +164,7 @@ describe('policy.ts', () => {
         getSessionId: vi.fn().mockReturnValue('test-session-id'),
       } as unknown as Mocked<Config>;
       (mockConfig as unknown as { config: Config }).config =
-        mockConfig as Config;
+        mockConfig;
 
       const toolCall = {
         request: { name: 'test-tool', args: {} },
@@ -187,7 +187,7 @@ describe('policy.ts', () => {
       } as unknown as Mocked<Config>;
 
       (mockConfig as unknown as { config: Config }).config =
-        mockConfig as Config;
+        mockConfig;
 
       const toolCall = {
         request: { name: 'test-tool', args: {} },
@@ -246,7 +246,7 @@ describe('policy.ts', () => {
         getSessionId: vi.fn().mockReturnValue('test-session-id'),
       } as unknown as Mocked<Config>;
       (mockConfig as unknown as { config: Config }).config =
-        mockConfig as Config;
+        mockConfig;
       const mockMessageBus = {
         publish: vi.fn(),
       } as unknown as Mocked<MessageBus>;
@@ -285,7 +285,7 @@ describe('policy.ts', () => {
         getSessionId: vi.fn().mockReturnValue('test-session-id'),
       } as unknown as Mocked<Config>;
       (mockConfig as unknown as { config: Config }).config =
-        mockConfig as Config;
+        mockConfig;
       const mockMessageBus = {
         publish: vi.fn(),
       } as unknown as Mocked<MessageBus>;
@@ -323,7 +323,7 @@ describe('policy.ts', () => {
         getSessionId: vi.fn().mockReturnValue('test-session-id'),
       } as unknown as Mocked<Config>;
       (mockConfig as unknown as { config: Config }).config =
-        mockConfig as Config;
+        mockConfig;
       const mockMessageBus = {
         publish: vi.fn(),
       } as unknown as Mocked<MessageBus>;
@@ -358,7 +358,7 @@ describe('policy.ts', () => {
       } as unknown as Mocked<Config>;
 
       (mockConfig as unknown as { config: Config }).config =
-        mockConfig as Config;
+        mockConfig;
       const mockMessageBus = {
         publish: vi.fn(),
       } as unknown as Mocked<MessageBus>;
@@ -390,7 +390,7 @@ describe('policy.ts', () => {
         getSessionId: vi.fn().mockReturnValue('test-session-id'),
       } as unknown as Mocked<Config>;
       (mockConfig as unknown as { config: Config }).config =
-        mockConfig as Config;
+        mockConfig;
       const mockMessageBus = {
         publish: vi.fn(),
       } as unknown as Mocked<MessageBus>;
@@ -430,7 +430,7 @@ describe('policy.ts', () => {
         getSessionId: vi.fn().mockReturnValue('test-session-id'),
       } as unknown as Mocked<Config>;
       (mockConfig as unknown as { config: Config }).config =
-        mockConfig as Config;
+        mockConfig;
       const mockMessageBus = {
         publish: vi.fn(),
       } as unknown as Mocked<MessageBus>;
@@ -471,7 +471,7 @@ describe('policy.ts', () => {
         getSessionId: vi.fn().mockReturnValue('test-session-id'),
       } as unknown as Mocked<Config>;
       (mockConfig as unknown as { config: Config }).config =
-        mockConfig as Config;
+        mockConfig;
       const mockMessageBus = {
         publish: vi.fn(),
       } as unknown as Mocked<MessageBus>;
@@ -498,7 +498,7 @@ describe('policy.ts', () => {
         getSessionId: vi.fn().mockReturnValue('test-session-id'),
       } as unknown as Mocked<Config>;
       (mockConfig as unknown as { config: Config }).config =
-        mockConfig as Config;
+        mockConfig;
       const mockMessageBus = {
         publish: vi.fn(),
       } as unknown as Mocked<MessageBus>;
@@ -524,7 +524,7 @@ describe('policy.ts', () => {
         getSessionId: vi.fn().mockReturnValue('test-session-id'),
       } as unknown as Mocked<Config>;
       (mockConfig as unknown as { config: Config }).config =
-        mockConfig as Config;
+        mockConfig;
       const mockMessageBus = {
         publish: vi.fn(),
       } as unknown as Mocked<MessageBus>;
@@ -550,7 +550,7 @@ describe('policy.ts', () => {
         getSessionId: vi.fn().mockReturnValue('test-session-id'),
       } as unknown as Mocked<Config>;
       (mockConfig as unknown as { config: Config }).config =
-        mockConfig as Config;
+        mockConfig;
       const mockMessageBus = {
         publish: vi.fn(),
       } as unknown as Mocked<MessageBus>;
@@ -591,7 +591,7 @@ describe('policy.ts', () => {
         getSessionId: vi.fn().mockReturnValue('test-session-id'),
       } as unknown as Mocked<Config>;
       (mockConfig as unknown as { config: Config }).config =
-        mockConfig as Config;
+        mockConfig;
       const mockMessageBus = {
         publish: vi.fn(),
       } as unknown as Mocked<MessageBus>;
@@ -635,7 +635,7 @@ describe('policy.ts', () => {
       } as unknown as Mocked<Config>;
 
       (mockConfig as unknown as { config: Config }).config =
-        mockConfig as Config;
+        mockConfig;
       const mockMessageBus = {
         publish: vi.fn(),
       } as unknown as Mocked<MessageBus>;
@@ -910,7 +910,7 @@ describe('Plan Mode Denial Consistency', () => {
       getSessionId: vi.fn().mockReturnValue('test-session-id'),
       getUsageStatisticsEnabled: vi.fn().mockReturnValue(false),
     } as unknown as Mocked<Config>;
-    (mockConfig as unknown as { config: Config }).config = mockConfig as Config;
+    (mockConfig as unknown as { config: Config }).config = mockConfig;
     (mockConfig as unknown as { messageBus: MessageBus }).messageBus =
       mockMessageBus;
   });

@@ -87,8 +87,8 @@ describe('hooksCommand', () => {
         if (scope === SettingScope.Workspace) return mockWorkspace;
         return mockUser;
       }),
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } as any;
+       
+    };
 
     // Create mock context with config and settings
     mockContext = createMockCommandContext({

@@ -43,7 +43,7 @@ export async function reportError(
     'message' in error
   ) {
     errorToReport = {
-      message: String((error as { message: unknown }).message),
+      message: String((error).message),
     };
   } else {
     errorToReport = { message: String(error) };

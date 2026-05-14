@@ -86,15 +86,15 @@ if (!image.length) {
 }
 
 if (!argv.s) {
-  execSync('npm install', { stdio: 'inherit' });
-  execSync('npm run build --workspaces', { stdio: 'inherit' });
+  execSync('pnpm install', { stdio: 'inherit' });
+  execSync('pnpm run build', { stdio: 'inherit' });
 }
 
 console.log('packing @google/gemini-cli ...');
 const cliPackageDir = join('packages', 'cli');
 rmSync(join(cliPackageDir, 'dist', 'google-gemini-cli-*.tgz'), { force: true });
 execSync(
-  `npm pack -w @google/gemini-cli --pack-destination ./packages/cli/dist`,
+  `pnpm --filter @google/gemini-cli pack --pack-destination ./packages/cli/dist`,
   {
     stdio: 'ignore',
   },
@@ -106,7 +106,7 @@ rmSync(join(corePackageDir, 'dist', 'google-gemini-cli-core-*.tgz'), {
   force: true,
 });
 execSync(
-  `npm pack -w @google/gemini-cli-core --pack-destination ./packages/core/dist`,
+  `pnpm --filter @google/gemini-cli-core pack --pack-destination ./packages/core/dist`,
   { stdio: 'ignore' },
 );
 

@@ -224,6 +224,6 @@ export function isTextPart(part: unknown): part is { text: string } {
     typeof part === 'object' &&
     part !== null &&
     'text' in part &&
-    typeof (part as { text: unknown }).text === 'string'
+    typeof (part).text === 'string'
   );
 }

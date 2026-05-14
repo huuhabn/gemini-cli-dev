@@ -852,7 +852,7 @@ describe('BaseLlmClient', () => {
         const first = (await fn()) as GenerateContentResponse;
         if (options?.shouldRetryOnContent?.(first)) {
           activeModel = fallbackModel; // simulate handler switching active model before retry
-          return (await fn()) as GenerateContentResponse;
+          return (fn());
         }
         return first;
       });

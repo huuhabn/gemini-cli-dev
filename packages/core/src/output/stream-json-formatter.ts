@@ -70,7 +70,7 @@ export class StreamJsonFormatter {
           outputTokens: 0,
           cached: 0,
           input: 0,
-          models: {} as Record<string, ModelStreamStats>,
+          models: {},
         },
       );
 

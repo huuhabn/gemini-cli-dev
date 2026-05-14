@@ -260,7 +260,7 @@ describe('handleInstall', () => {
         name: 'local-extension',
       }),
     );
-    mockStat.mockResolvedValue({} as Stats);
+    mockStat.mockResolvedValue({});
     await handleInstall({
       source: path.join('/', 'some', 'path'),
     });
@@ -284,7 +284,7 @@ describe('handleInstall', () => {
   it('should pass promptForSetting when skipSettings is not provided', async () => {
     mockInstallOrUpdateExtension.mockResolvedValue({
       name: 'test-extension',
-    } as unknown as core.GeminiCLIExtension);
+    });
 
     await handleInstall({
       source: 'http://google.com',
@@ -300,7 +300,7 @@ describe('handleInstall', () => {
   it('should pass null for requestSetting when skipSettings is true', async () => {
     mockInstallOrUpdateExtension.mockResolvedValue({
       name: 'test-extension',
-    } as unknown as core.GeminiCLIExtension);
+    });
 
     await handleInstall({
       source: 'http://google.com',
@@ -320,7 +320,7 @@ describe('handleInstall', () => {
         name: 'local-extension',
       }),
     );
-    mockStat.mockResolvedValue({} as Stats);
+    mockStat.mockResolvedValue({});
     mockIsWorkspaceTrusted.mockReturnValue({ isTrusted: true, source: 'file' });
 
     await handleInstall({
@@ -340,7 +340,7 @@ describe('handleInstall', () => {
         name: 'local-extension',
       }),
     );
-    mockStat.mockResolvedValue({} as Stats);
+    mockStat.mockResolvedValue({});
     mockIsWorkspaceTrusted.mockReturnValue({
       isTrusted: undefined,
       source: undefined,
@@ -371,7 +371,7 @@ describe('handleInstall', () => {
   });
 
   it('should prompt and abort if user denies trust', async () => {
-    mockStat.mockResolvedValue({} as Stats);
+    mockStat.mockResolvedValue({});
     mockIsWorkspaceTrusted.mockReturnValue({
       isTrusted: undefined,
       source: undefined,
@@ -396,7 +396,7 @@ describe('handleInstall', () => {
         name: 'local-extension',
       }),
     );
-    mockStat.mockResolvedValue({} as Stats);
+    mockStat.mockResolvedValue({});
     mockIsWorkspaceTrusted.mockReturnValue({
       isTrusted: undefined,
       source: undefined,

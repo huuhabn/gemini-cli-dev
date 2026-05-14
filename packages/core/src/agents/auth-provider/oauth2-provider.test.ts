@@ -595,7 +595,7 @@ describe('OAuth2AuthProvider', () => {
             },
           },
         },
-      } as unknown as AgentCard);
+      });
 
       // No agentCard passed to constructor — only agentCardUrl.
       const provider = new OAuth2AuthProvider(

@@ -159,8 +159,8 @@ describe('a2aUtils', () => {
         role: 'user',
         messageId: '1',
         parts: [
-          { kind: 'text', text: 'Hello' } as TextPart,
-          { kind: 'text', text: 'World' } as TextPart,
+          { kind: 'text', text: 'Hello' },
+          { kind: 'text', text: 'World' },
         ],
       };
       expect(extractMessageText(message)).toBe('Hello\nWorld');
@@ -171,7 +171,7 @@ describe('a2aUtils', () => {
         kind: 'message',
         role: 'user',
         messageId: '1',
-        parts: [{ kind: 'data', data: { foo: 'bar' } } as DataPart],
+        parts: [{ kind: 'data', data: { foo: 'bar' } }],
       };
       expect(extractMessageText(message)).toBe('Data: {"foo":"bar"}');
     });
@@ -189,14 +189,14 @@ describe('a2aUtils', () => {
               uri: 'file://test.txt',
               mimeType: 'text/plain',
             },
-          } as FilePart,
+          },
           {
             kind: 'file',
             file: {
               uri: 'http://example.com/doc',
               mimeType: 'application/pdf',
             },
-          } as FilePart,
+          },
         ],
       };
       // The formatting logic in a2aUtils prefers name over uri
@@ -212,8 +212,8 @@ describe('a2aUtils', () => {
         role: 'user',
         messageId: '1',
         parts: [
-          { kind: 'text', text: 'Here is data:' } as TextPart,
-          { kind: 'data', data: { value: 123 } } as DataPart,
+          { kind: 'text', text: 'Here is data:' },
+          { kind: 'data', data: { value: 123 } },
         ],
       };
       expect(extractMessageText(message)).toBe(
@@ -229,7 +229,7 @@ describe('a2aUtils', () => {
           role: 'user',
           messageId: '1',
           parts: [],
-        } as Message),
+        }),
       ).toBe('');
     });
 

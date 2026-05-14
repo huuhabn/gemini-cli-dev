@@ -81,9 +81,9 @@ describe('McpClientManager', () => {
     manager.setMainRegistries({
       toolRegistry,
       promptRegistry:
-        mockConfig.getPromptRegistry() as unknown as PromptRegistry,
+        mockConfig.getPromptRegistry(),
       resourceRegistry:
-        mockConfig.getResourceRegistry() as unknown as ResourceRegistry,
+        mockConfig.getResourceRegistry(),
     });
     return manager;
   };

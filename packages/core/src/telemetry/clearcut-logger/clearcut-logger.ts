@@ -489,7 +489,7 @@ export class ClearcutLogger {
     const logEvent: LogEvent = {
       console_type: 'GEMINI_CLI',
       application: 102, // GEMINI_CLI
-      event_name: eventName as string,
+      event_name: eventName,
       event_metadata: [baseMetadata],
     };
 
@@ -583,8 +583,8 @@ export class ClearcutLogger {
       }
     } catch (e: unknown) {
       if (this.config?.getDebugMode()) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-        debugLogger.warn('Error flushing log events:', e as Error);
+         
+        debugLogger.warn('Error flushing log events:', e);
       }
 
       // Re-queue failed events for retry

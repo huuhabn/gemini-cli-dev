@@ -90,8 +90,8 @@ export function defer<T = object, U = object>(
         handler: commandModule.handler as (
           argv: ArgumentsCamelCase,
         ) => void | Promise<void>,
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-        argv: argv as unknown as ArgumentsCamelCase,
+         
+        argv,
         commandName: parentCommandName || 'unknown',
       });
     },

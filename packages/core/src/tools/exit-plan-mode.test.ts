@@ -52,7 +52,7 @@ describe('ExitPlanModeTool', () => {
     };
     tool = new ExitPlanModeTool(
       mockConfig as Config,
-      mockMessageBus as unknown as MessageBus,
+      mockMessageBus,
     );
     // Mock getMessageBusDecision on the invocation prototype
     vi.spyOn(

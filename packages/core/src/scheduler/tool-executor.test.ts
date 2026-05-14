@@ -97,7 +97,7 @@ describe('ToolExecutor', () => {
     vi.mocked(coreToolHookTriggers.executeToolWithHooks).mockResolvedValue({
       llmContent: 'Tool output',
       returnDisplay: 'Tool output',
-    } as ToolResult);
+    });
 
     const scheduledCall: ScheduledToolCall = {
       status: CoreToolCallStatus.Scheduled,
@@ -109,7 +109,7 @@ describe('ToolExecutor', () => {
         prompt_id: 'prompt-1',
       },
       tool: mockTool,
-      invocation: invocation as unknown as AnyToolInvocation,
+      invocation,
       startTime: Date.now(),
     };
 
@@ -175,7 +175,7 @@ describe('ToolExecutor', () => {
         prompt_id: 'prompt-2',
       },
       tool: mockTool,
-      invocation: invocation as unknown as AnyToolInvocation,
+      invocation,
       startTime: Date.now(),
     };
 
@@ -234,7 +234,7 @@ describe('ToolExecutor', () => {
         prompt_id: 'prompt-abort',
       },
       tool: mockTool,
-      invocation: invocation as unknown as AnyToolInvocation,
+      invocation,
       startTime: Date.now(),
     };
 
@@ -274,7 +274,7 @@ describe('ToolExecutor', () => {
         prompt_id: 'prompt-cancel-msg',
       },
       tool: mockTool,
-      invocation: invocation as unknown as AnyToolInvocation,
+      invocation,
       startTime: Date.now(),
     };
 
@@ -316,7 +316,7 @@ describe('ToolExecutor', () => {
         prompt_id: 'prompt-3',
       },
       tool: mockTool,
-      invocation: invocation as unknown as AnyToolInvocation,
+      invocation,
       startTime: Date.now(),
     };
 
@@ -358,7 +358,7 @@ describe('ToolExecutor', () => {
         prompt_id: 'prompt-4',
       },
       tool: mockTool,
-      invocation: invocation as unknown as AnyToolInvocation,
+      invocation,
       startTime: Date.now(),
     };
 
@@ -405,7 +405,7 @@ describe('ToolExecutor', () => {
         prompt_id: 'prompt-trunc',
       },
       tool: mockTool,
-      invocation: invocation as unknown as AnyToolInvocation,
+      invocation,
       startTime: Date.now(),
     };
 
@@ -475,7 +475,7 @@ describe('ToolExecutor', () => {
         prompt_id: 'prompt-mcp-trunc',
       },
       tool: mcpTool,
-      invocation: invocation as unknown as AnyToolInvocation,
+      invocation,
       startTime: Date.now(),
     };
 
@@ -538,7 +538,7 @@ describe('ToolExecutor', () => {
         prompt_id: 'prompt-mcp-multi',
       },
       tool: mcpTool,
-      invocation: invocation as unknown as AnyToolInvocation,
+      invocation,
       startTime: Date.now(),
     };
 
@@ -583,7 +583,7 @@ describe('ToolExecutor', () => {
         prompt_id: 'prompt-mcp-short',
       },
       tool: mcpTool,
-      invocation: invocation as unknown as AnyToolInvocation,
+      invocation,
       startTime: Date.now(),
     };
 
@@ -686,7 +686,7 @@ describe('ToolExecutor', () => {
         prompt_id: 'prompt-remote-pid',
       },
       tool: mockTool,
-      invocation: invocation as unknown as AnyToolInvocation,
+      invocation,
       startTime: Date.now(),
     };
 
@@ -730,7 +730,7 @@ describe('ToolExecutor', () => {
         prompt_id: 'prompt-cancel',
       },
       tool: mockTool,
-      invocation: invocation as unknown as AnyToolInvocation,
+      invocation,
       startTime: Date.now(),
     };
 
@@ -782,7 +782,7 @@ describe('ToolExecutor', () => {
         prompt_id: 'prompt-trunc-cancel',
       },
       tool: mockTool,
-      invocation: invocation as unknown as AnyToolInvocation,
+      invocation,
       startTime: Date.now(),
     };
 

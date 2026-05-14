@@ -53,7 +53,7 @@ const createMockMCPTool = (
     {
       callTool: vi.fn(),
       tool: vi.fn(),
-    } as unknown as CallableTool,
+    },
     serverName,
     name,
     description || 'Mock tool description',

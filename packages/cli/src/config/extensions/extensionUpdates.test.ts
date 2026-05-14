@@ -221,7 +221,7 @@ describe('extensionUpdates', () => {
           settings: [],
           resolvedSettings: [],
           skills: [],
-        } as unknown as GeminiCLIExtension,
+        },
       ]);
       vi.spyOn(manager, 'uninstallExtension').mockResolvedValue(undefined);
       // Mock loadExtension to return something so the method doesn't crash at the end

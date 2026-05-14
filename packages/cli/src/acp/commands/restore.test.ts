@@ -162,9 +162,7 @@ describe('ListCheckpointsCommand', () => {
   beforeEach(() => {
     vi.resetAllMocks();
     listCommand = new ListCheckpointsCommand();
-    mockReaddir = vi.mocked(fs.readdir) as unknown as Mock<
-      (path: string) => Promise<string[]>
-    >;
+    mockReaddir = vi.mocked(fs.readdir);
 
     context = {
       agentContext: {

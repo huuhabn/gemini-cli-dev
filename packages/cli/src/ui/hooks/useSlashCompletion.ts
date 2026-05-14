@@ -99,7 +99,7 @@ function useCommandParser(
 
       if (found) {
         leafCommand = found;
-        currentLevel = found.subCommands as readonly SlashCommand[] | undefined;
+        currentLevel = found.subCommands;
         if (found.kind === CommandKind.MCP_PROMPT) {
           break;
         }

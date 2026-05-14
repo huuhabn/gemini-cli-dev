@@ -251,7 +251,7 @@ describe('Gemini Client (client.ts)', () => {
       getMaxAttempts: vi.fn().mockReturnValue(3),
       getModelRouterService: vi
         .fn()
-        .mockReturnValue(mockRouterService as unknown as ModelRouterService),
+        .mockReturnValue(mockRouterService),
       getMessageBus: vi.fn().mockReturnValue(undefined),
       getEnableHooks: vi.fn().mockReturnValue(false),
       getChatCompression: vi.fn().mockReturnValue(undefined),
@@ -308,7 +308,7 @@ describe('Gemini Client (client.ts)', () => {
     (mockConfig as unknown as { config: Config; promptId: string }).promptId =
       'test-prompt-id';
 
-    client = new GeminiClient(mockConfig as unknown as AgentLoopContext);
+    client = new GeminiClient(mockConfig);
     await client.initialize();
     vi.mocked(mockConfig.getGeminiClient).mockReturnValue(client);
     (mockConfig as unknown as { geminiClient: GeminiClient }).geminiClient =
@@ -496,7 +496,7 @@ describe('Gemini Client (client.ts)', () => {
 
       client['startChat'] = vi
         .fn()
-        .mockResolvedValue(mockNewChat as GeminiChat);
+        .mockResolvedValue(mockNewChat);
 
       return {
         client,

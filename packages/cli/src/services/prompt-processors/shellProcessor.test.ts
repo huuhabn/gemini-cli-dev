@@ -102,7 +102,7 @@ describe('ShellProcessor', () => {
         args: 'default args',
       },
       services: {
-        agentContext: mockConfig as Config,
+        agentContext: mockConfig,
       },
       session: {
         sessionShellAllowlist: new Set(),

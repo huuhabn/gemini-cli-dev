@@ -113,7 +113,7 @@ const createMockResponse = (options: {
     response.text =
       typeof options.text === 'string'
         ? () => Promise.resolve(options.text as string)
-        : (options.text as () => Promise<string>);
+        : (options.text);
   }
 
   if (options.json !== undefined) {

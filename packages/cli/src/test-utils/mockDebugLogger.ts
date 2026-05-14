@@ -73,5 +73,5 @@ export function mockCoreDebugLogger<T extends Record<string, unknown>>(
       emitConsoleLog,
     },
     debugLogger,
-  } as T;
+  };
 }

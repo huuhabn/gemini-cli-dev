@@ -73,7 +73,7 @@ describe('Task Race Condition', () => {
             },
           ],
         },
-      } as unknown as RequestContext,
+      },
       new AbortController().signal,
     )) {
       // consume generator
@@ -93,7 +93,7 @@ describe('Task Race Condition', () => {
             },
           ],
         },
-      } as unknown as RequestContext,
+      },
       new AbortController().signal,
     )) {
       // consume generator

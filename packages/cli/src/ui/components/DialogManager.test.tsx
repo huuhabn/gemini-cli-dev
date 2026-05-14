@@ -99,7 +99,7 @@ describe('DialogManager', () => {
   it('renders nothing by default', async () => {
     const { lastFrame, unmount } = await renderWithProviders(
       <DialogManager {...defaultProps} />,
-      { uiState: baseUiState as Partial<UIState> as UIState },
+      { uiState: baseUiState },
     );
     expect(lastFrame({ allowEmpty: true })).toBe('');
     unmount();
@@ -193,7 +193,7 @@ describe('DialogManager', () => {
           uiState: {
             ...baseUiState,
             ...uiStateOverride,
-          } as Partial<UIState> as UIState,
+          },
           quotaState: quotaStateOverride,
         },
       );

@@ -1331,7 +1331,7 @@ export async function discoverTools(
           cliConfig,
           mcpServerConfig.extension?.name,
           mcpServerConfig.extension?.id,
-          annotations as Record<string, unknown> | undefined,
+          annotations,
         );
 
         discoveredTools.push(tool);
@@ -1403,8 +1403,8 @@ class McpCallableTool implements CallableTool {
       const result = await this.client.callTool(
         {
           name: call.name!,
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-          arguments: call.args as Record<string, unknown>,
+           
+          arguments: call.args,
           _meta: { progressToken },
         },
         undefined,

@@ -26,7 +26,7 @@ describe('ShowMoreLines layout and padding', () => {
     mockUseAlternateBuffer.mockReturnValue(true);
     mockUseOverflowState.mockReturnValue({
       overflowingIds: new Set(['1']),
-    } as NonNullable<ReturnType<typeof useOverflowState>>);
+    });
     mockUseStreamingContext.mockReturnValue(StreamingState.Idle);
   });
 

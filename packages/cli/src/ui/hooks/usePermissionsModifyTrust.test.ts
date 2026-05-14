@@ -81,7 +81,7 @@ describe('usePermissionsModifyTrust', () => {
           },
         },
       },
-    } as LoadedSettings);
+    });
     mockedIsWorkspaceTrusted.mockReturnValue({
       isTrusted: undefined,
       source: undefined,
@@ -96,7 +96,7 @@ describe('usePermissionsModifyTrust', () => {
     it('should initialize with the correct trust level', async () => {
       mockedLoadTrustedFolders.mockReturnValue({
         user: { config: { '/test/dir': TrustLevel.TRUST_FOLDER } },
-      } as unknown as LoadedTrustedFolders);
+      });
       mockedIsWorkspaceTrusted.mockReturnValue({
         isTrusted: true,
         source: 'file',
@@ -113,7 +113,7 @@ describe('usePermissionsModifyTrust', () => {
       mockedLoadTrustedFolders.mockReturnValue({
         user: { config: {} },
         setValue: vi.fn(),
-      } as unknown as LoadedTrustedFolders);
+      });
       mockedIsWorkspaceTrusted.mockReturnValue({
         isTrusted: true,
         source: 'file',
@@ -130,7 +130,7 @@ describe('usePermissionsModifyTrust', () => {
     it('should detect inherited trust from IDE', async () => {
       mockedLoadTrustedFolders.mockReturnValue({
         user: { config: {} }, // No explicit trust
-      } as unknown as LoadedTrustedFolders);
+      });
       mockedIsWorkspaceTrusted.mockReturnValue({
         isTrusted: true,
         source: 'ide',
@@ -149,7 +149,7 @@ describe('usePermissionsModifyTrust', () => {
       mockedLoadTrustedFolders.mockReturnValue({
         user: { config: {} },
         setValue: mockSetValue,
-      } as unknown as LoadedTrustedFolders);
+      });
 
       mockedIsWorkspaceTrusted
         .mockReturnValueOnce({ isTrusted: false, source: 'file' })
@@ -172,7 +172,7 @@ describe('usePermissionsModifyTrust', () => {
       mockedLoadTrustedFolders.mockReturnValue({
         user: { config: {} },
         setValue: mockSetValue,
-      } as unknown as LoadedTrustedFolders);
+      });
 
       mockedIsWorkspaceTrusted.mockReturnValue({
         isTrusted: true,
@@ -200,7 +200,7 @@ describe('usePermissionsModifyTrust', () => {
       mockedLoadTrustedFolders.mockReturnValue({
         user: { config: {} },
         setValue: mockSetValue,
-      } as unknown as LoadedTrustedFolders);
+      });
 
       mockedIsWorkspaceTrusted
         .mockReturnValueOnce({ isTrusted: false, source: 'file' })
@@ -230,7 +230,7 @@ describe('usePermissionsModifyTrust', () => {
       mockedLoadTrustedFolders.mockReturnValue({
         user: { config: {} },
         setValue: vi.fn(),
-      } as unknown as LoadedTrustedFolders);
+      });
       mockedIsWorkspaceTrusted.mockReturnValue({
         isTrusted: true,
         source: 'file',
@@ -257,7 +257,7 @@ describe('usePermissionsModifyTrust', () => {
       mockedLoadTrustedFolders.mockReturnValue({
         user: { config: {} },
         setValue: vi.fn(),
-      } as unknown as LoadedTrustedFolders);
+      });
       mockedIsWorkspaceTrusted.mockReturnValue({
         isTrusted: true,
         source: 'ide',
@@ -287,7 +287,7 @@ describe('usePermissionsModifyTrust', () => {
     it('should not detect inherited trust', async () => {
       mockedLoadTrustedFolders.mockReturnValue({
         user: { config: {} },
-      } as unknown as LoadedTrustedFolders);
+      });
       mockedIsWorkspaceTrusted.mockReturnValue({
         isTrusted: true,
         source: 'file',
@@ -306,7 +306,7 @@ describe('usePermissionsModifyTrust', () => {
       mockedLoadTrustedFolders.mockReturnValue({
         user: { config: {} },
         setValue: mockSetValue,
-      } as unknown as LoadedTrustedFolders);
+      });
       mockedIsWorkspaceTrusted.mockReturnValue({
         isTrusted: false,
         source: 'file',
@@ -332,7 +332,7 @@ describe('usePermissionsModifyTrust', () => {
       mockedLoadTrustedFolders.mockReturnValue({
         user: { config: {} },
         setValue: vi.fn(),
-      } as unknown as LoadedTrustedFolders);
+      });
       mockedIsWorkspaceTrusted.mockReturnValue({
         isTrusted: true,
         source: 'file',
@@ -357,7 +357,7 @@ describe('usePermissionsModifyTrust', () => {
     mockedLoadTrustedFolders.mockReturnValue({
       user: { config: {} },
       setValue: mockSetValue,
-    } as unknown as LoadedTrustedFolders);
+    });
 
     mockedIsWorkspaceTrusted.mockReturnValue({
       isTrusted: true,
@@ -388,7 +388,7 @@ describe('usePermissionsModifyTrust', () => {
     mockedLoadTrustedFolders.mockReturnValue({
       user: { config: {} },
       setValue: mockSetValue,
-    } as unknown as LoadedTrustedFolders);
+    });
 
     mockedIsWorkspaceTrusted
       .mockReturnValueOnce({ isTrusted: false, source: 'file' })

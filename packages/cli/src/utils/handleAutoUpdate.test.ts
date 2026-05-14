@@ -85,7 +85,7 @@ describe('handleAutoUpdate', () => {
     }) as unknown as ChildProcess;
 
     mockSpawn.mockReturnValue(
-      mockChildProcess as unknown as ReturnType<typeof mockSpawn>,
+      mockChildProcess,
     );
   });
 

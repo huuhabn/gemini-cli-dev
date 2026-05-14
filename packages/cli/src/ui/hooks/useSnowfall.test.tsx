@@ -52,7 +52,7 @@ describe('useSnowfall', () => {
     const { result } = await renderHookWithProviders(
       () => useSnowfall(mockArt),
       {
-        uiState: { history: [], historyRemountKey: 0 } as Partial<UIState>,
+        uiState: { history: [], historyRemountKey: 0 },
       },
     );
 
@@ -66,7 +66,7 @@ describe('useSnowfall', () => {
     const { result } = await renderHookWithProviders(
       () => useSnowfall(mockArt),
       {
-        uiState: { history: [], historyRemountKey: 0 } as Partial<UIState>,
+        uiState: { history: [], historyRemountKey: 0 },
       },
     );
 
@@ -87,7 +87,7 @@ describe('useSnowfall', () => {
     const { result } = await renderHookWithProviders(
       () => useSnowfall(mockArt),
       {
-        uiState: { history: [], historyRemountKey: 0 } as Partial<UIState>,
+        uiState: { history: [], historyRemountKey: 0 },
       },
     );
 
@@ -102,7 +102,7 @@ describe('useSnowfall', () => {
     const { result } = await renderHookWithProviders(
       () => useSnowfall(mockArt),
       {
-        uiState: { history: [], historyRemountKey: 0 } as Partial<UIState>,
+        uiState: { history: [], historyRemountKey: 0 },
       },
     );
 

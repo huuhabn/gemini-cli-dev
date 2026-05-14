@@ -54,6 +54,7 @@ async function main() {
     },
     alias: {
       punycode: 'punycode/',
+      '@google/gemini-cli-core': '../core',
     },
     plugins: [
       /* add to the end of plugins array */

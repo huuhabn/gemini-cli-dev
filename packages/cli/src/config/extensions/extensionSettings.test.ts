@@ -509,7 +509,7 @@ describe('extensionSettings', () => {
     ])('$description', async ({ setting, expectedType, promptValue }) => {
       vi.mocked(prompts).mockResolvedValue({ value: promptValue });
 
-      const result = await promptForSetting(setting as ExtensionSetting);
+      const result = await promptForSetting(setting);
 
       expect(prompts).toHaveBeenCalledWith({
         type: expectedType,

@@ -194,7 +194,7 @@ describe('SettingsSchema', () => {
         });
       };
 
-      checkBooleanDefaults(getSettingsSchema() as SettingsSchema);
+      checkBooleanDefaults(getSettingsSchema());
     });
 
     it('should have showInDialog property configured', () => {

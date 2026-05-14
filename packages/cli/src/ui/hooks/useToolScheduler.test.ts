@@ -71,7 +71,7 @@ describe('useToolScheduler', () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    mockMessageBus = createMockMessageBus() as unknown as MessageBus;
+    mockMessageBus = createMockMessageBus();
     mockConfig = {
       getMessageBus: () => mockMessageBus,
     } as unknown as Config;
@@ -121,7 +121,7 @@ describe('useToolScheduler', () => {
         type: MessageBusType.TOOL_CALLS_UPDATE,
         toolCalls: [mockToolCall],
         schedulerId: ROOT_SCHEDULER_ID,
-      } as ToolCallsUpdateMessage);
+      });
     });
 
     const [toolCalls] = result.current;
@@ -169,7 +169,7 @@ describe('useToolScheduler', () => {
         type: MessageBusType.TOOL_CALLS_UPDATE,
         toolCalls: [mockToolCall],
         schedulerId: ROOT_SCHEDULER_ID,
-      } as ToolCallsUpdateMessage);
+      });
     });
 
     act(() => {
@@ -185,7 +185,7 @@ describe('useToolScheduler', () => {
         type: MessageBusType.TOOL_CALLS_UPDATE,
         toolCalls: [mockToolCall],
         schedulerId: ROOT_SCHEDULER_ID,
-      } as ToolCallsUpdateMessage);
+      });
     });
 
     expect(result.current[0][0].responseSubmittedToGemini).toBe(true);
@@ -222,7 +222,7 @@ describe('useToolScheduler', () => {
           },
         ],
         schedulerId: ROOT_SCHEDULER_ID,
-      } as ToolCallsUpdateMessage);
+      });
     });
 
     const [, , , , , lastOutputTime] = result.current;
@@ -352,7 +352,7 @@ describe('useToolScheduler', () => {
         type: MessageBusType.TOOL_CALLS_UPDATE,
         toolCalls: [callRoot],
         schedulerId: ROOT_SCHEDULER_ID,
-      } as ToolCallsUpdateMessage);
+      });
 
       void mockMessageBus.publish({
         type: MessageBusType.TOOL_CALLS_UPDATE,
@@ -410,7 +410,7 @@ describe('useToolScheduler', () => {
         type: MessageBusType.TOOL_CALLS_UPDATE,
         toolCalls: [subagentCall],
         schedulerId: 'subagent-1',
-      } as ToolCallsUpdateMessage);
+      });
     });
 
     expect(result.current[0]).toHaveLength(0);
@@ -445,7 +445,7 @@ describe('useToolScheduler', () => {
         type: MessageBusType.TOOL_CALLS_UPDATE,
         toolCalls: [subagentCall],
         schedulerId: 'subagent-1',
-      } as ToolCallsUpdateMessage);
+      });
     });
 
     const [toolCalls] = result.current;
@@ -483,7 +483,7 @@ describe('useToolScheduler', () => {
         type: MessageBusType.TOOL_CALLS_UPDATE,
         toolCalls: [subagentCall],
         schedulerId: 'subagent-1',
-      } as ToolCallsUpdateMessage);
+      });
     });
 
     expect(result.current[0]).toHaveLength(1);
@@ -498,7 +498,7 @@ describe('useToolScheduler', () => {
         type: MessageBusType.TOOL_CALLS_UPDATE,
         toolCalls: [approvedCall],
         schedulerId: 'subagent-1',
-      } as ToolCallsUpdateMessage);
+      });
     });
 
     expect(result.current[0]).toHaveLength(1);
@@ -524,7 +524,7 @@ describe('useToolScheduler', () => {
         type: MessageBusType.TOOL_CALLS_UPDATE,
         toolCalls: [backgroundTool],
         schedulerId: 'subagent-1',
-      } as ToolCallsUpdateMessage);
+      });
     });
 
     // The subagent list should now be empty because the previously approved tool
@@ -576,7 +576,7 @@ describe('useToolScheduler', () => {
         type: MessageBusType.TOOL_CALLS_UPDATE,
         toolCalls: [mockToolCall],
         schedulerId: ROOT_SCHEDULER_ID,
-      } as ToolCallsUpdateMessage);
+      });
     });
 
     const [toolCalls, , , , , lastOutputTime] = result.current;
@@ -617,7 +617,7 @@ describe('useToolScheduler', () => {
         type: MessageBusType.TOOL_CALLS_UPDATE,
         toolCalls: [mockToolCall],
         schedulerId: ROOT_SCHEDULER_ID,
-      } as ToolCallsUpdateMessage);
+      });
     });
 
     expect(result.current[0]).toHaveLength(1);

@@ -131,9 +131,9 @@ describe('commandUtils', () => {
       stderr: Object.assign(new EventEmitter(), {
         destroy: vi.fn(),
       }),
-    }) as MockChildProcess;
+    });
 
-    mockSpawn.mockReturnValue(mockChild as unknown as ReturnType<typeof spawn>);
+    mockSpawn.mockReturnValue(mockChild);
 
     // Setup clipboardy mock
     mockClipboardyWrite = clipboardy.write as Mock;

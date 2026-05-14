@@ -48,7 +48,7 @@ describe('DenseToolMessage', () => {
       <DenseToolMessage
         {...defaultProps}
         name="Edit"
-        resultDisplay={fileDiff as unknown as ToolResultDisplay}
+        resultDisplay={fileDiff}
       />,
     );
     await waitUntilReady();
@@ -73,7 +73,7 @@ describe('DenseToolMessage', () => {
     const { lastFrame, waitUntilReady } = await renderWithProviders(
       <DenseToolMessage
         {...defaultProps}
-        resultDisplay={longResult as ToolResultDisplay}
+        resultDisplay={longResult}
       />,
     );
     await waitUntilReady();
@@ -87,7 +87,7 @@ describe('DenseToolMessage', () => {
     const { lastFrame, waitUntilReady } = await renderWithProviders(
       <DenseToolMessage
         {...defaultProps}
-        resultDisplay={multilineResult as ToolResultDisplay}
+        resultDisplay={multilineResult}
       />,
     );
     await waitUntilReady();
@@ -117,7 +117,7 @@ describe('DenseToolMessage', () => {
     const { lastFrame } = await renderWithProviders(
       <DenseToolMessage
         {...defaultProps}
-        resultDisplay={diffResult as ToolResultDisplay}
+        resultDisplay={diffResult}
       />,
       {
         settings: createMockSettings({
@@ -151,7 +151,7 @@ describe('DenseToolMessage', () => {
         status={CoreToolCallStatus.AwaitingApproval}
         resultDisplay={undefined}
         confirmationDetails={
-          confirmationDetails as SerializableConfirmationDetails
+          confirmationDetails
         }
       />,
       {},
@@ -187,7 +187,7 @@ describe('DenseToolMessage', () => {
         {...defaultProps}
         name="Edit"
         status={CoreToolCallStatus.Cancelled}
-        resultDisplay={diffResult as ToolResultDisplay}
+        resultDisplay={diffResult}
       />,
       {},
     );
@@ -217,7 +217,7 @@ describe('DenseToolMessage', () => {
         model_removed_lines: 0,
         model_added_chars: 0,
         model_removed_chars: 0,
-      } as DiffStat,
+      },
     };
     const { lastFrame, waitUntilReady } = await renderWithProviders(
       <DenseToolMessage
@@ -226,7 +226,7 @@ describe('DenseToolMessage', () => {
         status={CoreToolCallStatus.Cancelled}
         resultDisplay={undefined}
         confirmationDetails={
-          confirmationDetails as unknown as SerializableConfirmationDetails
+          confirmationDetails
         }
       />,
       {},
@@ -261,7 +261,7 @@ describe('DenseToolMessage', () => {
         {...defaultProps}
         name="WriteFile"
         status={CoreToolCallStatus.Success}
-        resultDisplay={diffResult as ToolResultDisplay}
+        resultDisplay={diffResult}
       />,
       {},
     );
@@ -285,7 +285,7 @@ describe('DenseToolMessage', () => {
         {...defaultProps}
         name="WriteFile"
         status={CoreToolCallStatus.Cancelled}
-        resultDisplay={diffResult as ToolResultDisplay}
+        resultDisplay={diffResult}
       />,
       {},
     );
@@ -320,7 +320,7 @@ describe('DenseToolMessage', () => {
         {...defaultProps}
         name="Edit"
         status={CoreToolCallStatus.Error}
-        resultDisplay={diffResult as ToolResultDisplay}
+        resultDisplay={diffResult}
       />,
     );
     await waitUntilReady();
@@ -351,7 +351,7 @@ describe('DenseToolMessage', () => {
     const { lastFrame, waitUntilReady } = await renderWithProviders(
       <DenseToolMessage
         {...defaultProps}
-        resultDisplay={grepResult as unknown as ToolResultDisplay}
+        resultDisplay={grepResult}
       />,
     );
     await waitUntilReady();
@@ -370,7 +370,7 @@ describe('DenseToolMessage', () => {
     const { lastFrame, waitUntilReady } = await renderWithProviders(
       <DenseToolMessage
         {...defaultProps}
-        resultDisplay={lsResult as unknown as ToolResultDisplay}
+        resultDisplay={lsResult}
       />,
     );
     await waitUntilReady();
@@ -392,7 +392,7 @@ describe('DenseToolMessage', () => {
     const { lastFrame, waitUntilReady } = await renderWithProviders(
       <DenseToolMessage
         {...defaultProps}
-        resultDisplay={rmfResult as unknown as ToolResultDisplay}
+        resultDisplay={rmfResult}
       />,
     );
     await waitUntilReady();
@@ -411,7 +411,7 @@ describe('DenseToolMessage', () => {
     const { lastFrame, waitUntilReady } = await renderWithProviders(
       <DenseToolMessage
         {...defaultProps}
-        resultDisplay={todoResult as ToolResultDisplay}
+        resultDisplay={todoResult}
       />,
     );
     await waitUntilReady();
@@ -438,7 +438,7 @@ describe('DenseToolMessage', () => {
       <DenseToolMessage
         {...defaultProps}
         status={CoreToolCallStatus.Error}
-        resultDisplay={'Error occurred' as ToolResultDisplay}
+        resultDisplay={'Error occurred'}
       />,
     );
     await waitUntilReady();
@@ -510,7 +510,7 @@ describe('DenseToolMessage', () => {
       const { lastFrame, waitUntilReady } = await renderWithProviders(
         <DenseToolMessage
           {...defaultProps}
-          resultDisplay={diffResult as ToolResultDisplay}
+          resultDisplay={diffResult}
           status={CoreToolCallStatus.Success}
         />,
         {
@@ -529,7 +529,7 @@ describe('DenseToolMessage', () => {
       const { lastFrame, waitUntilReady } = await renderWithProviders(
         <DenseToolMessage
           {...defaultProps}
-          resultDisplay={diffResult as ToolResultDisplay}
+          resultDisplay={diffResult}
           status={CoreToolCallStatus.Success}
         />,
         {
@@ -547,7 +547,7 @@ describe('DenseToolMessage', () => {
       const { lastFrame, waitUntilReady } = await renderWithProviders(
         <DenseToolMessage
           {...defaultProps}
-          resultDisplay={diffResult as ToolResultDisplay}
+          resultDisplay={diffResult}
           status={CoreToolCallStatus.Success}
         />,
         {
@@ -590,7 +590,7 @@ describe('DenseToolMessage', () => {
           {...defaultProps}
           name="edit"
           description="Editing test.ts"
-          resultDisplay={diffResult as ToolResultDisplay}
+          resultDisplay={diffResult}
           status={CoreToolCallStatus.Success}
         />,
       );

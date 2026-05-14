@@ -910,7 +910,7 @@ export class Scheduler {
           {
             ...activeCall,
             status: CoreToolCallStatus.Scheduled,
-          } as ScheduledToolCall,
+          },
           signal,
         );
       } catch {

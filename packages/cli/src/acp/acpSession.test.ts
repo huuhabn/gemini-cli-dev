@@ -138,7 +138,7 @@ describe('Session', () => {
       setModel: vi.fn(),
       isPlanEnabled: vi.fn().mockReturnValue(true),
       getCheckpointingEnabled: vi.fn().mockReturnValue(false),
-      getGitService: vi.fn().mockResolvedValue({} as GitService),
+      getGitService: vi.fn().mockResolvedValue({}),
       validatePathAccess: vi.fn().mockReturnValue(null),
       getWorkspaceContext: vi.fn().mockReturnValue({
         addReadOnlyPath: vi.fn(),

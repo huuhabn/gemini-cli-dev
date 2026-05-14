@@ -51,7 +51,7 @@ The process for contributing code is as follows:
     maintainers should attempt to add the `help-wanted` label to an issue.
 2.  **Fork the repository** and create a new branch.
 3.  **Make your changes** in the `packages/` directory.
-4.  **Ensure all checks pass** by running `npm run preflight`.
+4.  **Ensure all checks pass** by running `pnpm run preflight`.
 5.  **Open a pull request** with your changes.
 
 ### Code reviews
@@ -156,7 +156,7 @@ ready for a formal review but is open for discussion and initial feedback.
 #### 4. Ensure all checks pass
 
 Before submitting your PR, ensure that all automated checks are passing by
-running `npm run preflight`. This command runs all tests, linting, and other
+running `pnpm run preflight`. This command runs all tests, linting, and other
 style checks.
 
 #### 5. Update documentation
@@ -223,13 +223,13 @@ cd gemini-cli
 To install dependencies defined in `package.json` as well as root dependencies:
 
 ```bash
-npm install
+pnpm install
 ```
 
 To build the entire project (all packages):
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 This command typically compiles TypeScript to JavaScript, bundles assets, and
@@ -247,10 +247,10 @@ To build both the `gemini` CLI utility and the sandbox container, run
 `build:all` from the root directory:
 
 ```bash
-npm run build:all
+pnpm run build:all
 ```
 
-To skip building the sandbox container, you can use `npm run build` instead.
+To skip building the sandbox container, you can use `pnpm run build` instead.
 
 ### Running the CLI
 
@@ -258,12 +258,12 @@ To start the Gemini CLI from the source code (after building), run the following
 command from the root directory:
 
 ```bash
-npm start
+pnpm start
 ```
 
 If you'd like to run the source build outside of the gemini-cli folder, you can
-utilize `npm link path/to/gemini-cli/packages/cli` (see:
-[docs](https://docs.npmjs.com/cli/v9/commands/npm-link)) or
+utilize `pnpm link path/to/gemini-cli/packages/cli` (see:
+[docs](https://pnpm.io/cli/link)) or
 `alias gemini="node path/to/gemini-cli/packages/cli"` to run with `gemini`
 
 ### Running tests
@@ -275,22 +275,22 @@ This project contains two types of tests: unit tests and integration tests.
 To execute the unit test suite for the project:
 
 ```bash
-npm run test
+pnpm run test
 ```
 
 This will run tests located in the `packages/core` and `packages/cli`
 directories. Ensure tests pass before submitting any changes. For a more
-comprehensive check, it is recommended to run `npm run preflight`.
+comprehensive check, it is recommended to run `pnpm run preflight`.
 
 #### Integration tests
 
 The integration tests are designed to validate the end-to-end functionality of
-the Gemini CLI. They are not run as part of the default `npm run test` command.
+the Gemini CLI. They are not run as part of the default `pnpm run test` command.
 
 To run the integration tests, use the following command:
 
 ```bash
-npm run test:e2e
+pnpm run test:e2e
 ```
 
 For more detailed information on the integration testing framework, please see
@@ -302,7 +302,7 @@ the
 To ensure code quality and formatting consistency, run the preflight check:
 
 ```bash
-npm run preflight
+pnpm run preflight
 ```
 
 This command will run ESLint, Prettier, all tests, and other checks as defined
@@ -315,9 +315,9 @@ clean.
 
 ```bash
 echo "
-# Run npm build and check for errors
-if ! npm run preflight; then
-  echo "npm build failed. Commit aborted."
+# Run pnpm build and check for errors
+if ! pnpm run preflight; then
+  echo "pnpm build failed. Commit aborted."
   exit 1
 fi
 " > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
@@ -329,7 +329,7 @@ To separately format the code in this project, run the following command from
 the root directory:
 
 ```bash
-npm run format
+pnpm run format
 ```
 
 This command uses Prettier to format the code according to the project's style
@@ -341,7 +341,7 @@ To separately lint the code in this project, run the following command from the
 root directory:
 
 ```bash
-npm run lint
+pnpm run lint
 ```
 
 ### Coding conventions
@@ -363,7 +363,7 @@ npm run lint
 0.  Run the CLI to interactively debug in VS Code with `F5`
 1.  Start the CLI in debug mode from the root directory:
     ```bash
-    npm run debug
+    pnpm run debug
     ```
     This command runs `node --inspect-brk dist/gemini.js` within the
     `packages/cli` directory, pausing execution until a debugger attaches. You
@@ -393,7 +393,7 @@ To debug the CLI's React-based UI, you can use React DevTools.
 1.  **Start the Gemini CLI in development mode:**
 
     ```bash
-    DEV=true npm start
+    DEV=true pnpm start
     ```
 
 2.  **Install and run React DevTools version 6 (which matches the CLI's
@@ -402,14 +402,14 @@ To debug the CLI's React-based UI, you can use React DevTools.
     You can either install it globally:
 
     ```bash
-    npm install -g react-devtools@6
+    pnpm add -g react-devtools@6
     react-devtools
     ```
 
     Or run it directly using npx:
 
     ```bash
-    npx react-devtools@6
+    pnpm dlx react-devtools@6
     ```
 
     Your running CLI application should then connect to React DevTools.
@@ -439,11 +439,11 @@ networking). You can also switch to a custom profile
 For stronger container-based sandboxing on macOS or other platforms, you can set
 `GEMINI_SANDBOX=true|docker|podman|<command>` in your environment or `.env`
 file. The specified command (or if `true` then either `docker` or `podman`) must
-be installed on the host machine. Once enabled, `npm run build:all` will build a
-minimal container ("sandbox") image and `npm start` will launch inside a fresh
+be installed on the host machine. Once enabled, `pnpm run build:all` will build a
+minimal container ("sandbox") image and `pnpm start` will launch inside a fresh
 instance of that container. The first build can take 20-30s (mostly due to
 downloading of the base image) but after that both build and start overhead
-should be minimal. Default builds (`npm run build`) will not rebuild the
+should be minimal. Default builds (`pnpm run build`) will not rebuild the
 sandbox.
 
 Container-based sandboxing mounts the project directory (and system temp
@@ -473,12 +473,12 @@ sandbox.
 We publish an artifact for each commit to our internal registry. But if you need
 to manually cut a local build, then run the following commands:
 
-```
-npm run clean
-npm install
-npm run auth
-npm run prerelease:dev
-npm publish --workspaces
+```bash
+pnpm run clean
+pnpm install
+pnpm run auth
+pnpm run prerelease:dev
+pnpm publish --workspaces
 ```
 
 ## Documentation contribution process
@@ -503,7 +503,7 @@ code.
 4. **Lint and format your changes.** Our preflight check includes linting and
    formatting for documentation files.
    ```bash
-   npm run preflight
+   pnpm run preflight
    ```
 5. **Open a pull request** with your changes.
 
@@ -539,9 +539,9 @@ We use `prettier` to enforce a consistent style across our documentation. The
 
 You can also run the linter and formatter separately:
 
-- `npm run lint` - Check for linting issues
-- `npm run format` - Auto-format markdown files
-- `npm run lint:fix` - Auto-fix linting issues where possible
+- `pnpm run lint` - Check for linting issues
+- `pnpm run format` - Auto-format markdown files
+- `pnpm run lint:fix` - Auto-fix linting issues where possible
 
 Please make sure your contributions are free of linting errors before submitting
 a pull request.
@@ -550,7 +550,7 @@ a pull request.
 
 Before submitting your documentation pull request, please:
 
-1. Run `npm run preflight` to ensure all checks pass.
+1. Run `pnpm run preflight` to ensure all checks pass.
 2. Review your changes for clarity and accuracy.
 3. Check that all links work correctly.
 4. Ensure any code examples are tested and functional.

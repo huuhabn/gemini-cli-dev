@@ -50,7 +50,7 @@ export function createKeyMatchers(
     matchers[command] = (key: Key) => matchCommand(command, key, config);
   }
 
-  return matchers as KeyMatchers;
+  return matchers;
 }
 
 /**

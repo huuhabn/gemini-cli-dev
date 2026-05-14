@@ -121,7 +121,7 @@ describe('ExtensionRegistryView', () => {
           searchQuery: '',
           setSearchQuery: vi.fn(),
           maxLabelWidth: 10,
-        }) as unknown as SearchListState<GenericListItem>,
+        }),
     );
   });
 
@@ -140,7 +140,7 @@ describe('ExtensionRegistryView', () => {
           historyManager: {
             addItem: vi.fn(),
           } as unknown as UseHistoryManagerReturn,
-        } as Partial<UIState>,
+        },
       },
     );
 
@@ -188,7 +188,7 @@ describe('ExtensionRegistryView', () => {
           searchQuery: 'test query',
           setSearchQuery: vi.fn(),
           maxLabelWidth: 10,
-        } as unknown as SearchListState<GenericListItem>;
+        };
       },
     );
 

@@ -51,22 +51,22 @@ describe('useVim passthrough', () => {
 
   it.each([
     {
-      mode: 'INSERT' as VimMode,
+      mode: 'INSERT',
       name: 'F12',
       key: createKey({ name: 'f12', sequence: '\u001b[24~' }),
     },
     {
-      mode: 'INSERT' as VimMode,
+      mode: 'INSERT',
       name: 'Ctrl-X',
       key: createKey({ name: 'x', ctrl: true, sequence: '\x18' }),
     },
     {
-      mode: 'NORMAL' as VimMode,
+      mode: 'NORMAL',
       name: 'F12',
       key: createKey({ name: 'f12', sequence: '\u001b[24~' }),
     },
     {
-      mode: 'NORMAL' as VimMode,
+      mode: 'NORMAL',
       name: 'Ctrl-X',
       key: createKey({ name: 'x', ctrl: true, sequence: '\x18' }),
     },

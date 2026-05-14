@@ -453,7 +453,7 @@ async function readMcpResources(
           isClientInitiated: true,
           resultDisplay: `Successfully read resource ${resource.uri}`,
           confirmationDetails: undefined,
-        } as IndividualToolCallDisplay,
+        },
       };
     } catch (error) {
       return {
@@ -468,7 +468,7 @@ async function readMcpResources(
           isClientInitiated: true,
           resultDisplay: `Error reading resource ${resource.uri}: ${getErrorMessage(error)}`,
           confirmationDetails: undefined,
-        } as IndividualToolCallDisplay,
+        },
       };
     }
   });

@@ -48,11 +48,11 @@ describe('AgentHistoryProvider', () => {
     );
     generateContentMock = vi.fn().mockResolvedValue({
       candidates: [{ content: { parts: [{ text: 'Mock intent summary' }] } }],
-    } as unknown as GenerateContentResponse);
+    });
 
     config.getBaseLlmClient = vi.fn().mockReturnValue({
       generateContent: generateContentMock,
-    } as unknown as BaseLlmClient);
+    });
     providerConfig = {
       maxTokens: 60000,
       retainedTokens: 40000,

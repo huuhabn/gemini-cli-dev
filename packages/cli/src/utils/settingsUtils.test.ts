@@ -56,7 +56,7 @@ describe('SettingsUtils', () => {
         label: 'MCP Servers',
         category: 'Advanced',
         requiresRestart: true,
-        default: {} as Record<string, string>,
+        default: {},
         description: 'Configuration for MCP servers.',
         showInDialog: false,
       },

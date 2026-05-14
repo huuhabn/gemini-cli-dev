@@ -277,7 +277,7 @@ describe('runInDevTraceSpan', () => {
 
     // Try to end again (simulating registry or double call)
     const endSpanFn = vi.mocked(spanRegistry.register).mock
-      .calls[0][1] as () => void;
+      .calls[0][1];
     endSpanFn();
 
     expect(mockSpan.end).toHaveBeenCalledTimes(1);

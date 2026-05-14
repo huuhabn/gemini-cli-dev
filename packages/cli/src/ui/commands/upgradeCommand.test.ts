@@ -42,7 +42,7 @@ describe('upgradeCommand', () => {
           },
         },
       },
-    } as unknown as CommandContext);
+    });
   });
 
   it('should have the correct name and description', () => {

@@ -2615,7 +2615,7 @@ function textBufferReducerLogic(
     case 'vim_yank_to_end_of_line':
     case 'vim_paste_after':
     case 'vim_paste_before':
-      return handleVimAction(state, action as VimAction);
+      return handleVimAction(state, action);
 
     case 'toggle_paste_expansion': {
       const { id, row, col } = action.payload;

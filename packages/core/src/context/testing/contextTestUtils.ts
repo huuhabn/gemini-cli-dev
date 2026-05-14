@@ -179,7 +179,7 @@ export function createMockEnvironment(
   const calculator = new StaticTokenCalculator(1, behaviorRegistry);
 
   let env = new ContextEnvironmentImpl(
-    () => llmClient as BaseLlmClient,
+    () => llmClient,
     'mock-session',
     'mock-prompt-id',
     '/tmp/.gemini/trace',

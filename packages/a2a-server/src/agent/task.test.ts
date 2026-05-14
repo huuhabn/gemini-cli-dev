@@ -49,7 +49,7 @@ describe('Task', () => {
     const task = new Task(
       'task-id',
       'context-id',
-      mockConfig as Config,
+      mockConfig,
       mockEventBus,
     );
 
@@ -98,7 +98,7 @@ describe('Task', () => {
       const task = new Task(
         'task-id',
         'context-id',
-        mockConfig as Config,
+        mockConfig,
         mockEventBus,
       );
       const requests: ToolCallRequestInfo[] = [
@@ -129,7 +129,7 @@ describe('Task', () => {
       const task = new Task(
         'task-id',
         'context-id',
-        mockConfig as Config,
+        mockConfig,
         mockEventBus,
       );
       const requests: ToolCallRequestInfo[] = [
@@ -170,7 +170,7 @@ describe('Task', () => {
       const task = new Task(
         'task-id',
         'context-id',
-        mockConfig as Config,
+        mockConfig,
         mockEventBus,
       );
       const requests: ToolCallRequestInfo[] = [
@@ -229,7 +229,7 @@ describe('Task', () => {
       const task = new Task(
         'task-id',
         'context-id',
-        mockConfig as Config,
+        mockConfig,
         mockEventBus,
       );
 
@@ -265,7 +265,7 @@ describe('Task', () => {
       const task = new Task(
         'task-id',
         'context-id',
-        mockConfig as Config,
+        mockConfig,
         mockEventBus,
       );
 
@@ -309,7 +309,7 @@ describe('Task', () => {
       const task = new Task(
         'task-id',
         'context-id',
-        mockConfig as Config,
+        mockConfig,
         mockEventBus,
       );
 
@@ -362,7 +362,7 @@ describe('Task', () => {
         const task = new Task(
           'task-id',
           'context-id',
-          mockConfig as Config,
+          mockConfig,
           mockEventBus,
         );
 
@@ -402,7 +402,7 @@ describe('Task', () => {
       const task = new Task(
         'task-id',
         'context-id',
-        mockConfig as Config,
+        mockConfig,
         mockEventBus,
       );
 
@@ -484,7 +484,7 @@ describe('Task', () => {
       const task = new Task(
         'task-id',
         'context-id',
-        mockConfig as Config,
+        mockConfig,
         mockEventBus,
       );
 
@@ -509,7 +509,7 @@ describe('Task', () => {
       const task = new Task(
         'task-id',
         'context-id',
-        mockConfig as Config,
+        mockConfig,
         mockEventBus,
       );
 
@@ -536,7 +536,7 @@ describe('Task', () => {
       const task = new Task(
         'task-id',
         'context-id',
-        mockConfig as Config,
+        mockConfig,
         mockEventBus,
       );
 
@@ -589,7 +589,7 @@ describe('Task', () => {
       const task = new Task(
         'task-id',
         'context-id',
-        mockConfig as Config,
+        mockConfig,
         mockEventBus,
       );
 
@@ -601,7 +601,7 @@ describe('Task', () => {
       };
 
       const message = task['toolStatusMessage'](
-        mockToolCall as unknown as ToolCall,
+        mockToolCall,
         'task-id',
         'context-id',
       );
@@ -630,7 +630,7 @@ describe('Task', () => {
       const task = new Task(
         'task-id',
         'context-id',
-        mockConfig as Config,
+        mockConfig,
         mockEventBus,
       );
 
@@ -641,13 +641,13 @@ describe('Task', () => {
 
       // First update - should trigger change
       const changed1 = task['handleEventDrivenToolCall'](
-        toolCall1 as unknown as ToolCall,
+        toolCall1,
       );
       expect(changed1).toBe(true);
 
       // Second update with same status - should NOT trigger change
       const changed2 = task['handleEventDrivenToolCall'](
-        toolCall1 as unknown as ToolCall,
+        toolCall1,
       );
       expect(changed2).toBe(false);
 
@@ -658,7 +658,7 @@ describe('Task', () => {
         outcome: 'accepted',
       };
       const changed3 = task['handleEventDrivenToolCall'](
-        toolCall2 as unknown as ToolCall,
+        toolCall2,
       );
       expect(changed3).toBe(true);
     });

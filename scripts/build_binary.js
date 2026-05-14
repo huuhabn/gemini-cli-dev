@@ -42,10 +42,10 @@ function runCommand(command, args, options = {}) {
   let finalCommand = command;
   let useShell = options.shell || false;
 
-  // On Windows, npm/npx are batch files and need a shell
+  // On Windows, pnpm/pnpx are batch files and need a shell
   if (
     process.platform === 'win32' &&
-    (command === 'npm' || command === 'npx')
+    (command === 'pnpm' || command === 'pnpx' || command === 'npm' || command === 'npx')
   ) {
     finalCommand = `${command}.cmd`;
     useShell = true;
@@ -175,11 +175,11 @@ if (existsSync(distDir)) {
 mkdirSync(distDir, { recursive: true });
 
 // 2. Build Bundle
-console.log('Running npm clean, install, and bundle...');
+console.log('Running pnpm clean, install, and bundle...');
 try {
-  runCommand('npm', ['run', 'clean']);
-  runCommand('npm', ['install']);
-  runCommand('npm', ['run', 'bundle']);
+  runCommand('pnpm', ['run', 'clean']);
+  runCommand('pnpm', ['install']);
+  runCommand('pnpm', ['run', 'bundle']);
 } catch (e) {
   console.error('Build step failed:', e.message);
   process.exit(1);
@@ -488,7 +488,7 @@ try {
     args.push('--macho-segment-name', 'NODE_SEA');
   }
 
-  runCommand('npx', ['--yes', ...args]);
+  runCommand('pnpm', ['dlx', ...args]);
   console.log('Injection successful.');
 } catch (e) {
   console.error('Postject failed:', e.message);

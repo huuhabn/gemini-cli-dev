@@ -400,7 +400,7 @@ export class AppRig {
         tc.status === CoreToolCallStatus.Error ||
         tc.status === CoreToolCallStatus.Cancelled
       ) {
-        return !(tc as TrackedCompletedToolCall | TrackedCancelledToolCall)
+        return !(tc)
           .responseSubmittedToGemini;
       }
       return false;

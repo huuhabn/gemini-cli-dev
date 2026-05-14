@@ -56,7 +56,7 @@ describe('dialogScopeUtils', () => {
       const message = getScopeMessageForSetting(
         'key',
         SettingScope.User,
-        mockSettings as unknown as LoadedSettings,
+        mockSettings,
       );
       expect(message).toBe('');
     });
@@ -67,7 +67,7 @@ describe('dialogScopeUtils', () => {
       const message = getScopeMessageForSetting(
         'key',
         SettingScope.User,
-        mockSettings as unknown as LoadedSettings,
+        mockSettings,
       );
       expect(message).toMatch(/Also modified in/);
       expect(message).toMatch(/workspace/);
@@ -99,7 +99,7 @@ describe('dialogScopeUtils', () => {
       const message = getScopeMessageForSetting(
         'key',
         SettingScope.User,
-        mockSettings as unknown as LoadedSettings,
+        mockSettings,
       );
       expect(message).toBe('(Modified in workspace)');
     });

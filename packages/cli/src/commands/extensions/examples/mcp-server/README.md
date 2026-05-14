@@ -29,7 +29,7 @@ The contents of this directory are a valid MCP server implementation using the
 
 2.  Install dependencies:
     ```bash
-    npm install
+    pnpm install
     ```
 
 This example is typically used by `gemini extensions new`.

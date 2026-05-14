@@ -535,8 +535,8 @@ export const useSlashCommandProcessor = (
                     }
                     case 'permissions':
                       actions.openPermissionsDialog(
-                        // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-                        result.props as { targetDirectory?: string },
+                         
+                        result.props,
                       );
                       return { type: 'handled' };
                     case 'help':

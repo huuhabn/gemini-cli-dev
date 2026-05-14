@@ -97,7 +97,7 @@ function hasTextProperty(value: unknown): value is { text: string } {
     typeof value === 'object' &&
     value !== null &&
     'text' in value &&
-    typeof (value as { text: unknown }).text === 'string'
+    typeof (value).text === 'string'
   );
 }
 
@@ -367,7 +367,7 @@ export class HookTranslatorGenAIv1 extends HookTranslator {
         maxOutputTokens: hookRequest.config.maxOutputTokens,
         topP: hookRequest.config.topP,
         topK: hookRequest.config.topK,
-      } as GenerateContentParameters['config'];
+      };
     }
 
     return result;

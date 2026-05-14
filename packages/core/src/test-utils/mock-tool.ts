@@ -58,7 +58,7 @@ class MockToolInvocation extends BaseToolInvocation<
     return this.tool.execute(
       this.params,
       signal,
-      updateOutput as ((output: string) => void) | undefined,
+      updateOutput,
       options,
     );
   }

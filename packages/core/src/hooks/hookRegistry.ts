@@ -263,10 +263,10 @@ please review the project settings (.gemini/settings.json) and remove them.`;
         this.validateHookConfig(hookConfig, eventName, source)
       ) {
         // Check if this hook is in the disabled list
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
+         
         const hookName = this.getHookName({
           config: hookConfig,
-        } as HookRegistryEntry);
+        });
         const isDisabled = disabledHooks.includes(hookName);
 
         // Add source to hook config

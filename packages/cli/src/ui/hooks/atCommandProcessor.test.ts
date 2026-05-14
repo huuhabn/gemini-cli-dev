@@ -1589,7 +1589,7 @@ describe('checkPermissions', () => {
     await fsPromises.writeFile(realFile, 'hello');
     const resolvedRealFile = fs.realpathSync(realFile);
     mockConfig.validatePathAccess = () =>
-      'permission required' as unknown as null;
+      'permission required';
     const longSegment = 'b'.repeat(8192);
     const query = `@real.txt and @${longSegment}`;
     await expect(checkPermissions(query, mockConfig)).resolves.toEqual([

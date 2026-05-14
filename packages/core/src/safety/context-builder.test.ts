@@ -34,7 +34,7 @@ describe('ContextBuilder', () => {
       }),
       getQuestion: vi.fn().mockReturnValue('mock question'),
       getGeminiClient: vi.fn().mockReturnValue(mockGeminiClient),
-    } as Partial<Config>;
+    };
     contextBuilder = new ContextBuilder(mockConfig as unknown as Config);
   });
 
@@ -138,8 +138,8 @@ describe('ContextBuilder', () => {
 
   it('should handle undefined parts gracefully', () => {
     mockHistory = [
-      { role: 'user', parts: undefined as unknown as [] },
-      { role: 'model', parts: undefined as unknown as [] },
+      { role: 'user', parts: undefined },
+      { role: 'model', parts: undefined },
     ];
     const context = contextBuilder.buildFullContext();
     expect(context.history?.turns).toHaveLength(1);

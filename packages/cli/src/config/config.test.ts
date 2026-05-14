@@ -73,7 +73,7 @@ vi.mock('fs', async (importOriginal) => {
       if (mockPaths.has(p.toString())) {
         return { isDirectory: () => true } as unknown as import('fs').Stats;
       }
-      return actualFs.statSync(p as unknown as string);
+      return actualFs.statSync(p);
     }),
     realpathSync: vi.fn((p) => p),
   };
@@ -2823,7 +2823,7 @@ describe('loadCliConfig approval mode', () => {
           directory: '.custom-plans',
         },
       },
-    } as unknown as MergedSettings);
+    });
     const argv = await parseArguments(settings);
     const config = await loadCliConfig(settings, 'test-session', argv);
     const plansDir = config.storage.getPlansDir();

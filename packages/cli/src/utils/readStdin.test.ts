@@ -45,9 +45,9 @@ describe('readStdin', () => {
     // Capture event handlers
     mockStdin.on.mockImplementation(
       (event: string, handler: (...args: unknown[]) => void) => {
-        if (event === 'readable') onReadableHandler = handler as () => void;
-        if (event === 'end') onEndHandler = handler as () => void;
-        if (event === 'error') onErrorHandler = handler as (err: Error) => void;
+        if (event === 'readable') onReadableHandler = handler;
+        if (event === 'end') onEndHandler = handler;
+        if (event === 'error') onErrorHandler = handler;
       },
     );
     mockStdin.listeners.mockReturnValue([]);

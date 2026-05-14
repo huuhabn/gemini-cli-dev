@@ -47,7 +47,7 @@ describe('fsUtils', () => {
 
     it('should return empty if .git does not exist', async () => {
       vi.mocked(fsPromises.lstat).mockRejectedValue(
-        Object.assign(new Error('ENOENT'), { code: 'ENOENT' }) as never,
+        Object.assign(new Error('ENOENT'), { code: 'ENOENT' }),
       );
       const result = await resolveGitWorktreePaths(workspace);
       expect(result).toEqual({});

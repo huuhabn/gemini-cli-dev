@@ -828,14 +828,14 @@ describe('HookEventHandler', () => {
 
       // First call - should emit feedback
       await hookEventHandler.fireAfterModelEvent(
-        llmRequest as unknown as GenerateContentParameters,
+        llmRequest,
         llmResponse as unknown as GenerateContentResponse,
       );
       expect(mockCoreEvents.emitFeedback).toHaveBeenCalledTimes(1);
 
       // Second call with SAME request - should NOT emit feedback
       await hookEventHandler.fireAfterModelEvent(
-        llmRequest as unknown as GenerateContentParameters,
+        llmRequest,
         llmResponse as unknown as GenerateContentResponse,
       );
       expect(mockCoreEvents.emitFeedback).toHaveBeenCalledTimes(1);
@@ -843,7 +843,7 @@ describe('HookEventHandler', () => {
       // Third call with DIFFERENT request - should emit feedback again
       const differentRequest = { model: 'different', contents: [] };
       await hookEventHandler.fireAfterModelEvent(
-        differentRequest as unknown as GenerateContentParameters,
+        differentRequest,
         llmResponse as unknown as GenerateContentResponse,
       );
       expect(mockCoreEvents.emitFeedback).toHaveBeenCalledTimes(2);

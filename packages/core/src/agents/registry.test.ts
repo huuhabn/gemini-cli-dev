@@ -1003,7 +1003,7 @@ describe('AgentRegistry', () => {
         .spyOn(debugLogger, 'warn')
         .mockImplementation(() => {});
 
-      await registry.testRegisterAgent(invalidAgent as AgentDefinition);
+      await registry.testRegisterAgent(invalidAgent);
 
       expect(registry.getDefinition('MockAgent')).toBeUndefined();
       expect(debugWarnSpy).toHaveBeenCalledWith(

@@ -43,10 +43,17 @@ const emptyModulePlugin = {
 
 async function bundle() {
   try {
-    const entryPoint = path.resolve(
+    const entryPointCandidate1 = path.resolve(
+      __dirname,
+      '../node_modules/chrome-devtools-mcp/build/src/index.js',
+    );
+    const entryPointCandidate2 = path.resolve(
       __dirname,
       '../../../node_modules/chrome-devtools-mcp/build/src/index.js',
     );
+    const entryPoint = fs.existsSync(entryPointCandidate1)
+      ? entryPointCandidate1
+      : entryPointCandidate2;
     await esbuild.build({
       entryPoints: [entryPoint],
       bundle: true,
@@ -68,10 +75,17 @@ async function bundle() {
     });
 
     // Copy third_party assets
-    const srcThirdParty = path.resolve(
+    const srcThirdPartyCandidate1 = path.resolve(
+      __dirname,
+      '../node_modules/chrome-devtools-mcp/build/src/third_party',
+    );
+    const srcThirdPartyCandidate2 = path.resolve(
       __dirname,
       '../../../node_modules/chrome-devtools-mcp/build/src/third_party',
     );
+    const srcThirdParty = fs.existsSync(srcThirdPartyCandidate1)
+      ? srcThirdPartyCandidate1
+      : srcThirdPartyCandidate2;
     const destThirdParty = path.resolve(
       __dirname,
       '../dist/bundled/third_party',

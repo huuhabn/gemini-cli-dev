@@ -122,7 +122,7 @@ export function ValidationDialog({
         <Box marginTop={1}>
           <RadioButtonSelect
             items={items}
-            onSelect={(choice) => void handleSelect(choice as ValidationIntent)}
+            onSelect={(choice) => void handleSelect(choice)}
           />
         </Box>
       </Box>
@@ -167,7 +167,7 @@ export function ValidationDialog({
       <Box marginTop={1} marginBottom={1}>
         <RadioButtonSelect
           items={items}
-          onSelect={(choice) => void handleSelect(choice as ValidationIntent)}
+          onSelect={(choice) => void handleSelect(choice)}
         />
       </Box>
       {learnMoreUrl && (

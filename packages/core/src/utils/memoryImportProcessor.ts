@@ -91,7 +91,7 @@ function hasMessage(err: unknown): err is { message: string } {
     typeof err === 'object' &&
     err !== null &&
     'message' in err &&
-    typeof (err as { message: unknown }).message === 'string'
+    typeof (err).message === 'string'
   );
 }
 

@@ -2605,7 +2605,7 @@ describe('runNonInteractive', () => {
       );
 
       const streamEvents: ServerGeminiStreamEvent[] = [
-        { type: GeminiEventType.LoopDetected } as ServerGeminiStreamEvent,
+        { type: GeminiEventType.LoopDetected },
         { type: GeminiEventType.Content, value: 'Continuing after loop' },
         {
           type: GeminiEventType.Finished,

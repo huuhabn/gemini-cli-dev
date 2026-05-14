@@ -426,7 +426,7 @@ async function parseTokenEndpointResponse(
     expires_in: expiresIn ? parseInt(expiresIn, 10) : undefined,
     refresh_token: refreshToken || undefined,
     scope: scope || undefined,
-  } as OAuthTokenResponse;
+  };
 }
 
 /**

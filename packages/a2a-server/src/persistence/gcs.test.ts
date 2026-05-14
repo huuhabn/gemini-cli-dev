@@ -425,7 +425,7 @@ describe('NoOpTaskStore', () => {
     // Create a mock of the real store to delegate to
     realStore = {
       save: vi.fn(),
-      load: vi.fn().mockResolvedValue({ id: 'task-123' } as SDKTask),
+      load: vi.fn().mockResolvedValue({ id: 'task-123' }),
     };
     noOpStore = new NoOpTaskStore(realStore);
   });

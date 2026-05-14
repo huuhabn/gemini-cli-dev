@@ -67,7 +67,7 @@ describe('agent-scheduler', () => {
     };
 
     const results = await scheduleAgentTools(
-      mockConfig as unknown as Config,
+      mockConfig,
       requests,
       options,
     );
@@ -104,7 +104,7 @@ describe('agent-scheduler', () => {
     });
 
     await scheduleAgentTools(
-      config as unknown as Config,
+      config,
       [
         {
           callId: 'c1',
@@ -116,7 +116,7 @@ describe('agent-scheduler', () => {
       ],
       {
         schedulerId: 'browser-1',
-        toolRegistry: agentRegistry as unknown as ToolRegistry,
+        toolRegistry: agentRegistry,
         signal: new AbortController().signal,
       },
     );
@@ -140,7 +140,7 @@ describe('agent-scheduler', () => {
       signal: new AbortController().signal,
     };
 
-    await scheduleAgentTools(mockConfig as unknown as Config, [], options);
+    await scheduleAgentTools(mockConfig, [], options);
 
     const schedulerInstance = vi.mocked(Scheduler).mock.results[0].value;
     expect(schedulerInstance.dispose).toHaveBeenCalledOnce();
@@ -192,7 +192,7 @@ describe('agent-scheduler', () => {
       signal: new AbortController().signal,
     };
 
-    await scheduleAgentTools(mockConfig as unknown as Config, [], options);
+    await scheduleAgentTools(mockConfig, [], options);
 
     const schedulerContext = vi.mocked(Scheduler).mock.calls[0][0].context;
     expect(schedulerContext.config).toBeDefined();

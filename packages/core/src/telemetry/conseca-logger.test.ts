@@ -47,7 +47,7 @@ describe('conseca-logger', () => {
     mockLogger = {
       emit: vi.fn(),
     };
-    vi.mocked(logs.getLogger).mockReturnValue(mockLogger as unknown as Logger);
+    vi.mocked(logs.getLogger).mockReturnValue(mockLogger);
     vi.mocked(sdk.isTelemetrySdkInitialized).mockReturnValue(true);
 
     mockClearcutLogger = {

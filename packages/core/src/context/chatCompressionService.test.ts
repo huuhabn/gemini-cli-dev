@@ -160,7 +160,7 @@ describe('ChatCompressionService', () => {
             },
           },
         ],
-      } as unknown as GenerateContentResponse)
+      })
       .mockResolvedValueOnce({
         candidates: [
           {
@@ -169,7 +169,7 @@ describe('ChatCompressionService', () => {
             },
           },
         ],
-      } as unknown as GenerateContentResponse);
+      });
 
     mockConfig = {
       get config() {
@@ -306,10 +306,10 @@ describe('ChatCompressionService', () => {
         .fn()
         .mockResolvedValueOnce({
           candidates: [{ content: { parts: [{ text: 'Initial Summary' }] } }],
-        } as unknown as GenerateContentResponse)
+        })
         .mockResolvedValueOnce({
           candidates: [{ content: { parts: [{ text: '   ' }] } }],
-        } as unknown as GenerateContentResponse),
+        }),
     };
     vi.mocked(mockConfig.getBaseLlmClient).mockReturnValue(
       mockLlmClient as unknown as BaseLlmClient,
@@ -497,7 +497,7 @@ describe('ChatCompressionService', () => {
             },
           },
         ],
-      } as unknown as GenerateContentResponse),
+      }),
     };
     vi.mocked(mockConfig.getBaseLlmClient).mockReturnValue(
       mockLlmClient as unknown as BaseLlmClient,

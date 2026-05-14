@@ -724,8 +724,8 @@ export class GeminiChat {
           toolSelectionResult.tools &&
           Array.isArray(toolSelectionResult.tools)
         ) {
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-          config.tools = toolSelectionResult.tools as Tool[];
+           
+          config.tools = toolSelectionResult.tools;
         }
       }
 
@@ -990,8 +990,8 @@ export class GeminiChat {
         (candidate) => candidate.finishReason,
       );
       if (candidateWithReason) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-        finishReason = candidateWithReason.finishReason as FinishReason;
+         
+        finishReason = candidateWithReason.finishReason;
       }
 
       if (chunk.functionCalls && chunk.functionCalls.length > 0) {

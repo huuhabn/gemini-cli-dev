@@ -223,7 +223,7 @@ describe('oauth2', () => {
           typeof http.IncomingMessage,
           typeof http.ServerResponse
         >;
-        return mockHttpServer as unknown as http.Server;
+        return mockHttpServer;
       });
 
       const clientPromise = getOauthClient(
@@ -704,7 +704,7 @@ describe('oauth2', () => {
           json: vi
             .fn()
             .mockResolvedValue({ email: 'test-gcp-account@gmail.com' }),
-        } as unknown as Response);
+        });
 
         const client = await getOauthClient(
           AuthType.LOGIN_WITH_GOOGLE,
@@ -842,7 +842,7 @@ describe('oauth2', () => {
           address: () => ({ port: 3000 }),
         };
         (http.createServer as Mock).mockImplementation(
-          () => mockHttpServer as unknown as http.Server,
+          () => mockHttpServer,
         );
 
         // Mock setTimeout to trigger timeout immediately
@@ -909,7 +909,7 @@ describe('oauth2', () => {
         };
         (http.createServer as Mock).mockImplementation((cb) => {
           requestCallback = cb;
-          return mockHttpServer as unknown as http.Server;
+          return mockHttpServer;
         });
 
         const clearTimeoutSpy = vi.spyOn(global, 'clearTimeout');
@@ -970,7 +970,7 @@ describe('oauth2', () => {
         };
         (http.createServer as Mock).mockImplementation((cb) => {
           requestCallback = cb;
-          return mockHttpServer as unknown as http.Server;
+          return mockHttpServer;
         });
 
         const clientPromise = getOauthClient(
@@ -1027,7 +1027,7 @@ describe('oauth2', () => {
         };
         (http.createServer as Mock).mockImplementation((cb) => {
           requestCallback = cb;
-          return mockHttpServer as unknown as http.Server;
+          return mockHttpServer;
         });
 
         const clientPromise = getOauthClient(
@@ -1084,7 +1084,7 @@ describe('oauth2', () => {
         };
         (http.createServer as Mock).mockImplementation((cb) => {
           requestCallback = cb;
-          return mockHttpServer as unknown as http.Server;
+          return mockHttpServer;
         });
 
         const clientPromise = getOauthClient(
@@ -1155,7 +1155,7 @@ describe('oauth2', () => {
         };
         (http.createServer as Mock).mockImplementation((cb) => {
           requestCallback = cb;
-          return mockHttpServer as unknown as http.Server;
+          return mockHttpServer;
         });
 
         const clientPromise = getOauthClient(
@@ -1343,7 +1343,7 @@ describe('oauth2', () => {
           address: () => ({ port: 3000 }),
         };
         (http.createServer as Mock).mockImplementation(
-          () => mockHttpServer as unknown as http.Server,
+          () => mockHttpServer,
         );
 
         // Mock process.on to capture SIGINT handler
@@ -1407,7 +1407,7 @@ describe('oauth2', () => {
           address: () => ({ port: 3000 }),
         };
         (http.createServer as Mock).mockImplementation(
-          () => mockHttpServer as unknown as http.Server,
+          () => mockHttpServer,
         );
 
         // Spy on process.stdin.on to capture data handler
@@ -1431,7 +1431,7 @@ describe('oauth2', () => {
           const dataCall = stdinOnSpy.mock.calls.find(
             (call: [string | symbol, ...unknown[]]) => call[0] === 'data',
           );
-          dataHandler = dataCall?.[1] as ((data: Buffer) => void) | undefined;
+          dataHandler = dataCall?.[1];
           if (!dataHandler) throw new Error('stdin handler not registered yet');
         });
 
@@ -1469,7 +1469,7 @@ describe('oauth2', () => {
           address: () => ({ port: 3000 }),
         };
         (http.createServer as Mock).mockImplementation(
-          () => mockHttpServer as unknown as http.Server,
+          () => mockHttpServer,
         );
         vi.mocked(OAuth2Client).mockImplementation(
           () =>
@@ -1492,7 +1492,7 @@ describe('oauth2', () => {
         await vi.waitFor(() => {
           dataHandler = stdinOnSpy.mock.calls.find(
             (c: [string | symbol, ...unknown[]]) => c[0] === 'data',
-          )?.[1] as (data: Buffer) => void;
+          )?.[1];
           if (!dataHandler) throw new Error('handler not registered');
         });
 
@@ -1672,7 +1672,7 @@ describe('oauth2', () => {
         json: vi
           .fn()
           .mockResolvedValue({ email: 'test-google-account@gmail.com' }),
-      } as unknown as Response);
+      });
 
       let requestCallback!: http.RequestListener;
       let serverListeningCallback: (value: unknown) => void;
@@ -1699,7 +1699,7 @@ describe('oauth2', () => {
       };
       (http.createServer as Mock).mockImplementation((cb) => {
         requestCallback = cb as http.RequestListener;
-        return mockHttpServer as unknown as http.Server;
+        return mockHttpServer;
       });
 
       const clientPromise = getOauthClient(

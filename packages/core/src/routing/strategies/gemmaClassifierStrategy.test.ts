@@ -289,7 +289,7 @@ another user turn
     mockContext.history = [
       { role: 'user', parts: [{ text: 'first message' }] },
       // This part has no `text` property and should be filtered out.
-      { role: 'user', parts: [{}] } as Content,
+      { role: 'user', parts: [{}] },
       { role: 'user', parts: [{ text: 'second message' }] },
     ];
     const mockApiResponse = {

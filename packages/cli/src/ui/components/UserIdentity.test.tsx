@@ -129,7 +129,7 @@ describe('<UserIdentity />', () => {
   it('should not render if authType is missing', async () => {
     const mockConfig = makeFakeConfig();
     vi.spyOn(mockConfig, 'getContentGeneratorConfig').mockReturnValue(
-      {} as unknown as ContentGeneratorConfig,
+      {},
     );
 
     const { lastFrame, unmount } = await renderWithProviders(

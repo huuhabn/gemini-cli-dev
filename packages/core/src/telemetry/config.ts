@@ -67,7 +67,7 @@ export async function resolveTelemetrySettings(options: {
   const rawTarget =
     argv.telemetryTarget ??
     env['GEMINI_TELEMETRY_TARGET'] ??
-    (settings.target as string | TelemetryTarget | undefined);
+    (settings.target);
   const target = parseTelemetryTargetValue(rawTarget);
   if (rawTarget !== undefined && target === undefined) {
     throw new FatalConfigError(

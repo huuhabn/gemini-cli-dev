@@ -387,7 +387,7 @@ export class CoderAgentExecutor implements AgentExecutor {
               messageId: uuidv4(),
               taskId,
               contextId: sdkTask.contextId,
-            } as Message,
+            },
           },
           final: true,
           metadata: { coderAgent: stateChange },

@@ -215,7 +215,7 @@ export class HookRunner {
               (modifiedInput as BeforeModelInput).llm_request = {
                 ...currentRequest,
                 ...partialRequest,
-              } as LLMRequest;
+              };
             }
           }
           break;

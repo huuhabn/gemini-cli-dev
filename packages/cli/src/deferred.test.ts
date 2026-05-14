@@ -63,7 +63,7 @@ describe('deferred', () => {
       const mockHandler = vi.fn();
       setDeferredCommand({
         handler: mockHandler,
-        argv: { _: [], $0: 'gemini' } as ArgumentsCamelCase,
+        argv: { _: [], $0: 'gemini' },
         commandName: 'mcp',
       });
 

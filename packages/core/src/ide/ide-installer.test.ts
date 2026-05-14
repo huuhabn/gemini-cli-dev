@@ -68,7 +68,7 @@ describe('ide-installer', () => {
       ide = IDE_DEFINITIONS.vscode,
       existsResult = false,
       execSync = () => '',
-      platform = 'linux' as NodeJS.Platform,
+      platform = 'linux',
     }: {
       ide?: IdeInfo;
       existsResult?: boolean;
@@ -85,7 +85,7 @@ describe('ide-installer', () => {
     describe('install', () => {
       it.each([
         {
-          platform: 'win32' as NodeJS.Platform,
+          platform: 'win32',
           expectedLookupPaths: [
             path.join('C:\\Program Files', 'Microsoft VS Code/bin/code.cmd'),
             path.join(
@@ -95,14 +95,14 @@ describe('ide-installer', () => {
           ],
         },
         {
-          platform: 'darwin' as NodeJS.Platform,
+          platform: 'darwin',
           expectedLookupPaths: [
             '/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code',
             path.join(HOME_DIR, 'Library/Application Support/Code/bin/code'),
           ],
         },
         {
-          platform: 'linux' as NodeJS.Platform,
+          platform: 'linux',
           expectedLookupPaths: ['/usr/share/code/bin/code'],
         },
       ])(
@@ -205,7 +205,7 @@ describe('ide-installer', () => {
   describe('PositronInstaller', () => {
     function setup({
       execSync = () => '',
-      platform = 'linux' as NodeJS.Platform,
+      platform = 'linux',
       existsResult = false,
     }: {
       execSync?: () => string;
@@ -253,7 +253,7 @@ describe('ide-installer', () => {
 describe('AntigravityInstaller', () => {
   function setup({
     execSync = () => '',
-    platform = 'linux' as NodeJS.Platform,
+    platform = 'linux',
   }: {
     execSync?: () => string;
     platform?: NodeJS.Platform;

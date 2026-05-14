@@ -112,7 +112,7 @@ export const enableCommand: CommandModule<object, Args> = {
         default: false,
       }),
   handler: async (argv) => {
-    await handleEnable(argv as Args);
+    await handleEnable(argv);
     await exitCli();
   },
 };
@@ -133,7 +133,7 @@ export const disableCommand: CommandModule<object, Args> = {
         default: false,
       }),
   handler: async (argv) => {
-    await handleDisable(argv as Args);
+    await handleDisable(argv);
     await exitCli();
   },
 };

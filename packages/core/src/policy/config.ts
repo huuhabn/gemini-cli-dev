@@ -779,7 +779,7 @@ export function createPolicyUpdater(
                 parsed !== null &&
                 (!('rule' in parsed) || Array.isArray(parsed['rule']))
               ) {
-                existingData = parsed as { rule?: TomlRule[] };
+                existingData = parsed;
               }
             } catch (error) {
               if (!isNodeError(error) || error.code !== 'ENOENT') {

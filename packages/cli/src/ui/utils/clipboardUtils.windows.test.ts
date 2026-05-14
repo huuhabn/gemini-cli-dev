@@ -49,7 +49,7 @@ describe('saveClipboardImage Windows Path Escaping', () => {
     vi.mocked(spawnAsync).mockResolvedValue({
       stdout: 'success',
       stderr: '',
-    } as any); // eslint-disable-line @typescript-eslint/no-explicit-any
+    });  
 
     const targetDir = "C:\\User's Files";
     await saveClipboardImage(targetDir);

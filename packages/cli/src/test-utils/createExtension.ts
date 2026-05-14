@@ -23,7 +23,7 @@ export function createExtension({
   version = '1.0.0',
   addContextFile = false,
   contextFileName = undefined as string | undefined,
-  mcpServers = {} as Record<string, MCPServerConfig>,
+  mcpServers = {},
   installMetadata = undefined as ExtensionInstallMetadata | undefined,
   settings = undefined as ExtensionSetting[] | undefined,
   themes = undefined as CustomTheme[] | undefined,

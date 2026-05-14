@@ -38,7 +38,7 @@ export function SlicingMaxSizedBox<T>({
     // Only truncate string output if not in alternate buffer mode to ensure
     // we can scroll through the full output.
     if (typeof data === 'string' && !isAlternateBuffer) {
-      let text: string = data as string;
+      let text: string = data;
       if (text.length > MAXIMUM_RESULT_DISPLAY_CHARACTERS) {
         if (overflowDirection === 'bottom') {
           text = text.slice(0, MAXIMUM_RESULT_DISPLAY_CHARACTERS) + '...';

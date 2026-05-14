@@ -79,7 +79,7 @@ function createMockConfig(overrides: Partial<Config> = {}): Config {
     isContextManagementEnabled: () => false,
   } as unknown as Config;
 
-  const mockConfig = Object.assign({}, baseConfig, overrides) as Config;
+  const mockConfig = Object.assign({}, baseConfig, overrides);
 
   (mockConfig as { config?: Config }).config = mockConfig;
 

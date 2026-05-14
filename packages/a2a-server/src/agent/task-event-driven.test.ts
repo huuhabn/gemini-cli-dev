@@ -661,7 +661,7 @@ describe('Task Event-Driven Scheduler', () => {
       isSubagentProgress: true,
       agentName: 'researcher',
       recentActivity: [],
-    } as ToolLiveOutput);
+    });
 
     expect(mockEventBus.publish).toHaveBeenCalledWith(
       expect.objectContaining({

@@ -691,7 +691,7 @@ Hello
 
 Hi there!`;
 
-      const result = serializeHistoryToMarkdown(history as Content[]);
+      const result = serializeHistoryToMarkdown(history);
       expect(result).toBe(expectedMarkdown);
     });
     describe('debug subcommand', () => {

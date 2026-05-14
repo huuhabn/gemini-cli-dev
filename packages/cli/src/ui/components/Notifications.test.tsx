@@ -101,7 +101,7 @@ describe('Notifications', () => {
     mockUseAppContext.mockReturnValue({
       startupWarnings: [],
       version: '1.0.0',
-    } as AppState);
+    });
     mockUseUIState.mockReturnValue({
       initError: null,
       streamingState: 'idle',
@@ -134,7 +134,7 @@ describe('Notifications', () => {
     const appState = {
       startupWarnings: warnings,
       version: '1.0.0',
-    } as AppState;
+    };
     mockUseAppContext.mockReturnValue(appState);
     const { lastFrame, unmount } = await renderWithProviders(
       <Notifications />,
@@ -158,7 +158,7 @@ describe('Notifications', () => {
     const appState = {
       startupWarnings: warnings,
       version: '1.0.0',
-    } as AppState;
+    };
     mockUseAppContext.mockReturnValue(appState);
 
     const { unmount } = await renderWithProviders(<Notifications />, {
@@ -186,7 +186,7 @@ describe('Notifications', () => {
     const appState = {
       startupWarnings: warnings,
       version: '1.0.0',
-    } as AppState;
+    };
     mockUseAppContext.mockReturnValue(appState);
 
     persistentStateMock.setData({
@@ -218,7 +218,7 @@ describe('Notifications', () => {
     const appState = {
       startupWarnings: warnings,
       version: '1.0.0',
-    } as AppState;
+    };
     mockUseAppContext.mockReturnValue(appState);
 
     const { lastFrame, stdin, waitUntilReady, unmount } =

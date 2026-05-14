@@ -192,7 +192,7 @@ async function handleExecuteCommand(
   }
 }
 
-export async function createApp() {
+export async function createApp(): Promise<express.Express> {
   try {
     // Load the server configuration once on startup.
     const workspaceRoot = setTargetDir(undefined);
@@ -366,6 +366,7 @@ export async function createApp() {
   } catch (error) {
     logger.error('[CoreAgent] Error during startup:', error);
     process.exit(1);
+    throw error;
   }
 }
 

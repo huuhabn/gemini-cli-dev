@@ -375,7 +375,7 @@ export function SettingsDialog({
   );
 
   const handleClose = useCallback(() => {
-    onSelect(undefined, effectiveSelectedScope as SettingScope);
+    onSelect(undefined, effectiveSelectedScope);
   }, [onSelect, effectiveSelectedScope]);
 
   const globalKeyMatchers = useKeyMatchers();

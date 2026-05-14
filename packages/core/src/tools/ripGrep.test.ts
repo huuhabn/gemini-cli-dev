@@ -87,7 +87,7 @@ function createMockSpawn(
 
     const stderr = new PassThrough();
     const mockProcess = new EventEmitter() as ChildProcess;
-    mockProcess.stdout = stdout as unknown as Readable;
+    mockProcess.stdout = stdout;
     mockProcess.stderr = stderr;
     mockProcess.kill = vi.fn();
     // @ts-expect-error - mocking private/internal property

@@ -619,7 +619,7 @@ describe('MainContent', () => {
     };
 
     const { lastFrame, unmount } = await renderWithProviders(<MainContent />, {
-      uiState: uiState as Partial<UIState>,
+      uiState,
     });
 
     await waitFor(() => {
@@ -795,7 +795,7 @@ describe('MainContent', () => {
     };
 
     const renderResult = await renderWithProviders(<MainContent />, {
-      uiState: uiState as Partial<UIState>,
+      uiState,
     });
 
     const output = renderResult.lastFrame();

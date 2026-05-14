@@ -56,7 +56,7 @@ describe('useTurnActivityMonitor', () => {
       {
         initialProps: {
           state: StreamingState.Responding,
-          ptyId: 'pty-1' as string | null,
+          ptyId: 'pty-1',
         },
       },
     );

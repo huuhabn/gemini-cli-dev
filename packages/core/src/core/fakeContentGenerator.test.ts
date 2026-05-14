@@ -61,14 +61,14 @@ describe('FakeContentGenerator', () => {
 
   const fakeCountTokensResponse: FakeResponse = {
     method: 'countTokens',
-    response: { totalTokens: 10 } as CountTokensResponse,
+    response: { totalTokens: 10 },
   };
 
   const fakeEmbedContentResponse: FakeResponse = {
     method: 'embedContent',
     response: {
       embeddings: [{ values: [1, 2, 3] }],
-    } as EmbedContentResponse,
+    },
   };
 
   beforeEach(() => {

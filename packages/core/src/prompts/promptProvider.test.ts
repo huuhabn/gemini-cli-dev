@@ -56,7 +56,7 @@ describe('PromptProvider', () => {
       get toolRegistry() {
         return (
           this as { getToolRegistry: () => ToolRegistry }
-        ).getToolRegistry?.() as unknown as ToolRegistry;
+        ).getToolRegistry?.();
       },
       getToolRegistry: vi.fn().mockReturnValue(mockToolRegistry),
       getProjectRoot: vi.fn().mockReturnValue('/tmp/project-temp'),
@@ -309,7 +309,7 @@ describe('PromptProvider', () => {
       vi.mocked(mockConfig.isTopicUpdateNarrationEnabled).mockReturnValue(true);
 
       const prompt = provider.getCoreSystemPrompt(
-        mockConfig as unknown as Config,
+        mockConfig,
         /*userMemory=*/ undefined,
         /*interactiveOverride=*/ undefined,
         /*topicUpdateNarrationOverride=*/ false,
@@ -326,7 +326,7 @@ describe('PromptProvider', () => {
       );
 
       const prompt = provider.getCoreSystemPrompt(
-        mockConfig as unknown as Config,
+        mockConfig,
         /*userMemory=*/ undefined,
         /*interactiveOverride=*/ undefined,
         /*topicUpdateNarrationOverride=*/ true,

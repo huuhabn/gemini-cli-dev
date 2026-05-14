@@ -250,13 +250,13 @@ describe('LocalSubagentInvocation', () => {
             agentName: 'MockAgent',
             type: 'THOUGHT_CHUNK',
             data: { text: 'Analyzing...' },
-          } as SubagentActivityEvent);
+          });
           onActivity({
             isSubagentActivityEvent: true,
             agentName: 'MockAgent',
             type: 'THOUGHT_CHUNK',
             data: { text: 'Thinking about next steps.' },
-          } as SubagentActivityEvent);
+          });
         }
         return { result: 'Done', terminate_reason: AgentTerminateMode.GOAL };
       });
@@ -289,13 +289,13 @@ describe('LocalSubagentInvocation', () => {
             agentName: 'MockAgent',
             type: 'THOUGHT_CHUNK',
             data: { text: 'I am thinking.' },
-          } as SubagentActivityEvent);
+          });
           onActivity({
             isSubagentActivityEvent: true,
             agentName: 'MockAgent',
             type: 'THOUGHT_CHUNK',
             data: { text: 'Now I will act.' },
-          } as SubagentActivityEvent);
+          });
         }
         return { result: 'Done', terminate_reason: AgentTerminateMode.GOAL };
       });
@@ -322,13 +322,13 @@ describe('LocalSubagentInvocation', () => {
             agentName: 'MockAgent',
             type: 'TOOL_CALL_START',
             data: { name: 'ls', args: {} },
-          } as SubagentActivityEvent);
+          });
           onActivity({
             isSubagentActivityEvent: true,
             agentName: 'MockAgent',
             type: 'ERROR',
             data: { error: 'Failed' },
-          } as SubagentActivityEvent);
+          });
         }
         return { result: 'Done', terminate_reason: AgentTerminateMode.GOAL };
       });
@@ -356,13 +356,13 @@ describe('LocalSubagentInvocation', () => {
             agentName: 'MockAgent',
             type: 'TOOL_CALL_START',
             data: { name: 'ls', args: {}, callId: 'call1' },
-          } as SubagentActivityEvent);
+          });
           onActivity({
             isSubagentActivityEvent: true,
             agentName: 'MockAgent',
             type: 'TOOL_CALL_END',
             data: { name: 'ls', id: 'call1', data: { isError: true } },
-          } as SubagentActivityEvent);
+          });
         }
         return { result: 'Done', terminate_reason: AgentTerminateMode.GOAL };
       });
@@ -392,7 +392,7 @@ describe('LocalSubagentInvocation', () => {
             agentName: 'MockAgent',
             type: 'TOOL_CALL_START',
             data: { name: 'ls', args: {}, callId: 'call1' },
-          } as SubagentActivityEvent);
+          });
           onActivity({
             isSubagentActivityEvent: true,
             agentName: 'MockAgent',
@@ -403,7 +403,7 @@ describe('LocalSubagentInvocation', () => {
               error: `${SUBAGENT_REJECTED_ERROR_PREFIX} Please acknowledge this, rethink your strategy, and try a different approach. If you cannot proceed without the rejected operation, summarize the issue and use \`complete_task\` to report your findings and the blocker.`,
               errorType: SubagentActivityErrorType.REJECTED,
             },
-          } as SubagentActivityEvent);
+          });
         }
         return {
           result: 'Rethinking...',
@@ -434,7 +434,7 @@ describe('LocalSubagentInvocation', () => {
             agentName: 'testAgent',
             type: 'THOUGHT_CHUNK',
             data: { text: 'Thinking silently.' },
-          } as SubagentActivityEvent);
+          });
         }
         return { result: 'Done', terminate_reason: AgentTerminateMode.GOAL };
       });
@@ -537,7 +537,7 @@ describe('LocalSubagentInvocation', () => {
             agentName: 'MockAgent',
             type: 'THOUGHT_CHUNK',
             data: { text: 'Thinking...' },
-          } as SubagentActivityEvent);
+          });
         }
         return { result: 'Done', terminate_reason: AgentTerminateMode.GOAL };
       });

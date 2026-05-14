@@ -60,7 +60,7 @@ describe('summarizers', () => {
     );
     (mockConfigInstance.modelConfigService as unknown) = {
       getResolvedConfig: vi.fn().mockReturnValue(mockResolvedConfig),
-    } as unknown as ModelConfigService;
+    };
 
     // .config is already set correctly by the getter on the instance.
     Object.defineProperty(mockConfigInstance, 'promptId', {

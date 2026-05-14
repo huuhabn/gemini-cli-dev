@@ -273,8 +273,8 @@ const renderComposer = async (
   };
 
   const result = await render(
-    <ConfigContext.Provider value={config as unknown as Config}>
-      <SettingsContext.Provider value={settings as unknown as LoadedSettings}>
+    <ConfigContext.Provider value={config}>
+      <SettingsContext.Provider value={settings}>
         <QuotaContext.Provider value={quotaState}>
           <InputContext.Provider value={inputState}>
             <UIStateContext.Provider value={uiState}>

@@ -73,7 +73,7 @@ describe('App', () => {
     mainControlsRef: vi.fn(),
     rootUiRef: {
       current: null,
-    } as unknown as React.MutableRefObject<DOMElement | null>,
+    },
     historyManager: {
       addItem: vi.fn(),
       history: [],

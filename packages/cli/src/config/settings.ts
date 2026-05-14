@@ -247,7 +247,7 @@ export function getDefaultsFromSchema(
       defaults[key] = definition.default;
     }
   }
-  return defaults as Settings;
+  return defaults;
 }
 
 export function mergeSettings(
@@ -774,7 +774,7 @@ function _doLoadSettings(workspaceDir: string): LoadedSettings {
           });
           return {
             settings: expandedSettings,
-            rawSettings: settingsObject as Settings,
+            rawSettings: settingsObject,
             rawJson: content,
           };
         }
@@ -785,7 +785,7 @@ function _doLoadSettings(workspaceDir: string): LoadedSettings {
           // it's safe to cast the resulting data to the Settings type.
           // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
           settings: (validationResult.data as Settings) ?? expandedSettings,
-          rawSettings: settingsObject as Settings,
+          rawSettings: settingsObject,
           rawJson: content,
         };
       }
@@ -808,8 +808,8 @@ function _doLoadSettings(workspaceDir: string): LoadedSettings {
     rawSettings: Settings;
     rawJson?: string;
   } = {
-    settings: {} as Settings,
-    rawSettings: {} as Settings,
+    settings: {},
+    rawSettings: {},
     rawJson: undefined,
   };
   if (!storage.isWorkspaceHomeDir()) {
@@ -852,7 +852,7 @@ function _doLoadSettings(workspaceDir: string): LoadedSettings {
     systemSettings,
   );
   const isTrusted =
-    isWorkspaceTrusted(initialTrustCheckSettings as Settings, workspaceDir)
+    isWorkspaceTrusted(initialTrustCheckSettings, workspaceDir)
       .isTrusted ?? false;
 
   // Create a temporary merged settings object to pass to loadEnvironment.
@@ -974,9 +974,7 @@ export function migrateDeprecatedSettings(
     const foundDeprecated: string[] = [];
 
     // Migrate general settings
-    const generalSettings = settings.general as
-      | Record<string, unknown>
-      | undefined;
+    const generalSettings = settings.general;
     if (generalSettings) {
       const newGeneral = { ...generalSettings };
       let modified = false;
@@ -1007,13 +1005,11 @@ export function migrateDeprecatedSettings(
     }
 
     // Migrate ui settings
-    const uiSettings = settings.ui as Record<string, unknown> | undefined;
+    const uiSettings = settings.ui;
     if (uiSettings) {
       const newUi = { ...uiSettings };
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-      const accessibilitySettings = newUi['accessibility'] as
-        | Record<string, unknown>
-        | undefined;
+       
+      const accessibilitySettings = newUi['accessibility'];
 
       if (accessibilitySettings) {
         const newAccessibility = { ...accessibilitySettings };
@@ -1052,15 +1048,11 @@ export function migrateDeprecatedSettings(
     }
 
     // Migrate context settings
-    const contextSettings = settings.context as
-      | Record<string, unknown>
-      | undefined;
+    const contextSettings = settings.context;
     if (contextSettings) {
       const newContext = { ...contextSettings };
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-      const fileFilteringSettings = newContext['fileFiltering'] as
-        | Record<string, unknown>
-        | undefined;
+       
+      const fileFilteringSettings = newContext['fileFiltering'];
 
       if (fileFilteringSettings) {
         const newFileFiltering = { ...fileFilteringSettings };
@@ -1083,13 +1075,13 @@ export function migrateDeprecatedSettings(
     }
 
     // Migrate tools settings
-    const toolsSettings = settings.tools as Record<string, unknown> | undefined;
+    const toolsSettings = settings.tools;
     if (toolsSettings) {
       if (toolsSettings['approvalMode'] !== undefined) {
         foundDeprecated.push('tools.approvalMode');
 
         const generalSettings =
-          (settings.general as Record<string, unknown> | undefined) || {};
+          (settings.general) || {};
         const newGeneral = { ...generalSettings };
 
         // Only set defaultApprovalMode if it's not already set
@@ -1169,7 +1161,7 @@ export function saveSettings(settingsFile: SettingsFile): void {
     // Use the format-preserving update function
     updateSettingsFilePreservingFormat(
       settingsFile.path,
-      settingsToSave as Record<string, unknown>,
+      settingsToSave,
     );
   } catch (error) {
     const detailedErrorMessage = getFsErrorMessage(error);
@@ -1204,13 +1196,11 @@ function migrateExperimentalSettings(
   removeDeprecated: boolean,
   foundDeprecated?: string[],
 ): boolean {
-  const experimentalSettings = settings.experimental as
-    | Record<string, unknown>
-    | undefined;
+  const experimentalSettings = settings.experimental;
 
   if (experimentalSettings) {
     const agentsSettings = {
-      ...(settings.agents as Record<string, unknown> | undefined),
+      ...(settings.agents),
     };
     const agentsOverrides = {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
@@ -1294,11 +1284,11 @@ function migrateExperimentalSettings(
     // Migrate experimental.plan -> general.plan.enabled
     migrateExperimental<boolean>('plan', (planValue) => {
       const generalSettings =
-        (settings.general as Record<string, unknown> | undefined) || {};
+        (settings.general) || {};
       const newGeneral = { ...generalSettings };
       const planSettings =
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-        (newGeneral['plan'] as Record<string, unknown> | undefined) || {};
+         
+        (newGeneral['plan']) || {};
       const newPlan = { ...planSettings };
 
       if (newPlan['enabled'] === undefined) {

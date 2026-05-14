@@ -65,7 +65,7 @@ const renderWithMockedStats = async (
 
     getPromptCount: () => 5,
     startNewPrompt: vi.fn(),
-  } as unknown as ReturnType<typeof SessionContext.useSessionStats>);
+  });
 
   vi.mocked(useConfig).mockReturnValue({
     getWorktreeSettings: () => worktreeSettings,

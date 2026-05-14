@@ -965,7 +965,7 @@ export class GeminiClient {
         );
 
         // Cast to AfterAgentHookOutput for access to shouldClearContext()
-        const afterAgentOutput = hookOutput as AfterAgentHookOutput | undefined;
+        const afterAgentOutput = hookOutput;
 
         if (afterAgentOutput?.shouldStopExecution()) {
           const contextCleared = afterAgentOutput.shouldClearContext();

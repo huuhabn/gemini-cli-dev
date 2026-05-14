@@ -178,7 +178,7 @@ const createExpectedAnsiOutput = (text: string | string[]): AnsiOutput => {
       isUninitialized: false,
       fg: '',
       bg: '',
-    } as AnsiToken,
+    },
   ]);
   return expected;
 };
@@ -1197,7 +1197,7 @@ describe('ShellExecutionService', () => {
 
       // Spy on the actual stored object's destroy
       const storedDestroySpy = vi.spyOn(
-        activePty!.ptyProcess as never as { destroy: () => void },
+        activePty!.ptyProcess as never,
         'destroy',
       );
 

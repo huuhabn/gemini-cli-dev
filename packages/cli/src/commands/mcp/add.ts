@@ -62,7 +62,7 @@ async function addMcpServer(
       }
       return acc;
     },
-    {} as Record<string, string>,
+    {},
   );
 
   switch (transport) {
@@ -103,7 +103,7 @@ async function addMcpServer(
             }
             return acc;
           },
-          {} as Record<string, string>,
+          {},
         ),
         timeout,
         trust,
@@ -124,7 +124,7 @@ async function addMcpServer(
     );
   }
 
-  mcpServers[name] = newServer as MCPServerConfig;
+  mcpServers[name] = newServer;
 
   settings.setValue(settingsScope, 'mcpServers', mcpServers);
 

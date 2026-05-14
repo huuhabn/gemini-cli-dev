@@ -83,11 +83,11 @@ describe('experiments with GEMINI_EXP', () => {
       experimentIds: [111],
     };
     vi.mocked(mockServer.listExperiments).mockResolvedValue(
-      mockApiResponse as ListExperimentsResponse,
+      mockApiResponse,
     );
     const { getClientMetadata } = await import('./client_metadata.js');
     vi.mocked(getClientMetadata).mockResolvedValue(
-      {} as unknown as ClientMetadata,
+      {},
     );
 
     const { getExperiments } = await import('./experiments.js');
@@ -135,11 +135,11 @@ describe('experiments with GEMINI_EXP', () => {
       experimentIds: [555],
     };
     vi.mocked(mockServer.listExperiments).mockResolvedValue(
-      mockApiResponse as ListExperimentsResponse,
+      mockApiResponse,
     );
     const { getClientMetadata } = await import('./client_metadata.js');
     vi.mocked(getClientMetadata).mockResolvedValue(
-      {} as unknown as ClientMetadata,
+      {},
     );
 
     const { getExperiments } = await import('./experiments.js');

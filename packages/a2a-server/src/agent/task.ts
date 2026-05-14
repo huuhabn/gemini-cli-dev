@@ -371,7 +371,7 @@ export class Task {
         {
           kind: 'text',
           text: outputAsText,
-        } as Part,
+        },
       ],
     };
     const artifactEvent: TaskArtifactUpdateEvent = {
@@ -495,7 +495,7 @@ export class Task {
       this.pendingToolConfirmationDetails.set(callId, {
         ...details,
         onConfirm: async () => {},
-      } as ToolCallConfirmationDetails);
+      });
     }
 
     // 4. Publish Status Updates to A2A event bus
@@ -622,7 +622,7 @@ export class Task {
     messageParts.push({
       kind: 'data',
       data: serializableToolCall,
-    } as Part);
+    });
 
     return {
       kind: 'message',
@@ -1226,7 +1226,7 @@ export class Task {
         {
           kind: 'data',
           data: content,
-        } as Part,
+        },
       ],
       messageId: this.currentAgentMessageId,
       taskId: this.id,

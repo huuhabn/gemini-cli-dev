@@ -277,7 +277,7 @@ describe('mcp add command', () => {
           .spyOn(process, 'exit')
           .mockImplementation((() => {
             throw new Error('process.exit called');
-          }) as (code?: number | string | null) => never);
+          }));
 
         await expect(
           parser.parseAsync(`add ${serverName} ${command}`),
@@ -295,7 +295,7 @@ describe('mcp add command', () => {
           .spyOn(process, 'exit')
           .mockImplementation((() => {
             throw new Error('process.exit called');
-          }) as (code?: number | string | null) => never);
+          }));
 
         await expect(
           parser.parseAsync(`add --scope project ${serverName} ${command}`),

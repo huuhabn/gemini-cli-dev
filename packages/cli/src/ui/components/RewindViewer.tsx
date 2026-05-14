@@ -90,7 +90,7 @@ export const RewindViewer: React.FC<RewindViewerProps> = ({
           type: 'user',
           content: 'Stay at current position',
           timestamp: new Date().toISOString(),
-        } as MessageRecord,
+        },
         index: interactionItems.length,
       },
     ];

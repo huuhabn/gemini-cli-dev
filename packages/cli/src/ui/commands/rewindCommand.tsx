@@ -58,7 +58,7 @@ async function rewindConversation(
     const { uiHistory } = convertSessionToHistoryFormats(conversation.messages);
     const clientHistory = convertSessionToClientHistory(conversation.messages);
 
-    client.setHistory(clientHistory as Content[]);
+    client.setHistory(clientHistory);
 
     // Reset context manager as we are rewinding history
     await context.services.agentContext?.config
@@ -73,7 +73,7 @@ async function rewindConversation(
         ({
           ...item,
           id: startId + idx,
-        }) as HistoryItem,
+        }),
     );
 
     // 1. Remove component FIRST to avoid flicker and clear the stage

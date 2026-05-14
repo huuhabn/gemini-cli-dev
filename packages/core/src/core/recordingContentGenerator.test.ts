@@ -146,7 +146,7 @@ describe('RecordingContentGenerator', () => {
 
   it('should record embedContent responses', async () => {
     const mockResponse = {
-      embeddings: [{ values: [1, 2, 3] } as ContentEmbedding],
+      embeddings: [{ values: [1, 2, 3] }],
     } as EmbedContentResponse;
     (mockRealGenerator.embedContent as Mock).mockResolvedValue(mockResponse);
 

@@ -339,7 +339,7 @@ describe('mcp list command', () => {
       mockSettings as unknown as {
         setRemoteAdminSettings: (controls: AdminControlsSettings) => void;
       }
-    ).setRemoteAdminSettings(adminControls as unknown as AdminControlsSettings);
+    ).setRemoteAdminSettings(adminControls);
 
     mockedLoadSettings.mockReturnValue(mockSettings);
 

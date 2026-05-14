@@ -138,7 +138,7 @@ export const statsCommand: SlashCommand = {
       action: (context: CommandContext) => {
         context.ui.addItem({
           type: MessageType.TOOL_STATS,
-        } as HistoryItemToolStats);
+        });
       },
     },
   ],

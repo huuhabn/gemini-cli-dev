@@ -28,7 +28,7 @@ describe('SessionSummaryService', () => {
           },
         },
       ],
-    } as unknown as GenerateContentResponse);
+    });
 
     mockBaseLlmClient = {
       generateContent: mockGenerateContent,
@@ -427,7 +427,7 @@ describe('SessionSummaryService', () => {
             },
           },
         ],
-      } as unknown as GenerateContentResponse);
+      });
 
       const messages: MessageRecord[] = [
         {
@@ -458,7 +458,7 @@ describe('SessionSummaryService', () => {
             },
           },
         ],
-      } as unknown as GenerateContentResponse);
+      });
 
       const messages: MessageRecord[] = [
         {
@@ -483,7 +483,7 @@ describe('SessionSummaryService', () => {
             },
           },
         ],
-      } as unknown as GenerateContentResponse);
+      });
 
       const messages: MessageRecord[] = [
         {
@@ -816,7 +816,7 @@ describe('SessionSummaryService', () => {
             },
           },
         ],
-      } as unknown as GenerateContentResponse);
+      });
 
       const messages: MessageRecord[] = [
         {
@@ -841,7 +841,7 @@ describe('SessionSummaryService', () => {
             },
           },
         ],
-      } as unknown as GenerateContentResponse);
+      });
 
       const messages: MessageRecord[] = [
         {
@@ -866,7 +866,7 @@ describe('SessionSummaryService', () => {
             },
           },
         ],
-      } as unknown as GenerateContentResponse);
+      });
 
       const messages: MessageRecord[] = [
         {
@@ -891,7 +891,7 @@ describe('SessionSummaryService', () => {
             },
           },
         ],
-      } as unknown as GenerateContentResponse);
+      });
 
       const messages: MessageRecord[] = [
         {
@@ -921,7 +921,7 @@ describe('SessionSummaryService', () => {
             },
           },
         ],
-      } as unknown as GenerateContentResponse);
+      });
 
       const messages: MessageRecord[] = [
         {

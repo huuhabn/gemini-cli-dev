@@ -303,7 +303,7 @@ describe('tokenCalculation', () => {
     it('should handle empty or nullish inputs gracefully', () => {
       expect(estimateTokenCountSync([])).toBe(0);
       expect(estimateTokenCountSync([{ text: '' }])).toBe(0);
-      expect(estimateTokenCountSync([{} as Part])).toBe(0);
+      expect(estimateTokenCountSync([{}])).toBe(0);
     });
   });
 });

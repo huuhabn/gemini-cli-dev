@@ -26,7 +26,7 @@ describe('computeTerminalTitle', () => {
         folderName: 'my-project',
         showThoughts: false,
         useDynamicTitle: true,
-      } as TerminalTitleOptions,
+      },
       expected: '◇  Ready (my-project)',
     },
     {
@@ -38,7 +38,7 @@ describe('computeTerminalTitle', () => {
         folderName: 'my-project',
         showThoughts: true,
         useDynamicTitle: false,
-      } as TerminalTitleOptions,
+      },
       expected: 'Gemini CLI (my-project)'.padEnd(80, ' '),
       exact: true,
     },
@@ -53,7 +53,7 @@ describe('computeTerminalTitle', () => {
         folderName: 'my-project',
         showThoughts: false,
         useDynamicTitle: true,
-      } as TerminalTitleOptions,
+      },
       expected: '✦  Working… (my-project)',
     },
     {
@@ -67,7 +67,7 @@ describe('computeTerminalTitle', () => {
         folderName: 'my-project',
         showThoughts: true,
         useDynamicTitle: true,
-      } as TerminalTitleOptions,
+      },
       expected: '✦  Short thought (my-project)',
     },
     {
@@ -81,7 +81,7 @@ describe('computeTerminalTitle', () => {
         folderName: 'my-project',
         showThoughts: true,
         useDynamicTitle: true,
-      } as TerminalTitleOptions,
+      },
       expected: '✦  Working… (my-project)'.padEnd(80, ' '),
       exact: true,
     },
@@ -94,7 +94,7 @@ describe('computeTerminalTitle', () => {
         folderName: 'my-project',
         showThoughts: false,
         useDynamicTitle: true,
-      } as TerminalTitleOptions,
+      },
       expected: '✋  Action Required (my-project)',
     },
     {
@@ -106,7 +106,7 @@ describe('computeTerminalTitle', () => {
         folderName: 'my-project',
         showThoughts: false,
         useDynamicTitle: true,
-      } as TerminalTitleOptions,
+      },
       expected: '⏲  Working… (my-project)',
     },
   ])('should return $description', ({ args, expected, exact }) => {

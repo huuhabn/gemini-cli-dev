@@ -47,7 +47,7 @@ function createMockWaitingToolCall(
       args: {},
       isClientInitiated: false,
       prompt_id: 'test-prompt-id',
-    } as ToolCallRequestInfo,
+    },
     tool: new MockTool({ name: 'test-tool' }),
     invocation: {} as ToolInvocation<Record<string, unknown>, ToolResult>, // We generally don't check invocation details in these tests
     confirmationDetails: {
@@ -84,7 +84,7 @@ describe('ToolModificationHandler', () => {
     };
 
     vi.spyOn(mockModifiableTool, 'getModifyContext').mockReturnValue(
-      mockModifyContext as unknown as ModifyContext<Record<string, unknown>>,
+      mockModifyContext,
     );
   });
 

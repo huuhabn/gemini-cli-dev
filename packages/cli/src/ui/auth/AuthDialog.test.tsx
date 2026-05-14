@@ -77,10 +77,10 @@ describe('AuthDialog', () => {
   };
   beforeEach(() => {
     vi.resetAllMocks();
-    vi.stubEnv('CLOUD_SHELL', undefined as unknown as string);
-    vi.stubEnv('GEMINI_CLI_USE_COMPUTE_ADC', undefined as unknown as string);
-    vi.stubEnv('GEMINI_DEFAULT_AUTH_TYPE', undefined as unknown as string);
-    vi.stubEnv('GEMINI_API_KEY', undefined as unknown as string);
+    vi.stubEnv('CLOUD_SHELL', undefined);
+    vi.stubEnv('GEMINI_CLI_USE_COMPUTE_ADC', undefined);
+    vi.stubEnv('GEMINI_DEFAULT_AUTH_TYPE', undefined);
+    vi.stubEnv('GEMINI_API_KEY', undefined);
 
     props = {
       config: {

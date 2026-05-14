@@ -99,7 +99,7 @@ describe('OpenFilesManager', () => {
   });
 
   const getUri = (path: string) =>
-    vscode.Uri.file(path) as unknown as vscode.Uri;
+    vscode.Uri.file(path);
 
   const addFile = (uri: vscode.Uri) => {
     onDidChangeActiveTextEditorListener({

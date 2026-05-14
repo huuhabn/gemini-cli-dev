@@ -171,7 +171,7 @@ async function initOauthClient(
   });
 
   if (credentials) {
-    client.setCredentials(credentials as Credentials);
+    client.setCredentials(credentials);
     try {
       // This will verify locally that the credentials look good.
       const { token } = await client.getAccessToken();
@@ -191,7 +191,7 @@ async function initOauthClient(
           }
         }
         debugLogger.log('Loaded cached credentials.');
-        await triggerPostAuthCallbacks(credentials as Credentials);
+        await triggerPostAuthCallbacks(credentials);
 
         return client;
       }

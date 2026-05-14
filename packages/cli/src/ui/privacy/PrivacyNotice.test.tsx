@@ -67,7 +67,7 @@ describe('PrivacyNotice', () => {
     async ({ authType, expectedComponent }) => {
       vi.mocked(mockConfig.getContentGeneratorConfig).mockReturnValue({
         authType,
-      } as unknown as ContentGeneratorConfig);
+      });
 
       const { lastFrame, unmount } = await render(
         <PrivacyNotice config={mockConfig} onExit={onExit} />,

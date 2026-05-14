@@ -307,10 +307,8 @@ export class GeminiCliSession {
         (call) => call.response.responseParts,
       );
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-      request = functionResponses as unknown as Parameters<
-        GeminiClient['sendMessageStream']
-      >[0];
+       
+      request = functionResponses;
     }
   }
 }

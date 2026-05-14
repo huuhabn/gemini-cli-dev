@@ -156,7 +156,7 @@ describe('SandboxManager', () => {
         },
       };
 
-      const result = await resolveSandboxPaths(options, req as SandboxRequest);
+      const result = await resolveSandboxPaths(options, req);
 
       expect(result.policyAllowed).toEqual([allowed]);
       expect(result.forbidden).toEqual([forbidden]);
@@ -178,7 +178,7 @@ describe('SandboxManager', () => {
         },
       };
 
-      const result = await resolveSandboxPaths(options, req as SandboxRequest);
+      const result = await resolveSandboxPaths(options, req);
 
       expect(result.policyAllowed).toEqual([other]);
     });
@@ -201,7 +201,7 @@ describe('SandboxManager', () => {
         },
       };
 
-      const result = await resolveSandboxPaths(options, req as SandboxRequest);
+      const result = await resolveSandboxPaths(options, req);
 
       expect(result.policyAllowed).toEqual([normal]);
       expect(result.forbidden).toEqual([secret]);
@@ -226,7 +226,7 @@ describe('SandboxManager', () => {
         },
       };
 
-      const result = await resolveSandboxPaths(options, req as SandboxRequest);
+      const result = await resolveSandboxPaths(options, req);
 
       expect(result.policyAllowed).toEqual([]);
       expect(result.forbidden).toEqual([secretUpper]);

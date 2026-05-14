@@ -206,7 +206,7 @@ export function setupLinters() {
 
 export function runESLint() {
   console.log('\nRunning ESLint...');
-  if (!runCommand('npm run lint')) {
+  if (!runCommand('pnpm run lint')) {
     process.exit(1);
   }
 }
@@ -236,7 +236,7 @@ export function runPrettier() {
   console.log('\nRunning Prettier...');
   if (!runCommand('prettier --check .')) {
     console.log(
-      'Prettier check failed. Please run "npm run format" to fix formatting issues.',
+      'Prettier check failed. Please run "pnpm run format" to fix formatting issues.',
     );
     process.exit(1);
   }

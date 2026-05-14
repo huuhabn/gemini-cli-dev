@@ -60,7 +60,7 @@ export const permissionsCommand: SlashCommand = {
           props: {
             targetDirectory,
           },
-        } as OpenDialogActionReturn;
+        };
       },
     },
   ],

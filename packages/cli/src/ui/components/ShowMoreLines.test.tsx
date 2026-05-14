@@ -48,7 +48,7 @@ describe('ShowMoreLines', () => {
     mockUseAlternateBuffer.mockReturnValue(false);
     mockUseOverflowState.mockReturnValue({
       overflowingIds: new Set(['1']),
-    } as NonNullable<ReturnType<typeof useOverflowState>>);
+    });
     mockUseStreamingContext.mockReturnValue(StreamingState.Idle);
     const { lastFrame, unmount } = await render(
       <ShowMoreLines constrainHeight={true} />,
@@ -69,7 +69,7 @@ describe('ShowMoreLines', () => {
       mockUseAlternateBuffer.mockReturnValue(true);
       mockUseOverflowState.mockReturnValue({
         overflowingIds: new Set(['1']),
-      } as NonNullable<ReturnType<typeof useOverflowState>>);
+      });
       mockUseStreamingContext.mockReturnValue(streamingState);
       const { lastFrame, unmount } = await render(
         <ShowMoreLines constrainHeight={true} />,
@@ -85,7 +85,7 @@ describe('ShowMoreLines', () => {
     mockUseAlternateBuffer.mockReturnValue(true);
     mockUseOverflowState.mockReturnValue({
       overflowingIds: new Set(),
-    } as NonNullable<ReturnType<typeof useOverflowState>>);
+    });
     mockUseStreamingContext.mockReturnValue(StreamingState.Idle);
     const { lastFrame, unmount } = await render(
       <ShowMoreLines constrainHeight={true} isOverflowing={true} />,
@@ -99,7 +99,7 @@ describe('ShowMoreLines', () => {
   it('renders nothing when isOverflowing prop is false even if internal overflow state has IDs', async () => {
     mockUseOverflowState.mockReturnValue({
       overflowingIds: new Set(['1']),
-    } as NonNullable<ReturnType<typeof useOverflowState>>);
+    });
     mockUseStreamingContext.mockReturnValue(StreamingState.Idle);
     const { lastFrame, unmount } = await render(
       <ShowMoreLines constrainHeight={true} isOverflowing={false} />,

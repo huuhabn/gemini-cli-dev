@@ -1,11 +1,5 @@
 # Gemini CLI
 
-[![Gemini CLI CI](https://github.com/google-gemini/gemini-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/google-gemini/gemini-cli/actions/workflows/ci.yml)
-[![Gemini CLI E2E (Chained)](https://github.com/google-gemini/gemini-cli/actions/workflows/chained_e2e.yml/badge.svg)](https://github.com/google-gemini/gemini-cli/actions/workflows/chained_e2e.yml)
-[![Version](https://img.shields.io/npm/v/@google/gemini-cli)](https://www.npmjs.com/package/@google/gemini-cli)
-[![License](https://img.shields.io/github/license/google-gemini/gemini-cli)](https://github.com/google-gemini/gemini-cli/blob/main/LICENSE)
-[![View Code Wiki](https://assets.codewiki.google/readme-badge/static.svg)](https://codewiki.google/github.com/google-gemini/gemini-cli?utm_source=badge&utm_medium=github&utm_campaign=github.com/google-gemini/gemini-cli)
-
 ![Gemini CLI Screenshot](/docs/assets/gemini-screenshot.png)
 
 Gemini CLI is an open-source AI agent that brings the power of Gemini directly
@@ -33,19 +27,17 @@ See
 [Gemini CLI installation, execution, and releases](https://www.geminicli.com/docs/get-started/installation)
 for recommended system specifications and a detailed installation guide.
 
-### Quick Install
-
-#### Run instantly with npx
+#### Build and install from source (pnpm)
 
 ```bash
-# Using npx (no installation required)
-npx @google/gemini-cli
-```
+# Install dependencies
+pnpm install
 
-#### Install globally with npm
+# Build the project
+pnpm run build
 
-```bash
-npm install -g @google/gemini-cli
+# Link globally
+pnpm link --global
 ```
 
 #### Install globally with Homebrew (macOS/Linux)
@@ -54,55 +46,32 @@ npm install -g @google/gemini-cli
 brew install gemini-cli
 ```
 
-#### Install globally with MacPorts (macOS)
+## Changelogs
 
+See [Changelogs](https://www.geminicli.com/docs/changelogs) for more details.
+
+### Fork + Upstream workflow
+
+**Notes**: Only develop on dev `git  checkout dev`
+
+#### Workflow everyday 
 ```bash
-sudo port install gemini-cli
+# Fetch from upstream
+git fetch upstream
+
+# Merge update to local main
+git checkout main
+git rebase upstream/main
+
+# Merge update to dev
+git checkout dev
+git rebase main
 ```
 
-#### Install with Anaconda (for restricted environments)
-
+#### Create config local private or use `.gitignore` for repo
 ```bash
-# Create and activate a new environment
-conda create -y -n gemini_env -c conda-forge nodejs
-conda activate gemini_env
-
-# Install Gemini CLI globally via npm (inside the environment)
-npm install -g @google/gemini-cli
-```
-
-## Release Channels
-
-See [Releases](https://www.geminicli.com/docs/changelogs) for more details.
-
-### Preview
-
-New preview releases will be published each week at UTC 23:59 on Tuesdays. These
-releases will not have been fully vetted and may contain regressions or other
-outstanding issues. Please help us test and install with `preview` tag.
-
-```bash
-npm install -g @google/gemini-cli@preview
-```
-
-### Stable
-
-- New stable releases will be published each week at UTC 20:00 on Tuesdays, this
-  will be the full promotion of last week's `preview` release + any bug fixes
-  and validations. Use `latest` tag.
-
-```bash
-npm install -g @google/gemini-cli@latest
-```
-
-### Nightly
-
-- New releases will be published each day at UTC 00:00. This will be all changes
-  from the main branch as represented at time of release. It should be assumed
-  there are pending validations and issues. Use `nightly` tag.
-
-```bash
-npm install -g @google/gemini-cli@nightly
+# Example config.local.json
+echo "config.local.json" >> .git/info/exclude
 ```
 
 ## 📋 Key Features

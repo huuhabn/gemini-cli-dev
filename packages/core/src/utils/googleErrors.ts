@@ -257,8 +257,8 @@ function isErrorShape(obj: unknown): obj is ErrorShape {
     typeof obj === 'object' &&
     obj !== null &&
     (('message' in obj &&
-      typeof (obj as { message: unknown }).message === 'string') ||
-      ('code' in obj && typeof (obj as { code: unknown }).code === 'number'))
+      typeof (obj).message === 'string') ||
+      ('code' in obj && typeof (obj).code === 'number'))
   );
 }
 

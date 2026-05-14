@@ -425,7 +425,7 @@ export class Turn {
         typeof error === 'object' &&
         error !== null &&
         'status' in error &&
-        typeof (error as { status: unknown }).status === 'number'
+        typeof (error).status === 'number'
           ? // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
             (error as { status: number }).status
           : undefined;

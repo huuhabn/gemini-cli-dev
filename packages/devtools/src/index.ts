@@ -112,7 +112,7 @@ export class DevTools extends EventEmitter {
           response: payload.response
             ? { ...existing.response, ...payload.response }
             : existing.response,
-        } as NetworkLog;
+        };
       }
       this.emit('update', this.logs[existingIndex]);
     } else if (payload.url) {

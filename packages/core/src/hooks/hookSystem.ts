@@ -360,7 +360,7 @@ export class HookSystem {
       const hookOutput = result.finalOutput;
 
       if (hookOutput) {
-        const toolSelectionOutput = hookOutput as BeforeToolSelectionHookOutput;
+        const toolSelectionOutput = hookOutput;
         const modifiedConfig = toolSelectionOutput.applyToolConfigModifications(
           {
             toolConfig: llmRequest.config?.toolConfig,
@@ -414,7 +414,7 @@ export class HookSystem {
       const result = await this.hookEventHandler.fireAfterToolEvent(
         toolName,
         toolInput,
-        toolResponse as Record<string, unknown>,
+        toolResponse,
         mcpContext,
         originalRequestName,
       );

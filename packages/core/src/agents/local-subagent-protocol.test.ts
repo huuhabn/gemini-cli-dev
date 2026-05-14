@@ -60,7 +60,7 @@ describe('LocalSubagentSession (protocol)', () => {
     vi.clearAllMocks();
     capturedOnActivity = undefined;
 
-    mockContext = makeFakeConfig() as unknown as AgentLoopContext;
+    mockContext = makeFakeConfig();
     mockMessageBus = createMockMessageBus();
 
     mockExecutorInstance = {

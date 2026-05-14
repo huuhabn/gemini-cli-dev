@@ -150,7 +150,7 @@ export class CompleteTaskInvocation<
       outputValue = this.params[this.outputConfig.outputName];
       if (this.processOutput) {
         // We validated the params in validateToolParamValues, so safe to cast
-        submittedOutput = this.processOutput(outputValue as z.infer<TOutput>);
+        submittedOutput = this.processOutput(outputValue);
       } else {
         submittedOutput =
           typeof outputValue === 'string'

@@ -267,7 +267,7 @@ export const StatusRow: React.FC<StatusRowProps> = ({
       activeHooks={uiState.activeHooks}
       showLoadingIndicator={showLoadingIndicator}
       errorVerbosity={
-        settings.merged.ui.errorVerbosity as 'low' | 'full' | undefined
+        settings.merged.ui.errorVerbosity
       }
       onResize={onStatusResize}
     />

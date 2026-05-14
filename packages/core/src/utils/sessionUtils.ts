@@ -62,7 +62,7 @@ export function convertSessionToClientHistory(
           modelParts.push({
             text: thoughtText,
             thought: true,
-          } as Part);
+          });
         }
       }
 

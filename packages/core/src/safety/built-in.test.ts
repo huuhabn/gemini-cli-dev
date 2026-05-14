@@ -42,7 +42,7 @@ describe('AllowedPathChecker', () => {
     toolCall: {
       name: 'test_tool',
       args: toolArgs,
-    } as unknown as FunctionCall,
+    },
     context: {
       environment: {
         cwd: mockCwd,

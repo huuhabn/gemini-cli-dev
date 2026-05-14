@@ -182,7 +182,7 @@ describe('Scheduler (Orchestrator)', () => {
       getSessionId: vi.fn().mockReturnValue('test-session-id'),
     } as unknown as Mocked<Config>;
 
-    (mockConfig as unknown as { config: Config }).config = mockConfig as Config;
+    (mockConfig as unknown as { config: Config }).config = mockConfig;
 
     mockMessageBus = {
       publish: vi.fn(),
@@ -203,7 +203,7 @@ describe('Scheduler (Orchestrator)', () => {
     mockStateManager = {
       enqueue: vi.fn((calls: ToolCall[]) => {
         // Clone to preserve initial state for Phase 1 tests
-        mockQueue.push(...calls.map((c) => ({ ...c }) as ToolCall));
+        mockQueue.push(...calls.map((c) => ({ ...c })));
       }),
       dequeue: vi.fn(() => {
         const next = mockQueue.shift();
@@ -277,13 +277,13 @@ describe('Scheduler (Orchestrator)', () => {
     mockModifier = {
       handleModifyWithEditor: vi.fn(),
       applyInlineModify: vi.fn(),
-    } as unknown as Mocked<ToolModificationHandler>;
+    };
 
     let capturedTerminalHandler: TerminalCallHandler | undefined;
     vi.mocked(SchedulerStateManager).mockImplementation(
       (_messageBus, _schedulerId, onTerminalCall) => {
         capturedTerminalHandler = onTerminalCall;
-        return mockStateManager as unknown as SchedulerStateManager;
+        return mockStateManager;
       },
     );
 
@@ -302,7 +302,7 @@ describe('Scheduler (Orchestrator)', () => {
     });
 
     vi.mocked(ToolExecutor).mockReturnValue(
-      mockExecutor as unknown as Mocked<ToolExecutor>,
+      mockExecutor,
     );
     mockExecutor.execute.mockResolvedValue({
       status: 'success',
@@ -312,7 +312,7 @@ describe('Scheduler (Orchestrator)', () => {
       } as unknown as ToolCallResponseInfo,
     } as unknown as SuccessfulToolCall);
     vi.mocked(ToolModificationHandler).mockReturnValue(
-      mockModifier as unknown as Mocked<ToolModificationHandler>,
+      mockModifier,
     );
 
     // Initialize Scheduler
@@ -1457,7 +1457,7 @@ describe('Scheduler MCP Progress', () => {
         build: vi.fn(),
       } as unknown as AnyDeclarativeTool,
       invocation: {} as unknown as AnyToolInvocation,
-    }) as ExecutingToolCall;
+    });
 
   beforeEach(() => {
     vi.mocked(randomUUID).mockReturnValue(
@@ -1522,7 +1522,7 @@ describe('Scheduler MCP Progress', () => {
       getSessionId: vi.fn().mockReturnValue('test-session-id'),
     } as unknown as Mocked<Config>;
 
-    (mockConfig as unknown as { config: Config }).config = mockConfig as Config;
+    (mockConfig as unknown as { config: Config }).config = mockConfig;
 
     mockMessageBus = {
       publish: vi.fn(),
@@ -1538,7 +1538,7 @@ describe('Scheduler MCP Progress', () => {
 
     vi.mocked(SchedulerStateManager).mockImplementation(
       (_messageBus, _schedulerId, _onTerminalCall) =>
-        mockStateManager as unknown as SchedulerStateManager,
+        mockStateManager,
     );
 
     scheduler = new Scheduler({

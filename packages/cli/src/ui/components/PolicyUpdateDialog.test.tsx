@@ -47,7 +47,7 @@ describe('PolicyUpdateDialog', () => {
       identifier: '/test/workspace/.gemini/policies',
       policyDir: '/test/workspace/.gemini/policies',
       newHash: 'test-hash',
-    } as PolicyUpdateConfirmationRequest;
+    };
 
     onClose = vi.fn();
   });

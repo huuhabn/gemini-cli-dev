@@ -45,7 +45,7 @@ describe('EnterPlanModeTool', () => {
     };
     tool = new EnterPlanModeTool(
       mockConfig as Config,
-      mockMessageBus as unknown as MessageBus,
+      mockMessageBus,
     );
   });
 

@@ -27,7 +27,7 @@ vi.mock('node:fs', async (importOriginal) => {
     ...actual,
     readFileSync: vi.fn(actual.readFileSync),
     existsSync: vi.fn(actual.existsSync),
-  } as typeof actual;
+  };
 });
 
 vi.mock('node:os', async (importOriginal) => {

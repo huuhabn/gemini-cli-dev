@@ -79,7 +79,7 @@ describe('Admin Controls', () => {
       };
 
       const result = sanitizeAdminSettings(
-        input as unknown as FetchAdminControlsResponse,
+        input,
       );
 
       expect(result).toEqual({
@@ -135,7 +135,7 @@ describe('Admin Controls', () => {
 
     it('should apply default values when fields are missing', () => {
       const input = {};
-      const result = sanitizeAdminSettings(input as FetchAdminControlsResponse);
+      const result = sanitizeAdminSettings(input);
 
       expect(result).toEqual({
         strictModeDisabled: false,
@@ -152,7 +152,7 @@ describe('Admin Controls', () => {
 
     it('should default mcpEnabled to false if mcpSetting is present but mcpEnabled is undefined', () => {
       const input = { mcpSetting: {} };
-      const result = sanitizeAdminSettings(input as FetchAdminControlsResponse);
+      const result = sanitizeAdminSettings(input);
       expect(result.mcpSetting?.mcpEnabled).toBe(false);
       expect(result.mcpSetting?.mcpConfig).toEqual({});
     });
@@ -163,7 +163,7 @@ describe('Admin Controls', () => {
           extensionsSetting: {},
         },
       };
-      const result = sanitizeAdminSettings(input as FetchAdminControlsResponse);
+      const result = sanitizeAdminSettings(input);
       expect(
         result.cliFeatureSetting?.extensionsSetting?.extensionsEnabled,
       ).toBe(false);
@@ -173,7 +173,7 @@ describe('Admin Controls', () => {
       const input = {
         cliFeatureSetting: {},
       };
-      const result = sanitizeAdminSettings(input as FetchAdminControlsResponse);
+      const result = sanitizeAdminSettings(input);
       expect(result.cliFeatureSetting?.unmanagedCapabilitiesEnabled).toBe(
         false,
       );

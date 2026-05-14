@@ -222,7 +222,7 @@ describe('Scheduler Parallel Execution', () => {
       getSessionId: vi.fn().mockReturnValue('test-session-id'),
     } as unknown as Mocked<Config>;
 
-    (mockConfig as unknown as { config: Config }).config = mockConfig as Config;
+    (mockConfig as unknown as { config: Config }).config = mockConfig;
 
     mockMessageBus = {
       publish: vi.fn(),
@@ -243,7 +243,7 @@ describe('Scheduler Parallel Execution', () => {
 
     mockStateManager = {
       enqueue: vi.fn((calls: ToolCall[]) => {
-        mockQueue.push(...calls.map((c) => ({ ...c }) as ToolCall));
+        mockQueue.push(...calls.map((c) => ({ ...c })));
       }),
       dequeue: vi.fn(() => {
         const next = mockQueue.shift();
@@ -295,20 +295,20 @@ describe('Scheduler Parallel Execution', () => {
     vi.mocked(SchedulerStateManager).mockImplementation(
       (_bus, _id, onTerminal) => {
         capturedTerminalHandler = onTerminal;
-        return mockStateManager as unknown as SchedulerStateManager;
+        return mockStateManager;
       },
     );
 
     mockExecutor = { execute: vi.fn() } as unknown as Mocked<ToolExecutor>;
     vi.mocked(ToolExecutor).mockReturnValue(
-      mockExecutor as unknown as Mocked<ToolExecutor>,
+      mockExecutor,
     );
     mockModifier = {
       handleModifyWithEditor: vi.fn(),
       applyInlineModify: vi.fn(),
-    } as unknown as Mocked<ToolModificationHandler>;
+    };
     vi.mocked(ToolModificationHandler).mockReturnValue(
-      mockModifier as unknown as Mocked<ToolModificationHandler>,
+      mockModifier,
     );
 
     scheduler = new Scheduler({

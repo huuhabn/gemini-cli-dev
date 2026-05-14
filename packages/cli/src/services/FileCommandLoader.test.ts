@@ -170,7 +170,7 @@ describe('FileCommandLoader', () => {
         }),
       });
 
-      const loader = new FileCommandLoader(null as unknown as Config);
+      const loader = new FileCommandLoader(null);
       const commands = await loader.loadCommands(signal);
 
       expect(commands).toHaveLength(1);
@@ -196,7 +196,7 @@ describe('FileCommandLoader', () => {
         },
       });
 
-      const loader = new FileCommandLoader(null as unknown as Config);
+      const loader = new FileCommandLoader(null);
       const commands = await loader.loadCommands(signal);
 
       expect(commands).toHaveLength(1);
@@ -460,7 +460,7 @@ describe('FileCommandLoader', () => {
         },
       });
 
-      const loader = new FileCommandLoader(null as unknown as Config);
+      const loader = new FileCommandLoader(null);
       await loader.loadCommands(signal);
 
       expect(ShellProcessor).not.toHaveBeenCalled();
@@ -475,7 +475,7 @@ describe('FileCommandLoader', () => {
         },
       });
 
-      const loader = new FileCommandLoader(null as unknown as Config);
+      const loader = new FileCommandLoader(null);
       await loader.loadCommands(signal);
 
       expect(ShellProcessor).toHaveBeenCalledTimes(1);
@@ -490,7 +490,7 @@ describe('FileCommandLoader', () => {
         },
       });
 
-      const loader = new FileCommandLoader(null as unknown as Config);
+      const loader = new FileCommandLoader(null);
       await loader.loadCommands(signal);
 
       expect(ShellProcessor).toHaveBeenCalledTimes(1);
@@ -505,7 +505,7 @@ describe('FileCommandLoader', () => {
         },
       });
 
-      const loader = new FileCommandLoader(null as unknown as Config);
+      const loader = new FileCommandLoader(null);
       await loader.loadCommands(signal);
 
       expect(ShellProcessor).toHaveBeenCalledTimes(1);
@@ -520,7 +520,7 @@ describe('FileCommandLoader', () => {
         },
       });
 
-      const loader = new FileCommandLoader(null as unknown as Config);
+      const loader = new FileCommandLoader(null);
       await loader.loadCommands(signal);
 
       expect(AtFileProcessor).toHaveBeenCalledTimes(1);
@@ -536,7 +536,7 @@ describe('FileCommandLoader', () => {
         },
       });
 
-      const loader = new FileCommandLoader(null as unknown as Config);
+      const loader = new FileCommandLoader(null);
       await loader.loadCommands(signal);
 
       expect(ShellProcessor).toHaveBeenCalledTimes(1);
@@ -552,7 +552,7 @@ describe('FileCommandLoader', () => {
         },
       });
 
-      const loader = new FileCommandLoader(null as unknown as Config);
+      const loader = new FileCommandLoader(null);
       await loader.loadCommands(signal);
 
       expect(ShellProcessor).toHaveBeenCalledTimes(1);
@@ -940,7 +940,7 @@ describe('FileCommandLoader', () => {
         },
       });
 
-      const loader = new FileCommandLoader(null as unknown as Config);
+      const loader = new FileCommandLoader(null);
       const commands = await loader.loadCommands(signal);
       const command = commands.find((c) => c.name === 'shorthand');
       expect(command).toBeDefined();
@@ -974,7 +974,7 @@ describe('FileCommandLoader', () => {
         },
       });
 
-      const loader = new FileCommandLoader(null as unknown as Config);
+      const loader = new FileCommandLoader(null);
       const commands = await loader.loadCommands(signal);
       const command = commands.find((c) => c.name === 'model_led');
       expect(command).toBeDefined();
@@ -1007,7 +1007,7 @@ describe('FileCommandLoader', () => {
         },
       });
 
-      const loader = new FileCommandLoader(null as unknown as Config);
+      const loader = new FileCommandLoader(null);
       await loader.loadCommands(signal);
 
       expect(ShellProcessor).toHaveBeenCalledWith('args_only');
@@ -1020,7 +1020,7 @@ describe('FileCommandLoader', () => {
         },
       });
 
-      const loader = new FileCommandLoader(null as unknown as Config);
+      const loader = new FileCommandLoader(null);
       await loader.loadCommands(signal);
 
       expect(ShellProcessor).toHaveBeenCalledWith('shell');
@@ -1034,7 +1034,7 @@ describe('FileCommandLoader', () => {
         },
       });
 
-      const loader = new FileCommandLoader(null as unknown as Config);
+      const loader = new FileCommandLoader(null);
       await loader.loadCommands(signal);
 
       expect(ShellProcessor).not.toHaveBeenCalled();
@@ -1049,7 +1049,7 @@ describe('FileCommandLoader', () => {
       });
       mockShellProcess.mockResolvedValue([{ text: 'Run hello' }]);
 
-      const loader = new FileCommandLoader(null as unknown as Config);
+      const loader = new FileCommandLoader(null);
       const commands = await loader.loadCommands(signal);
       const command = commands.find((c) => c.name === 'shell');
       expect(command).toBeDefined();
@@ -1082,7 +1082,7 @@ describe('FileCommandLoader', () => {
       ]);
       mockShellProcess.mockRejectedValue(error);
 
-      const loader = new FileCommandLoader(null as unknown as Config);
+      const loader = new FileCommandLoader(null);
       const commands = await loader.loadCommands(signal);
       const command = commands.find((c) => c.name === 'shell');
       expect(command).toBeDefined();
@@ -1112,7 +1112,7 @@ describe('FileCommandLoader', () => {
       const genericError = new Error('Something else went wrong');
       mockShellProcess.mockRejectedValue(genericError);
 
-      const loader = new FileCommandLoader(null as unknown as Config);
+      const loader = new FileCommandLoader(null);
       const commands = await loader.loadCommands(signal);
       const command = commands.find((c) => c.name === 'shell');
       expect(command).toBeDefined();
@@ -1162,10 +1162,10 @@ describe('FileCommandLoader', () => {
         () =>
           ({
             process: defaultProcessMock,
-          }) as unknown as DefaultArgumentProcessor,
+          }),
       );
 
-      const loader = new FileCommandLoader(null as unknown as Config);
+      const loader = new FileCommandLoader(null);
       const commands = await loader.loadCommands(signal);
       const command = commands.find((c) => c.name === 'pipeline');
       expect(command).toBeDefined();
@@ -1258,10 +1258,10 @@ describe('FileCommandLoader', () => {
         () =>
           ({
             process: (p: PromptPipelineContent) => Promise.resolve(p),
-          }) as unknown as DefaultArgumentProcessor,
+          }),
       );
 
-      const loader = new FileCommandLoader(null as unknown as Config);
+      const loader = new FileCommandLoader(null);
       const commands = await loader.loadCommands(signal);
       const command = commands.find((c) => c.name === 'at-file');
       expect(command).toBeDefined();

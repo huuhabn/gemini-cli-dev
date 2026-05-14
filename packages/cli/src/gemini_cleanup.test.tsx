@@ -82,7 +82,7 @@ vi.mock('./config/config.js', () => ({
     isInteractive: () => false,
     getSessionId: vi.fn().mockReturnValue('test-session-id'),
     storage: { initialize: vi.fn().mockResolvedValue(undefined) },
-  } as unknown as Config),
+  }),
   parseArguments: vi.fn().mockResolvedValue({}),
   isDebugMode: vi.fn(() => false),
   getRequestedWorktreeName: vi.fn(() => undefined),

@@ -77,7 +77,7 @@ const renderStatusDisplay = async (
 ) => {
   const result = await render(
     <ConfigContext.Provider value={config as unknown as Config}>
-      <SettingsContext.Provider value={settings as unknown as LoadedSettings}>
+      <SettingsContext.Provider value={settings}>
         <UIStateContext.Provider value={uiState}>
           <StatusDisplay {...props} />
         </UIStateContext.Provider>

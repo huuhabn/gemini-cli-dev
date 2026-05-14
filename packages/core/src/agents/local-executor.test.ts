@@ -328,7 +328,7 @@ const getMockMessageParams = (callIndex: number) => {
   return {
     modelConfigKey: call[0],
     message: call[1],
-  } as { modelConfigKey: ModelConfigKey; message: PartListUnion };
+  };
 };
 
 let mockConfig: Config;
@@ -904,7 +904,7 @@ describe('LocalAgentExecutor', () => {
 
       // Filter for the specific tool schema
       const foundSchemas = (
-        toolsList as unknown as FunctionDeclaration[]
+        toolsList
       ).filter((t: FunctionDeclaration) => t.name === 'instantiated_tool');
 
       // Assert that there is exactly ONE schema for this tool
@@ -916,7 +916,7 @@ describe('LocalAgentExecutor', () => {
       const { toolConfig: _, ...definition } = fullDefinition;
 
       const executor = await LocalAgentExecutor.create(
-        definition as LocalAgentDefinition,
+        definition,
         mockConfig,
         onActivity,
       );

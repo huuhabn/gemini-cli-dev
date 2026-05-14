@@ -129,8 +129,8 @@ export class SandboxPolicyManager {
       if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });
       }
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-      const content = toml.stringify(this.config as unknown as toml.JsonMap);
+       
+      const content = toml.stringify(this.config);
       fs.writeFileSync(this.configPath, content);
     } catch (e) {
       debugLogger.error(`Failed to save sandbox.toml: ${e}`);

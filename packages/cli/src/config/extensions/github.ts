@@ -555,7 +555,7 @@ export async function downloadFile(
         }
         const file = fs.createWriteStream(dest);
         res.pipe(file);
-        file.on('finish', () => file.close(resolve as () => void));
+        file.on('finish', () => file.close(resolve));
       })
       .on('error', reject);
   });

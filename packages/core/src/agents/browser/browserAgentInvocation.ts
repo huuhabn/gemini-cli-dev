@@ -148,7 +148,7 @@ export class BrowserAgentInvocation extends BaseToolInvocation<
               agentName: this.agentName,
               recentActivity: [...recentActivity],
               state: SubagentState.RUNNING,
-            } as SubagentProgress);
+            });
           }
         : undefined;
 

@@ -84,15 +84,15 @@ rm -rf packages/core/dist/
 rm -rf packages/cli/node_modules/
 rm -rf packages/core/node_modules/
 
-echo "review: Installing npm dependencies..."
-npm install
+echo "review: Installing pnpm dependencies..."
+pnpm install
 
 echo "--- build ---"
 temp_dir_base="${TMPDIR:-/tmp}"
-build_log_file="$(mktemp "${temp_dir_base}/npm_build_log.XXXXXX" || true)"
+build_log_file="$(mktemp "${temp_dir_base}/pnpm_build_log.XXXXXX" || true)"
 if [[ -z "${build_log_file}" || ! -f "${build_log_file}" ]]; then
     echo "Attempting to create temporary file in current directory as a fallback." >&2
-    build_log_file="$(mktemp "./npm_build_log_fallback.XXXXXX" || true)"
+    build_log_file="$(mktemp "./pnpm_build_log_fallback.XXXXXX" || true)"
     if [[ -z "${build_log_file}" || ! -f "${build_log_file}" ]]; then
         echo "ERROR: Critical - Failed to create any temporary build log file. Aborting." >&2
         exit 1
@@ -100,7 +100,7 @@ if [[ -z "${build_log_file}" || ! -f "${build_log_file}" ]]; then
 fi
 
 build_status=0
-build_command_to_run="FORCE_COLOR=1 CLICOLOR_FORCE=1 npm run build"
+build_command_to_run="FORCE_COLOR=1 CLICOLOR_FORCE=1 pnpm run build"
 
 echo "Running build. Output (with colors) will be shown below and saved to: ${build_log_file}"
 echo "Build command: ${build_command_to_run}"
@@ -116,22 +116,22 @@ else
 fi
 
 if [[ "${build_status}" -ne 0 ]]; then
-    echo "ERROR: npm build failed with exit status ${build_status}." >&2
+    echo "ERROR: pnpm build failed with exit status ${build_status}." >&2
     echo "Review output above. Full log (with color codes) was in ${build_log_file}." >&2
     exit 1
 else
     # shellcheck disable=SC2312
     if grep -q -i -E "\berror\b|\bfailed\b|ERR!|FATAL|critical" "${build_log_file}"; then
-        echo "ERROR: npm build completed with exit status 0, but suspicious error patterns were found in the build output." >&2
+        echo "ERROR: pnpm build completed with exit status 0, but suspicious error patterns were found in the build output." >&2
         echo "Review output above. Full log (with color codes) was in ${build_log_file}." >&2
         exit 1
     fi
-    echo "npm build completed successfully (exit status 0, no critical error patterns found in log)."
+    echo "pnpm build completed successfully (exit status 0, no critical error patterns found in log)."
     rm -f "${build_log_file}"
 fi
 
 echo "-- running ---"
-if ! npm start -- -m "${model}" -i="/review-frontend ${pr}"; then
-    echo "ERROR: npm start failed. Please check its output for details." >&2
+if ! pnpm start -- -m "${model}" -i="/review-frontend ${pr}"; then
+    echo "ERROR: pnpm start failed. Please check its output for details." >&2
     exit 1
 fi

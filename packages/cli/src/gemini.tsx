@@ -244,7 +244,7 @@ export async function resolveSessionId(
         type: 'info',
         content: `Imported session from ${sessionFileArg}`,
         timestamp: isoNow,
-      } as MessageRecord);
+      });
 
       const newSessionId = createSessionId();
       sessionData.sessionId = newSessionId;

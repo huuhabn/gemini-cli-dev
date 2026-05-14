@@ -662,7 +662,7 @@ export class ActivityLogger extends EventEmitter {
               ? [url, options]
               : [url];
         return wrapRequest(
-          originalHttpsRequest as typeof http.request,
+          originalHttpsRequest,
           args,
           'https:',
         );

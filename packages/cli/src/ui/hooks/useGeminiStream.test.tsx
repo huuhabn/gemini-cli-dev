@@ -286,7 +286,7 @@ describe('useGeminiStream', () => {
   let capturedOnComplete:
     | ((tools: CompletedToolCall[]) => Promise<void>)
     | null = null;
-  const mockGetPreferredEditor = vi.fn(() => 'vscode' as EditorType);
+  const mockGetPreferredEditor = vi.fn(() => 'vscode');
   const mockOnAuthError = vi.fn();
   const mockPerformMemoryRefresh = vi.fn(() => Promise.resolve());
   const mockSetModelSwitchedFromQuotaError = vi.fn();
@@ -395,7 +395,7 @@ describe('useGeminiStream', () => {
     // The GeminiClient constructor itself is mocked at the module level.
     mockStartChat.mockClear().mockResolvedValue({
       sendMessageStream: mockSendMessageStream,
-    } as unknown as any); // GeminiChat -> any
+    }); // GeminiChat -> any
     mockSendMessageStream
       .mockClear()
       .mockReturnValue((async function* () {})());
@@ -593,7 +593,7 @@ describe('useGeminiStream', () => {
         mockOnDebugMessage,
         mockHandleSlashCommand,
         shellModeActive,
-        () => 'vscode' as EditorType,
+        () => 'vscode',
         onAuthError,
         performMemoryRefresh,
         modelSwitched,
@@ -636,7 +636,7 @@ describe('useGeminiStream', () => {
         } as unknown as AnyToolInvocation,
         startTime: Date.now(),
         endTime: Date.now(),
-      } as TrackedCompletedToolCall,
+      },
       {
         request: {
           callId: 'call2',
@@ -770,7 +770,7 @@ describe('useGeminiStream', () => {
         mockOnDebugMessage,
         mockHandleSlashCommand,
         false,
-        () => 'vscode' as EditorType,
+        () => 'vscode',
         () => {},
         () => Promise.resolve(),
         false,
@@ -870,7 +870,7 @@ describe('useGeminiStream', () => {
         mockOnDebugMessage,
         mockHandleSlashCommand,
         false,
-        () => 'vscode' as EditorType,
+        () => 'vscode',
         () => {},
         () => Promise.resolve(),
         false,
@@ -1004,7 +1004,7 @@ describe('useGeminiStream', () => {
         mockOnDebugMessage,
         mockHandleSlashCommand,
         false,
-        () => 'vscode' as EditorType,
+        () => 'vscode',
         () => {},
         () => Promise.resolve(),
         false,
@@ -1101,7 +1101,7 @@ describe('useGeminiStream', () => {
         mockOnDebugMessage,
         mockHandleSlashCommand,
         false,
-        () => 'vscode' as EditorType,
+        () => 'vscode',
         () => {},
         () => Promise.resolve(),
         false,
@@ -1361,7 +1361,7 @@ describe('useGeminiStream', () => {
         mockOnDebugMessage,
         mockHandleSlashCommand,
         false,
-        () => 'vscode' as EditorType,
+        () => 'vscode',
         () => {},
         () => Promise.resolve(),
         false,
@@ -1432,7 +1432,7 @@ describe('useGeminiStream', () => {
           getDescription: () => `Mock description`,
         } as unknown as AnyToolInvocation,
         startTime: Date.now(),
-      } as TrackedExecutingToolCall,
+      },
     ];
 
     const completedToolCalls: TrackedToolCall[] = [
@@ -1478,7 +1478,7 @@ describe('useGeminiStream', () => {
         mockOnDebugMessage,
         mockHandleSlashCommand,
         false,
-        () => 'vscode' as EditorType,
+        () => 'vscode',
         () => {},
         () => Promise.resolve(),
         false,
@@ -1615,7 +1615,7 @@ describe('useGeminiStream', () => {
           mockOnDebugMessage,
           mockHandleSlashCommand,
           false,
-          () => 'vscode' as EditorType,
+          () => 'vscode',
           () => {},
           () => Promise.resolve(),
           false,
@@ -1656,7 +1656,7 @@ describe('useGeminiStream', () => {
           mockOnDebugMessage,
           mockHandleSlashCommand,
           false,
-          () => 'vscode' as EditorType,
+          () => 'vscode',
           () => {},
           () => Promise.resolve(),
           false,
@@ -1805,7 +1805,7 @@ describe('useGeminiStream', () => {
             originalContent: 'old',
             newContent: 'new',
           },
-        } as TrackedWaitingToolCall,
+        },
       ];
 
       const { result } = await renderTestHook(toolCalls);
@@ -2109,7 +2109,7 @@ describe('useGeminiStream', () => {
           () => {},
           mockHandleSlashCommand,
           true,
-          () => 'vscode' as EditorType,
+          () => 'vscode',
           () => {},
           () => Promise.resolve(),
           false,
@@ -2278,7 +2278,7 @@ describe('useGeminiStream', () => {
           mockOnDebugMessage,
           mockHandleSlashCommand,
           false,
-          () => 'vscode' as EditorType,
+          () => 'vscode',
           () => {},
           () => Promise.resolve(),
           false,
@@ -2585,7 +2585,7 @@ describe('useGeminiStream', () => {
           mockOnDebugMessage,
           mockHandleSlashCommand,
           false,
-          () => 'vscode' as EditorType,
+          () => 'vscode',
           () => {},
           () => Promise.resolve(),
           false,
@@ -2690,7 +2690,7 @@ describe('useGeminiStream', () => {
           mockOnDebugMessage,
           mockHandleSlashCommand,
           false,
-          () => 'vscode' as EditorType,
+          () => 'vscode',
           () => {},
           () => Promise.resolve(),
           false,
@@ -2898,7 +2898,7 @@ describe('useGeminiStream', () => {
         vi.fn(),
         vi.fn(),
         false,
-        () => 'vscode' as EditorType,
+        () => 'vscode',
         vi.fn(),
         vi.fn(),
         false,
@@ -3134,7 +3134,7 @@ describe('useGeminiStream', () => {
           mockOnDebugMessage,
           mockHandleSlashCommand,
           false,
-          () => 'vscode' as EditorType,
+          () => 'vscode',
           () => {},
           () => Promise.resolve(),
           false,
@@ -3234,7 +3234,7 @@ describe('useGeminiStream', () => {
           mockOnDebugMessage,
           mockHandleSlashCommand,
           false,
-          () => 'vscode' as EditorType,
+          () => 'vscode',
           () => {},
           () => Promise.resolve(),
           false,
@@ -3316,7 +3316,7 @@ describe('useGeminiStream', () => {
           mockOnDebugMessage,
           mockHandleSlashCommand,
           false,
-          () => 'vscode' as EditorType,
+          () => 'vscode',
           () => {},
           () => Promise.resolve(),
           false,
@@ -3387,7 +3387,7 @@ describe('useGeminiStream', () => {
           mockOnDebugMessage,
           mockHandleSlashCommand,
           false,
-          () => 'vscode' as EditorType,
+          () => 'vscode',
           () => {},
           () => Promise.resolve(),
           false,
@@ -3444,7 +3444,7 @@ describe('useGeminiStream', () => {
           mockOnDebugMessage,
           mockHandleSlashCommand,
           false,
-          () => 'vscode' as EditorType,
+          () => 'vscode',
           () => {},
           () => Promise.resolve(),
           false,
@@ -3512,7 +3512,7 @@ describe('useGeminiStream', () => {
           mockOnDebugMessage,
           mockHandleSlashCommand,
           false,
-          () => 'vscode' as EditorType,
+          () => 'vscode',
           () => {},
           () => Promise.resolve(),
           false,

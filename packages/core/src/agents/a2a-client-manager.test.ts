@@ -91,15 +91,15 @@ describe('A2AClientManager', () => {
     );
 
     vi.spyOn(factoryInstance, 'createFromUrl').mockResolvedValue(
-      mockClient as unknown as Client,
+      mockClient,
     );
     vi.spyOn(factoryInstance, 'createFromAgentCard').mockResolvedValue(
-      mockClient as unknown as Client,
+      mockClient,
     );
     vi.spyOn(resolverInstance, 'resolve').mockResolvedValue({
       ...mockAgentCard,
       url: 'http://test.agent/real/endpoint',
-    } as AgentCard);
+    });
 
     vi.spyOn(ClientFactoryOptions, 'createFrom').mockImplementation(
       (_defaults, overrides) => overrides as unknown as ClientFactoryOptions,
@@ -109,7 +109,7 @@ describe('A2AClientManager', () => {
       authFetchMock.mockResolvedValue({
         ok: true,
         json: async () => ({}),
-      } as Response),
+      }),
     );
 
     vi.stubGlobal(
@@ -117,7 +117,7 @@ describe('A2AClientManager', () => {
       vi.fn().mockResolvedValue({
         ok: true,
         json: async () => ({}),
-      } as Response),
+      }),
     );
   });
 
@@ -223,7 +223,7 @@ describe('A2AClientManager', () => {
       await manager.loadAgent(
         'TestAgent',
         { type: 'url', url: 'http://test.agent/card' },
-        customAuthHandler as unknown as AuthenticationHandler,
+        customAuthHandler,
       );
 
       // Card resolver should NOT use the authenticated fetch by default.
@@ -240,7 +240,7 @@ describe('A2AClientManager', () => {
       await manager.loadAgent(
         'AuthCardAgent',
         { type: 'url', url: 'http://authcard.agent/card' },
-        customAuthHandler as unknown as AuthenticationHandler,
+        customAuthHandler,
       );
 
       const resolverOptions = vi.mocked(DefaultAgentCardResolver).mock
@@ -271,7 +271,7 @@ describe('A2AClientManager', () => {
       await manager.loadAgent(
         'AuthCardAgent401',
         { type: 'url', url: 'http://authcard.agent/card' },
-        customAuthHandler as unknown as AuthenticationHandler,
+        customAuthHandler,
       );
 
       const resolverOptions = vi.mocked(DefaultAgentCardResolver).mock

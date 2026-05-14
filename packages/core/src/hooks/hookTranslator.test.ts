@@ -46,7 +46,7 @@ describe('HookTranslator', () => {
           temperature: 0.7,
           maxOutputTokens: 1000,
         },
-      } as unknown as GenerateContentParameters;
+      };
 
       const hookRequest = translator.toHookLLMRequest(sdkRequest);
 
@@ -71,7 +71,7 @@ describe('HookTranslator', () => {
       const sdkRequest: GenerateContentParameters = {
         model: 'gemini-1.5-flash',
         contents: ['Simple string message'],
-      } as unknown as GenerateContentParameters;
+      };
 
       const hookRequest = translator.toHookLLMRequest(sdkRequest);
 
@@ -131,7 +131,7 @@ describe('HookTranslator', () => {
             parts: [{ text: 'Hello' }],
           },
         ],
-      } as unknown as GenerateContentParameters;
+      };
 
       // Simulate a hook that only overrides the model — no messages field
       const hookRequest = {
@@ -156,7 +156,7 @@ describe('HookTranslator', () => {
           { role: 'user', parts: [{ text: 'original message' }] },
           { role: 'model', parts: [{ text: 'original reply' }] },
         ],
-      } as unknown as GenerateContentParameters;
+      };
 
       const hookRequest = {
         model: 'gemini-1.5-pro',

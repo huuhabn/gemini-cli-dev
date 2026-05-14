@@ -61,7 +61,7 @@ export function truncateForTelemetry(
       value,
       maxLength,
       `...[TRUNCATED: original length ${value.length}]`,
-    ) as AttributeValue;
+    );
   }
   if (typeof value === 'object' && value !== null) {
     const stringified = safeJsonStringify(value);
@@ -69,10 +69,10 @@ export function truncateForTelemetry(
       stringified,
       maxLength,
       `...[TRUNCATED: original length ${stringified.length}]`,
-    ) as AttributeValue;
+    );
   }
   if (typeof value === 'number' || typeof value === 'boolean') {
-    return value as AttributeValue;
+    return value;
   }
   return undefined;
 }

@@ -68,7 +68,7 @@ describe('planCommand', () => {
       ui: {
         addItem: vi.fn(),
       },
-    } as unknown as CommandContext);
+    });
 
     vi.clearAllMocks();
   });
@@ -156,7 +156,7 @@ describe('planCommand', () => {
     vi.mocked(processSingleFileContent).mockResolvedValue({
       llmContent: '# Approved Plan Content',
       returnDisplay: '# Approved Plan Content',
-    } as ProcessedFileReadResult);
+    });
 
     if (!planCommand.action) throw new Error('Action missing');
     await planCommand.action(mockContext, '');

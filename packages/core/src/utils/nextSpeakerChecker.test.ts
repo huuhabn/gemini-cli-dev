@@ -92,7 +92,7 @@ describe('checkNextSpeaker', () => {
         generateContentStream: vi.fn(),
         countTokens: vi.fn(),
         embedContent: vi.fn(),
-      } as ContentGenerator,
+      },
       mockConfig,
     );
 
@@ -223,7 +223,7 @@ describe('checkNextSpeaker', () => {
     ] as Content[]);
     (mockBaseLlmClient.generateJson as Mock).mockResolvedValue({
       reasoning: 'This is incomplete.',
-    } as unknown as NextSpeakerResponse); // Type assertion to simulate invalid response
+    }); // Type assertion to simulate invalid response
 
     const result = await checkNextSpeaker(
       chatInstance,
@@ -241,7 +241,7 @@ describe('checkNextSpeaker', () => {
     (mockBaseLlmClient.generateJson as Mock).mockResolvedValue({
       reasoning: 'Model made a statement, awaiting user input.',
       next_speaker: 123, // Invalid type
-    } as unknown as NextSpeakerResponse);
+    });
 
     const result = await checkNextSpeaker(
       chatInstance,
@@ -259,7 +259,7 @@ describe('checkNextSpeaker', () => {
     (mockBaseLlmClient.generateJson as Mock).mockResolvedValue({
       reasoning: 'Model made a statement, awaiting user input.',
       next_speaker: 'neither', // Invalid enum value
-    } as unknown as NextSpeakerResponse);
+    });
 
     const result = await checkNextSpeaker(
       chatInstance,

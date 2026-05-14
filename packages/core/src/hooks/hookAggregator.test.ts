@@ -224,7 +224,7 @@ describe('HookAggregator', () => {
                 allowedFunctionNames: ['tool1', 'tool2'],
               },
             },
-          } as BeforeToolSelectionOutput,
+          },
           duration: 100,
         },
         {
@@ -243,7 +243,7 @@ describe('HookAggregator', () => {
                 allowedFunctionNames: [],
               },
             },
-          } as BeforeToolSelectionOutput,
+          },
           duration: 150,
         },
       ];
@@ -278,7 +278,7 @@ describe('HookAggregator', () => {
                 allowedFunctionNames: ['tool1'],
               },
             },
-          } as BeforeToolSelectionOutput,
+          },
           duration: 100,
         },
         {
@@ -297,7 +297,7 @@ describe('HookAggregator', () => {
                 allowedFunctionNames: ['tool2', 'tool3'],
               },
             },
-          } as BeforeToolSelectionOutput,
+          },
           duration: 150,
         },
       ];
@@ -336,7 +336,7 @@ describe('HookAggregator', () => {
                 allowedFunctionNames: ['tool1'],
               },
             },
-          } as BeforeToolSelectionOutput,
+          },
           duration: 100,
         },
         {
@@ -355,7 +355,7 @@ describe('HookAggregator', () => {
                 allowedFunctionNames: ['tool2'],
               },
             },
-          } as BeforeToolSelectionOutput,
+          },
           duration: 150,
         },
       ];

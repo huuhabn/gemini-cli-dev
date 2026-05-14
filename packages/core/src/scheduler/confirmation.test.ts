@@ -123,7 +123,7 @@ describe('confirmation.ts', () => {
       mockModifier = {
         handleModifyWithEditor: vi.fn(),
         applyInlineModify: vi.fn(),
-      } as unknown as Mocked<ToolModificationHandler>;
+      };
 
       getPreferredEditor = vi.fn().mockReturnValue('vim');
 
@@ -152,7 +152,7 @@ describe('confirmation.ts', () => {
       mockState.getToolCall.mockReturnValue(toolCall);
       // Default: define firstActiveCall for modifiers
       vi.spyOn(mockState, 'firstActiveCall', 'get').mockReturnValue(
-        toolCall as unknown as WaitingToolCall,
+        toolCall,
       );
     });
 

@@ -48,7 +48,7 @@ describe('mcpToolWrapper', () => {
       getDiscoveredTools: vi.fn().mockResolvedValue(mockMcpTools),
       callTool: vi.fn().mockResolvedValue({
         content: [{ type: 'text', text: 'Tool result' }],
-      } as McpToolCallResult),
+      }),
     } as unknown as BrowserManager;
 
     // Setup mock message bus
@@ -170,7 +170,7 @@ describe('mcpToolWrapper', () => {
       vi.mocked(mockBrowserManager.callTool).mockResolvedValue({
         content: [{ type: 'text', text: 'Element not found' }],
         isError: true,
-      } as McpToolCallResult);
+      });
 
       const tools = await createMcpDeclarativeTools(
         mockBrowserManager,

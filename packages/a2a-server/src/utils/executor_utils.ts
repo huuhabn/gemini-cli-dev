@@ -39,7 +39,7 @@ export async function pushTaskStateFailed(
         messageId: uuidv4(),
         taskId,
         contextId,
-      } as Message,
+      },
     },
     final: true,
     metadata: {

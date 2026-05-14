@@ -379,10 +379,10 @@ describe('Telemetry SDK', () => {
     const creds2 = { client_email: 'user2@example.com' };
 
     // 1. Initialize with first account
-    await initializeTelemetry(mockConfig, creds1 as JWTInput);
+    await initializeTelemetry(mockConfig, creds1);
 
     // 2. Attempt to initialize with second account
-    await initializeTelemetry(mockConfig, creds2 as JWTInput);
+    await initializeTelemetry(mockConfig, creds2);
 
     // 3. Verify error log
     expect(debugLogger.error).toHaveBeenCalledWith(
@@ -396,10 +396,10 @@ describe('Telemetry SDK', () => {
     const creds1 = { client_email: 'user1@example.com' };
 
     // 1. Initialize with first account
-    await initializeTelemetry(mockConfig, creds1 as JWTInput);
+    await initializeTelemetry(mockConfig, creds1);
 
     // 2. Attempt to initialize with same account
-    await initializeTelemetry(mockConfig, creds1 as JWTInput);
+    await initializeTelemetry(mockConfig, creds1);
 
     // 3. Verify NO error log
     expect(debugLogger.error).not.toHaveBeenCalledWith(

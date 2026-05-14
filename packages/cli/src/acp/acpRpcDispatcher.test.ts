@@ -169,7 +169,7 @@ describe('GeminiAgent - RPC Dispatcher', () => {
       _meta: {
         'api-key': 'test-api-key',
       },
-    } as unknown as acp.AuthenticateRequest);
+    });
 
     expect(mockConfig.refreshAuth).toHaveBeenCalledWith(
       AuthType.USE_GEMINI,
@@ -193,7 +193,7 @@ describe('GeminiAgent - RPC Dispatcher', () => {
           headers: { Authorization: 'Bearer token' },
         },
       },
-    } as unknown as acp.AuthenticateRequest);
+    });
 
     expect(mockConfig.refreshAuth).toHaveBeenCalledWith(
       AuthType.GATEWAY,
@@ -218,7 +218,7 @@ describe('GeminiAgent - RPC Dispatcher', () => {
             headers: { Authorization: 'Bearer token' },
           },
         },
-      } as unknown as acp.AuthenticateRequest),
+      }),
     ).rejects.toThrow(/Malformed gateway payload/);
   });
 

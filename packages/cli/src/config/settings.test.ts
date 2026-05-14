@@ -362,7 +362,7 @@ describe('Settings Loading and Merging', () => {
       };
 
       (getSettingsSchema as Mock).mockReturnValue(
-        mockSchema as unknown as SettingsSchema,
+        mockSchema,
       );
 
       (mockFsExistsSync as Mock).mockReturnValue(true);

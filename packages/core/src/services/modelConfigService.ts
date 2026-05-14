@@ -611,7 +611,7 @@ export class ModelConfigService {
       config1 as Record<string, unknown> | undefined,
       // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
       config2 as Record<string, unknown> | undefined,
-    ) as GenerateContentConfig;
+    );
   }
 
   private static genericDeepMerge(

@@ -69,7 +69,7 @@ describe('skills disable command', () => {
 
       await handleDisable({
         name: 'skill1',
-        scope: SettingScope.User as LoadableSettingScope,
+        scope: SettingScope.User,
       });
 
       expect(mockSettings.setValue).toHaveBeenCalledWith(
@@ -97,7 +97,7 @@ describe('skills disable command', () => {
 
       await handleDisable({
         name: 'skill1',
-        scope: SettingScope.Workspace as LoadableSettingScope,
+        scope: SettingScope.Workspace,
       });
 
       expect(mockSettings.setValue).toHaveBeenCalledWith(

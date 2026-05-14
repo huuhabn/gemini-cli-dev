@@ -2449,7 +2449,7 @@ describe('AppContainer State Management', () => {
           insertable: false,
           sequence: '',
           ...key,
-        } as Key);
+        });
       });
       rerender();
     };

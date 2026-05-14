@@ -19,7 +19,7 @@ describe('fileDiffUtils', () => {
 
     it('returns undefined if resultDisplay is not an object', () => {
       expect(
-        getFileDiffFromResultDisplay('string' as ToolResultDisplay),
+        getFileDiffFromResultDisplay('string'),
       ).toBeUndefined();
     });
 

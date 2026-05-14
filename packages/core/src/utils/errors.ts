@@ -17,8 +17,8 @@ function isGaxiosError(error: unknown): error is GaxiosError {
     typeof error === 'object' &&
     error !== null &&
     'response' in error &&
-    typeof (error as { response: unknown }).response === 'object' &&
-    (error as { response: unknown }).response !== null
+    typeof (error).response === 'object' &&
+    (error).response !== null
   );
 }
 
@@ -42,7 +42,7 @@ export function getErrorMessage(error: unknown): string {
     typeof friendlyError === 'object' &&
     friendlyError !== null &&
     'message' in friendlyError &&
-    typeof (friendlyError as { message: unknown }).message === 'string'
+    typeof (friendlyError).message === 'string'
   ) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
     return (friendlyError as { message: string }).message;

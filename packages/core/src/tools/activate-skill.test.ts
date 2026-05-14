@@ -131,7 +131,7 @@ describe('ActivateSkillTool', () => {
 
   it('should throw error if skill is not in enum', async () => {
     const params = { name: 'non-existent' };
-    expect(() => tool.build(params as { name: string })).toThrow();
+    expect(() => tool.build(params)).toThrow();
   });
 
   it('should return an error if skill content cannot be read', async () => {
@@ -148,7 +148,7 @@ describe('ActivateSkillTool', () => {
 
   it('should validate that name is provided', () => {
     expect(() =>
-      tool.build({ name: '' } as unknown as { name: string }),
+      tool.build({ name: '' }),
     ).toThrow();
   });
 });

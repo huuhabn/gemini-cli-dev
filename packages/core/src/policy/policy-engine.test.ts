@@ -3814,7 +3814,7 @@ describe('PolicyEngine', () => {
         isDangerousCommand: vi.fn().mockReturnValue(false),
         parseDenials: vi.fn(),
         getWorkspace: vi.fn().mockReturnValue(workspace),
-      } as never as SandboxManager;
+      } as never;
 
       engine = new PolicyEngine({
         rules: [

@@ -195,7 +195,7 @@ function calculateStreamingState(
       tc.status === CoreToolCallStatus.Error ||
       tc.status === CoreToolCallStatus.Cancelled
     ) {
-      return !(tc as TrackedCompletedToolCall | TrackedCancelledToolCall)
+      return !(tc)
         .responseSubmittedToGemini;
     }
 
@@ -328,7 +328,7 @@ export const useGeminiStream = (
           }
 
           addItem(
-            mapTrackedToolCallsToDisplay(toolsToPush as TrackedToolCall[], {
+            mapTrackedToolCallsToDisplay(toolsToPush, {
               borderTop,
               borderBottom: true,
               borderColor: theme.border.default,
@@ -1875,9 +1875,7 @@ export const useGeminiStream = (
               tc.status === 'cancelled';
 
             if (isTerminalState) {
-              const completedOrCancelledCall = tc as
-                | TrackedCompletedToolCall
-                | TrackedCancelledToolCall;
+              const completedOrCancelledCall = tc;
               return (
                 completedOrCancelledCall.response?.responseParts !== undefined
               );

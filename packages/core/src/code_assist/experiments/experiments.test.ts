@@ -85,7 +85,7 @@ describe('experiments', () => {
     const { getExperiments } = await import('./experiments.js');
     const mockApiResponse: ListExperimentsResponse = {
       flags: [
-        { boolValue: true } as Flag, // No name
+        { boolValue: true }, // No name
         { flagId: 256, stringValue: 'value' },
       ],
     };

@@ -308,7 +308,7 @@ Return a JSON object with:
             comments: [],
             reactionGroups: [],
             body: '',
-          } as Candidate;
+          };
         }
         canonical.reason = rec.reason;
       }

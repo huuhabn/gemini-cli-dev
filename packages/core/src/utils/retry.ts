@@ -86,7 +86,7 @@ function getNetworkErrorCode(error: unknown): string | undefined {
     if (typeof obj !== 'object' || obj === null) {
       return undefined;
     }
-    if ('code' in obj && typeof (obj as { code: unknown }).code === 'string') {
+    if ('code' in obj && typeof (obj).code === 'string') {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
       return (obj as { code: string }).code;
     }
@@ -109,7 +109,7 @@ function getNetworkErrorCode(error: unknown): string | undefined {
     ) {
       break;
     }
-    current = (current as { cause: unknown }).cause;
+    current = (current).cause;
     const code = getCode(current);
     if (code) {
       return code;
@@ -410,8 +410,8 @@ export async function retryWithBackoff<T>(
       // Generic retry logic for other errors
       if (
         attempt >= getCurrentMaxAttempts() ||
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-        !shouldRetryOnError(error as Error, retryFetchErrors)
+         
+        !shouldRetryOnError(error, retryFetchErrors)
       ) {
         throw error;
       }

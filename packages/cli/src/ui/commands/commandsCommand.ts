@@ -73,7 +73,7 @@ async function listSubcommandAction(
       {
         type: MessageType.INFO,
         text: results.join('\n'),
-      } as HistoryItemInfo,
+      },
       Date.now(),
     );
   } catch (error) {
@@ -81,7 +81,7 @@ async function listSubcommandAction(
       {
         type: MessageType.ERROR,
         text: `Failed to list commands: ${error instanceof Error ? error.message : String(error)}`,
-      } as HistoryItemError,
+      },
       Date.now(),
     );
   }
@@ -102,7 +102,7 @@ async function reloadAction(
       {
         type: MessageType.INFO,
         text: 'Custom commands reloaded successfully.',
-      } as HistoryItemInfo,
+      },
       Date.now(),
     );
   } catch (error) {
@@ -110,7 +110,7 @@ async function reloadAction(
       {
         type: MessageType.ERROR,
         text: `Failed to reload commands: ${error instanceof Error ? error.message : String(error)}`,
-      } as HistoryItemError,
+      },
       Date.now(),
     );
   }

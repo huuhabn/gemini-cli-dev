@@ -67,7 +67,7 @@ export async function relaunchAppInChildProcess(
 
     child.on('message', (msg: { type?: string; settings?: unknown }) => {
       if (msg.type === 'admin-settings-update' && msg.settings) {
-        latestAdminSettings = msg.settings as AdminControlsSettings;
+        latestAdminSettings = msg.settings;
       }
     });
 

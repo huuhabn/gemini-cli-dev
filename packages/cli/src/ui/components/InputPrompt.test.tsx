@@ -4973,7 +4973,7 @@ describe('InputPrompt', () => {
       const { stdin, unmount, lastFrame } = await renderWithProviders(
         <TestInputPrompt {...props} focus={true} buffer={mockBuffer} />,
         {
-          uiState: { isVoiceModeEnabled: true } as UIState,
+          uiState: { isVoiceModeEnabled: true },
           settings: createMockSettings({
             experimental: { voice: { activationMode: 'toggle' } },
           }),
@@ -5001,7 +5001,7 @@ describe('InputPrompt', () => {
       const { stdin, unmount } = await renderWithProviders(
         <TestInputPrompt {...props} focus={true} buffer={mockBuffer} />,
         {
-          uiState: { isVoiceModeEnabled: true } as UIState,
+          uiState: { isVoiceModeEnabled: true },
           settings: createMockSettings({
             experimental: { voice: { activationMode: 'toggle' } },
           }),
@@ -5028,7 +5028,7 @@ describe('InputPrompt', () => {
       const { stdin, unmount, lastFrame } = await renderWithProviders(
         <TestInputPrompt {...props} focus={true} buffer={mockBuffer} />,
         {
-          uiState: { isVoiceModeEnabled: true } as UIState,
+          uiState: { isVoiceModeEnabled: true },
           settings: createMockSettings({
             experimental: { voice: { activationMode: 'toggle' } },
           }),
@@ -5054,7 +5054,7 @@ describe('InputPrompt', () => {
       const { stdin, unmount } = await renderWithProviders(
         <TestInputPrompt {...props} focus={true} buffer={mockBuffer} />,
         {
-          uiState: { isVoiceModeEnabled: false } as UIState,
+          uiState: { isVoiceModeEnabled: false },
           settings: createMockSettings({
             experimental: { voice: { activationMode: 'toggle' } },
           }),
@@ -5078,7 +5078,7 @@ describe('InputPrompt', () => {
       const { stdin, unmount } = await renderWithProviders(
         <TestInputPrompt {...props} focus={true} buffer={mockBuffer} />,
         {
-          uiState: { isVoiceModeEnabled: true } as UIState,
+          uiState: { isVoiceModeEnabled: true },
           settings: createMockSettings({
             experimental: { voice: { activationMode: 'toggle' } },
           }),
@@ -5130,7 +5130,7 @@ describe('InputPrompt', () => {
       const { stdin, unmount } = await renderWithProviders(
         <TestInputPrompt {...props} focus={true} buffer={mockBuffer} />,
         {
-          uiState: { isVoiceModeEnabled: true } as UIState,
+          uiState: { isVoiceModeEnabled: true },
           settings: createMockSettings({
             experimental: { voice: { activationMode: 'toggle' } },
           }),
@@ -5168,7 +5168,7 @@ describe('InputPrompt', () => {
       const { stdin, unmount } = await renderWithProviders(
         <TestInputPrompt {...props} focus={true} buffer={mockBuffer} />,
         {
-          uiState: { isVoiceModeEnabled: true } as UIState,
+          uiState: { isVoiceModeEnabled: true },
           settings: createMockSettings({
             experimental: { voice: { activationMode: 'toggle' } },
           }),
@@ -5208,7 +5208,7 @@ describe('InputPrompt', () => {
         const { stdin, unmount, lastFrame } = await renderWithProviders(
           <TestInputPrompt {...props} focus={true} buffer={mockBuffer} />,
           {
-            uiState: { isVoiceModeEnabled: true } as UIState,
+            uiState: { isVoiceModeEnabled: true },
             settings: createMockSettings({
               experimental: { voice: { activationMode: 'push-to-talk' } },
             }),
@@ -5240,7 +5240,7 @@ describe('InputPrompt', () => {
         const { stdin, unmount } = await renderWithProviders(
           <TestInputPrompt {...props} focus={true} buffer={mockBuffer} />,
           {
-            uiState: { isVoiceModeEnabled: true } as UIState,
+            uiState: { isVoiceModeEnabled: true },
             settings: createMockSettings({
               experimental: { voice: { activationMode: 'push-to-talk' } },
             }),
@@ -5270,7 +5270,7 @@ describe('InputPrompt', () => {
         const { stdin, unmount, lastFrame } = await renderWithProviders(
           <TestInputPrompt {...props} focus={true} buffer={mockBuffer} />,
           {
-            uiState: { isVoiceModeEnabled: true } as UIState,
+            uiState: { isVoiceModeEnabled: true },
             settings: createMockSettings({
               experimental: { voice: { activationMode: 'push-to-talk' } },
             }),
@@ -5302,7 +5302,7 @@ describe('InputPrompt', () => {
         const { stdin, unmount } = await renderWithProviders(
           <TestInputPrompt {...props} focus={true} buffer={mockBuffer} />,
           {
-            uiState: { isVoiceModeEnabled: true } as UIState,
+            uiState: { isVoiceModeEnabled: true },
             settings: createMockSettings({
               experimental: { voice: { activationMode: 'push-to-talk' } },
             }),

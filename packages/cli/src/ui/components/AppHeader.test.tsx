@@ -252,7 +252,7 @@ describe('<AppHeader />', () => {
     const mockConfig = makeFakeConfig();
     vi.spyOn(mockConfig, 'getContentGeneratorConfig').mockReturnValue({
       authType: undefined,
-    } as any); // eslint-disable-line @typescript-eslint/no-explicit-any
+    });  
 
     const { lastFrame, waitUntilReady, unmount } = await renderWithProviders(
       <AppHeader version="1.0.0" />,

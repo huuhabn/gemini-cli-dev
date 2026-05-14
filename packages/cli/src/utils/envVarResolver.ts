@@ -129,12 +129,12 @@ function resolveEnvVarsInObjectInternal<T>(
 
   if (typeof obj === 'object') {
     // Check for circular reference
-    if (visited.has(obj as object)) {
+    if (visited.has(obj)) {
       // Return a shallow copy to break the cycle
-      return { ...obj } as T;
+      return { ...obj };
     }
 
-    visited.add(obj as object);
+    visited.add(obj);
     const newObj = { ...obj } as T;
     for (const key in newObj) {
       if (Object.prototype.hasOwnProperty.call(newObj, key)) {
@@ -145,7 +145,7 @@ function resolveEnvVarsInObjectInternal<T>(
         );
       }
     }
-    visited.delete(obj as object);
+    visited.delete(obj);
     return newObj;
   }
 

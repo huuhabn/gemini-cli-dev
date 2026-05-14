@@ -73,7 +73,7 @@ describe('InitCommand', () => {
       config: mockConfig as unknown as Config,
       agentExecutor: mockExecutorInstance,
       eventBus,
-    } as CommandContext;
+    };
     publishSpy = vi.spyOn(eventBus, 'publish');
     mockExecute = vi.fn();
     vi.spyOn(mockExecutorInstance, 'execute').mockImplementation(mockExecute);
@@ -90,7 +90,7 @@ describe('InitCommand', () => {
         type: 'message',
         messageType: 'info',
         content: 'GEMINI.md already exists.',
-      } as CommandActionReturn);
+      });
 
       await command.execute(context, []);
 
@@ -125,7 +125,7 @@ describe('InitCommand', () => {
         type: 'message',
         messageType: 'error',
         content: 'An error occurred.',
-      } as CommandActionReturn);
+      });
 
       await command.execute(context, []);
 
@@ -147,7 +147,7 @@ describe('InitCommand', () => {
         vi.mocked(performInit).mockReturnValue({
           type: 'submit_prompt',
           content: 'Create a new GEMINI.md file.',
-        } as CommandActionReturn);
+        });
       });
 
       it('writes the file and executes the agent', async () => {

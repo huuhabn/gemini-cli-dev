@@ -211,7 +211,7 @@ async function notifyHooks(
       // Pass no-op onConfirm to satisfy type definition; side-effects via
       // callbacks are disallowed.
       onConfirm: async () => {},
-    } as ToolCallConfirmationDetails);
+    });
   }
 }
 
@@ -331,7 +331,7 @@ async function waitForConfirmation(
             payload: resolution.content
               ? { newContent: resolution.content }
               : undefined,
-          }) as ConfirmationResult,
+          }),
       )
       .catch((error) => {
         debugLogger.warn('Error waiting for confirmation via IDE', error);

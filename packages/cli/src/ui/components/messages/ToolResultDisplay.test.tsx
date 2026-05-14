@@ -187,7 +187,7 @@ describe('ToolResultDisplay', () => {
     ];
     const { lastFrame, waitUntilReady, unmount } = await renderWithProviders(
       <ToolResultDisplay
-        resultDisplay={ansiResult as unknown as AnsiOutput}
+        resultDisplay={ansiResult}
         terminalWidth={80}
         availableTerminalHeight={20}
       />,

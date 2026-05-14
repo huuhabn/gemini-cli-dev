@@ -609,7 +609,7 @@ describe('Server Config (config.ts)', () => {
             },
             experimentIds: [],
           },
-        } as unknown as ConfigParameters);
+        });
         expect(await config.getNumericalRoutingEnabled()).toBe(true);
       });
 
@@ -624,7 +624,7 @@ describe('Server Config (config.ts)', () => {
             },
             experimentIds: [],
           },
-        } as unknown as ConfigParameters);
+        });
         expect(await config.getNumericalRoutingEnabled()).toBe(false);
       });
     });
@@ -646,7 +646,7 @@ describe('Server Config (config.ts)', () => {
             },
             experimentIds: [],
           },
-        } as unknown as ConfigParameters);
+        });
         expect(await config.getResolvedClassifierThreshold()).toBe(75);
       });
 
@@ -661,7 +661,7 @@ describe('Server Config (config.ts)', () => {
             },
             experimentIds: [],
           },
-        } as unknown as ConfigParameters);
+        });
         expect(await config.getResolvedClassifierThreshold()).toBe(90);
       });
 
@@ -676,7 +676,7 @@ describe('Server Config (config.ts)', () => {
             },
             experimentIds: [],
           },
-        } as unknown as ConfigParameters);
+        });
         expect(await config.getResolvedClassifierThreshold()).toBe(90);
       });
     });
@@ -800,7 +800,7 @@ describe('Server Config (config.ts)', () => {
             },
             experimentIds: [],
           },
-        } as unknown as ConfigParameters);
+        });
         expect(config.getRequestTimeoutMs()).toBe(30000);
       });
 
@@ -815,7 +815,7 @@ describe('Server Config (config.ts)', () => {
             },
             experimentIds: [],
           },
-        } as unknown as ConfigParameters);
+        });
         expect(config.getRequestTimeoutMs()).toBeUndefined();
       });
 
@@ -830,7 +830,7 @@ describe('Server Config (config.ts)', () => {
             },
             experimentIds: [],
           },
-        } as unknown as ConfigParameters);
+        });
         expect(config.getRequestTimeoutMs()).toBeUndefined();
       });
     });
@@ -896,7 +896,7 @@ describe('Server Config (config.ts)', () => {
         async (_: Config, authType: AuthType | undefined) =>
           ({
             authType,
-          }) as Partial<ContentGeneratorConfig> as ContentGeneratorConfig,
+          }),
       );
 
       await config.refreshAuth(AuthType.USE_GEMINI);
@@ -911,7 +911,7 @@ describe('Server Config (config.ts)', () => {
         async (_: Config, authType: AuthType | undefined) =>
           ({
             authType,
-          }) as Partial<ContentGeneratorConfig> as ContentGeneratorConfig,
+          }),
       );
 
       await config.refreshAuth(AuthType.USE_GEMINI);
@@ -931,7 +931,7 @@ describe('Server Config (config.ts)', () => {
         async (_: Config, authType: AuthType | undefined) =>
           ({
             authType,
-          }) as Partial<ContentGeneratorConfig> as ContentGeneratorConfig,
+          }),
       );
 
       await config.refreshAuth(AuthType.USE_GEMINI);
@@ -951,7 +951,7 @@ describe('Server Config (config.ts)', () => {
         async (_: Config, authType: AuthType | undefined) =>
           ({
             authType,
-          }) as Partial<ContentGeneratorConfig> as ContentGeneratorConfig,
+          }),
       );
 
       await config.refreshAuth(AuthType.USE_VERTEX_AI);
@@ -1824,7 +1824,7 @@ describe('Server Config (config.ts)', () => {
           enabled: true,
           allowedPaths: ['/only/this'],
           networkAccess: false,
-        } as SandboxConfig,
+        },
       });
 
       expect(config.getSandboxEnabled()).toBe(true);
@@ -1915,10 +1915,10 @@ describe('Server Config (config.ts)', () => {
     const originalImplementation = realpathMock.getMockImplementation();
 
     try {
-      realpathMock.mockImplementation((input) => {
+      realpathMock.mockImplementation(((input: fs.PathLike) => {
         const normalizedInput =
           typeof input === 'string' || Buffer.isBuffer(input)
-            ? input
+            ? input.toString()
             : input.toString();
 
         if (normalizedInput === missingPlansDir) {
@@ -1932,18 +1932,18 @@ describe('Server Config (config.ts)', () => {
           return originalImplementation(input);
         }
         return normalizedInput;
-      });
+      }));
 
       expect(() => config.setSessionId('session-two')).not.toThrow();
     } finally {
-      realpathMock.mockImplementation((input) => {
+      realpathMock.mockImplementation(((input: fs.PathLike) => {
         if (originalImplementation) {
           return originalImplementation(input);
         }
         return typeof input === 'string' || Buffer.isBuffer(input)
-          ? input
+          ? input.toString()
           : input.toString();
-      });
+      }));
     }
   });
 
@@ -3419,7 +3419,7 @@ describe('Config Quota & Preview Model Access', () => {
 
       vi.mocked(createContentGeneratorConfig).mockResolvedValue({
         authType: AuthType.USE_GEMINI,
-      } as ContentGeneratorConfig);
+      });
 
       vi.mocked(createContentGenerator).mockResolvedValue({
         userTier: mockTier,
